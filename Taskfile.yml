@@ -1,7 +1,29 @@
 ---
 version: '3'
 
+# docker run --rm -v "${PWD}":/workdir mikefarah/yq e compose.yaml
+
 tasks:
+  pull:
+    desc: Pull service images
+    cmds:
+      - docker compose pull
+  stop:
+    desc: Stop services
+    cmds:
+      - docker compose stop
+  down:
+    desc: Stop and remove containers, networks
+    cmds:
+      - docker compose down
+  bash-esphome:
+    desc: Open a bash inside of ESPHome container
+    cmds:
+      - docker exec -it esphome bash
+  bash-ha:
+    desc: Open a bash inside of HA container
+    cmds:
+      - docker exec -it homeassistant bash
   restart:
     desc: restart Docker containers
     cmds:
