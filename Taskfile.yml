@@ -2,6 +2,10 @@
 version: '3'
 
 tasks:
+  restart:
+    desc: restart Docker containers
+    cmds:
+      - "docker compose restart"
   up:
     desc: run Docker compose in the foreground.
     cmds:
