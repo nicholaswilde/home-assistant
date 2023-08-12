@@ -4,6 +4,10 @@ version: '3'
 # docker run --rm -v "${PWD}":/workdir mikefarah/yq e compose.yaml
 
 tasks:
+  ps:
+    desc: List only relevant containers
+    cmds:
+      - docker ps -a -f name=^/esphome$ -f name=^/homeassistant$
   pull:
     desc: Pull service images
     cmds:
@@ -36,10 +40,6 @@ tasks:
     desc: Run Docker compose in the background.
     cmds:
       - docker compose up -d
-  ps:
-    desc: List all running Docker images.
-    cmds:
-      - docker ps
   default:
     cmds:
       - task -l

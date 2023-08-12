@@ -6,12 +6,24 @@
 
 ---
 
-## :rocket:&nbsp; TL;DR
+## :rocket: &nbsp; TL;DR
 
 ```
 docker compose up -d
 # browse to localhost:8123 for Home Assistant
 # browse to localhost:6052 for ESPHome
+```
+
+---
+
+## :key: &nbsp; SOPS
+
+```shell
+# sops-age = lpass entry name
+# att-2571789250549588435-38084 = lpass attach id of keys.txt in sops-age entry
+lpass show sops-age --attach=att-2571789250549588435-38084 -q > ~/.config/sops/age/keys.txt
+sops -e ./secrets/wyze_password.txt > ./secrets/wyze_password.txt.age
+sops -d ./secrets/wyze_password.txt.age > ./secrets/wyze_password.txt
 ```
 
 ---
