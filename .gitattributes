@@ -1,1 +1,1 @@
-(secrets|compose).yaml filter=sops
+secrets.yaml filter=sops
