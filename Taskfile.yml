@@ -13,11 +13,11 @@ tasks:
   enc:
     desc: Encrypt compose.yaml
     cmds:
-      - sops -e compose.yaml
+      - sops -e -i compose.yaml
   dec:
     desc: Decrypt compose.yaml
     cmds:
-      - sops -d compose.yaml
+      - sops -d -i compose.yaml
   ps:
     desc: List only relevant containers
     cmds:
