@@ -4,6 +4,20 @@ version: '3'
 # docker run --rm -v "${PWD}":/workdir mikefarah/yq e compose.yaml
 
 tasks:
+  bootstrap:
+    desc: Bootstrap
+    cmds:
+      - mkdir -d ~/.config/sops/age
+      - lpass show sops-age --attach=att-2571789250549588435-38084 -q > ~/.config/sops/age/keys.txt
+      - task: dec
+  enc:
+    desc: Encrypt compose.yaml
+    cmds:
+      - sops -e compose.yaml
+  dec:
+    desc: Decrypt compose.yaml
+    cmds:
+      - sops -d compose.yaml
   ps:
     desc: List only relevant containers
     cmds:
