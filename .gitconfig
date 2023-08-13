@@ -1,0 +1,4 @@
+[filter "sops"]
+	clean = "sops -d %f"
+	smudge = "sop -e %f"
+	required = true
