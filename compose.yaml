@@ -1,44 +1,63 @@
----
-version: '3'
+version: "3"
 services:
-  homeassistant:
-    container_name: homeassistant
-    image: ghcr.io/home-assistant/home-assistant:stable
-    volumes:
-      - ./ha:/config
-      - /etc/localtime:/etc/localtime:ro
-      - /run/dbus:/run/dbus:ro
-    devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
-    restart: unless-stopped
-    privileged: true
-    network_mode: host
-  esphome:
-    container_name: esphome
-    image: ghcr.io/esphome/esphome
-    volumes:
-      - ./esphome:/config
-      - /etc/localtime:/etc/localtime:ro
-    restart: always
-    privileged: true
-    network_mode: host
-  wyze-bridge:
-    image: mrlt8/wyze-bridge:latest
-    container_name: wyze-bridge
-    restart: unless-stopped
-    ports:
-      # Web UI
-      - 5000:5000
-      # RTMP
-      - 1935:1935
-      # RTSP
-      - 8554:8554
-      # HLS
-      - 8888:8888
-    environment:
-      - WYZE_EMAIL=myemail@gmail.com
-      - WYZE_PASSWORD=mypassword
-      - IGNORE_OFFLINE=true
-      - QUALITY=SD30
-      - SNAPSHOT=RTSP
-      - LOG_LEVEL=debug
+    homeassistant:
+        container_name: homeassistant
+        image: ghcr.io/home-assistant/home-assistant:stable
+        volumes:
+            - ./ha:/config
+            - /etc/localtime:/etc/localtime:ro
+            - /run/dbus:/run/dbus:ro
+        devices:
+            - /dev/ttyUSB0:/dev/ttyUSB0
+        restart: unless-stopped
+        privileged: true
+        network_mode: host
+    esphome:
+        container_name: esphome
+        image: ghcr.io/esphome/esphome
+        volumes:
+            - ./esphome:/config
+            - /etc/localtime:/etc/localtime:ro
+        restart: always
+        privileged: true
+        network_mode: host
+    wyze-bridge:
+        image: mrlt8/wyze-bridge:latest
+        container_name: wyze-bridge
+        restart: unless-stopped
+        ports:
+            # Web UI
+            - 5000:5000
+            # RTMP
+            - 1935:1935
+            # RTSP
+            - 8554:8554
+            # HLS
+            - 8888:8888
+        environment:
+            - ENC[AES256_GCM,data:DZ9TMUzwgIWVaz/3Txp5X1ymJ9bYYPw4H622bg==,iv:KBbS4dWqMmL88Nmb1Bpq4ME9lVVeZZ1ScKoQh8kvrFM=,tag:3M/cVQHbwXHnfn8hRILTaA==,type:str]
+            - ENC[AES256_GCM,data:oxeNscCEXQ2IZiO58weW4rDcWgh29Fpw,iv:1a7n4EemzMRBc2p9OcMsUaNiOmPRmcNsOAwH4C2GTq0=,tag:GXjWFtLI85Qu1WrwksZrJQ==,type:str]
+            - ENC[AES256_GCM,data:SvCQGcnauyWa2lYfBh5e0BBKXA==,iv:l1LEvBt8oYCirr8A9vLajLEHSrNuxA0zNa4/vfEnDbY=,tag:Pk3ocVIkCY7ae+CSJwA3rA==,type:str]
+            - ENC[AES256_GCM,data:ze7UA1Vo1seb07mZ,iv:dXJWcDH257fv1x/5VyVAQGNV7jlgortht3RMhogs7PI=,tag:kjbTsNqqFuVShktKCXNXNQ==,type:str]
+            - ENC[AES256_GCM,data:DEBErEHtGCFGfm9a/A==,iv:ZtiSAzm1249xqcSap6rJoDsh58gsBNwWvcvGSf4D6hE=,tag:0tDtJp+szXqxriXpTtOtUA==,type:str]
+            - ENC[AES256_GCM,data:gcrHYzE7B+E4vmTHPg6K,iv:DnaUpshzFQV4xIlULY7j4LAeQQn7LqiAd7pvgyMfa+4=,tag:Z2v9nIb3fXrsym3AqrmrRA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1x2at6wwq2gks47fsep9a25emdeqd93e3k0gfsswtmhruqrteu5jqjvy7kd
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBJYXcxYjBMSWFCTk5ieWV6
+            YW05RVBEUFM4SHYrQUpKMTJtVTk1OG1YT2pvClY3RHEzeGgzK2FhNEdtTEc0Y20v
+            ZXc1M0JuMmRRb1F1cnczRitpai9xbXMKLS0tIDl2MnloZUpWYnVYU1BzNXhsajFS
+            bDdYbTNpSFpjeFU4Y3NrM1I0QS9FcncK6mkQ5v16/+BLNkEPaYt7shtM+RHdvdHE
+            PeOifL+S8+W3DNLuE9xork0RDLovxPr7/OsqQLlj0W5hB0J+erpZcw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-08-15T19:34:37Z"
+    mac: ENC[AES256_GCM,data:qaUEBm6P4AahjOypHjy2upRdmrQRThE5Us9ElmLK2/Az+jCrjq3mf6vczWaQARCI3nUXolS4AOBTDAOcxY8rwgtes++NtPAqQRBwYn8Wt/Kt/PDgrdoMq0Oj7T13asHCyemN2g/1rzvc8HAIwe1+mRBwTp5W6YQgqCsmnXW3Kt4=,iv:5q1ocgo1YU3w3ln7RlDxR6w8sQ0GY4Sx+PqVUntqof4=,tag:gZuIn94NGCpATdhRPhGAPg==,type:str]
+    pgp: []
+    encrypted_suffix: environment
+    version: 3.7.3
