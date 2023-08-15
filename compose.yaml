@@ -1,63 +1,44 @@
-version: "3"
+---
+version: '3'
 services:
-    homeassistant:
-        container_name: homeassistant
-        image: ghcr.io/home-assistant/home-assistant:stable
-        volumes:
-            - ./ha:/config
-            - /etc/localtime:/etc/localtime:ro
-            - /run/dbus:/run/dbus:ro
-        devices:
-            - /dev/ttyUSB0:/dev/ttyUSB0
-        restart: unless-stopped
-        privileged: true
-        network_mode: host
-    esphome:
-        container_name: esphome
-        image: ghcr.io/esphome/esphome
-        volumes:
-            - ./esphome:/config
-            - /etc/localtime:/etc/localtime:ro
-        restart: always
-        privileged: true
-        network_mode: host
-    wyze-bridge:
-        image: mrlt8/wyze-bridge:latest
-        container_name: wyze-bridge
-        restart: unless-stopped
-        ports:
-            # Web UI
-            - 5000:5000
-            # RTMP
-            - 1935:1935
-            # RTSP
-            - 8554:8554
-            # HLS
-            - 8888:8888
-        environment:
-            - ENC[AES256_GCM,data:kgwbSYgbz47otG7MhSTcFaL0lIQM6dvUa2BBi6n0,iv:IV7qEEztCl5Fx8Csm+sJ3RFBklfUsUisGe8mabfZarg=,tag:Mv7quWs/xZJS65J+ejcXrQ==,type:str]
-            - ENC[AES256_GCM,data:skcO1Xp9kFOv8+Msq+YA+ObPEqJIakNU1eH2w12e,iv:1jvpdkgIc5Mw+tXfBG1STgguNQd1GKemO2KxXmgS8bM=,tag:4CYZcd0h+b3nKKj50ITnyA==,type:str]
-            - ENC[AES256_GCM,data:lRJ/UGyPFzvucOXsMGeVLvRXIg==,iv:ygzHrhR/ngIm1A2D4sQzpCWQYfjpa+2n4pGkNbRsfkg=,tag:V15P3Hm3WrXV9m4XXS4pwA==,type:str]
-            - ENC[AES256_GCM,data:CKI0i8N3UqcnfvbZ,iv:PmT0WK0lUBovoshfhs/HyY/IXp2mrhW+zbjjveOdqt4=,tag:0soI8WoE/esS+0peq2zDFA==,type:str]
-            - ENC[AES256_GCM,data:e2W764mf50AbLDTCxQ==,iv:svtsmNDy13SWIFGjQZ00v8lX+94zjvCKrZpVffgEsyo=,tag:nlbhYNgXO8mso9RYUQgu7g==,type:str]
-            - ENC[AES256_GCM,data:BMmvLhuNoslwrhTT6f4L,iv:OOgN9pu74realdVU+2knFnrLlLkZn0lZSKNejUrNLFo=,tag:di4WDC/4Ig6KgLL8eLVWYg==,type:str]
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1x2at6wwq2gks47fsep9a25emdeqd93e3k0gfsswtmhruqrteu5jqjvy7kd
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBqV3U0Wk5wYmpyNzRuV0pr
-            TW5NYlRzbUxubWQ1TmM5T1A1dmpmQ3NNZlZjCkhnNWJEbU1rdzU0RzJVTWJzdmxy
-            R2FTUHNKUzZPTVRJYThkeXpnZkhkNUkKLS0tIDVRYnVRcWk4U3dPMElMeUZmQ292
-            SzFMQnI0aFQyUzA3dU5CdURnOXBkdVUKvbAZphQ1Vhy5gJFENqD/RPNcff8EwH2v
-            LwLlH+1n1Pu+AoZwK5839FWy4xC9+C7WH7k4kSfpqooNuh4TnFOGlQ==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-08-13T08:07:46Z"
-    mac: ENC[AES256_GCM,data:5mHcDdPDGrT4n1XMNCKGBN6s5PtWuZ5sZi9CH0qU7Y3Y1KO4dKHU2MIf5rKMrUMqmkjKiYmv02QWtliOdhexbKdXjtbiDbZynDn4STMeHSgokTIVraWh0khLCTLB7pnThvZEEkkNqqzlVq9VQCHos+rTjB/xdd+MR/GpgCJdhhI=,iv:5L9+RSKw6hgyMUrScwj6qYTysZbmCU0wn7phzcOuXRU=,tag:ReridDTAccALMJpgujeF1A==,type:str]
-    pgp: []
-    encrypted_suffix: environment
-    version: 3.7.3
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - ./ha:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+  esphome:
+    container_name: esphome
+    image: ghcr.io/esphome/esphome
+    volumes:
+      - ./esphome:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    privileged: true
+    network_mode: host
+  wyze-bridge:
+    image: mrlt8/wyze-bridge:latest
+    container_name: wyze-bridge
+    restart: unless-stopped
+    ports:
+      # Web UI
+      - 5000:5000
+      # RTMP
+      - 1935:1935
+      # RTSP
+      - 8554:8554
+      # HLS
+      - 8888:8888
+    environment:
+      - WYZE_EMAIL=myemail@gmail.com
+      - WYZE_PASSWORD=mypassword
+      - IGNORE_OFFLINE=true
+      - QUALITY=SD30
+      - SNAPSHOT=RTSP
+      - LOG_LEVEL=debug
