@@ -7,7 +7,6 @@ services:
             - ./ha:/config
             - /etc/localtime:/etc/localtime:ro
             - /run/dbus:/run/dbus:ro
-            - /dev/ttyUSB0:/dev/ttyUSB0
         devices:
             - /dev/ttyUSB0:/dev/ttyUSB0
         restart: unless-stopped
@@ -36,12 +35,12 @@ services:
             # HLS
             - 8888:8888
         environment:
-            - ENC[AES256_GCM,data:DZ9TMUzwgIWVaz/3Txp5X1ymJ9bYYPw4H622bg==,iv:KBbS4dWqMmL88Nmb1Bpq4ME9lVVeZZ1ScKoQh8kvrFM=,tag:3M/cVQHbwXHnfn8hRILTaA==,type:str]
-            - ENC[AES256_GCM,data:oxeNscCEXQ2IZiO58weW4rDcWgh29Fpw,iv:1a7n4EemzMRBc2p9OcMsUaNiOmPRmcNsOAwH4C2GTq0=,tag:GXjWFtLI85Qu1WrwksZrJQ==,type:str]
-            - ENC[AES256_GCM,data:SvCQGcnauyWa2lYfBh5e0BBKXA==,iv:l1LEvBt8oYCirr8A9vLajLEHSrNuxA0zNa4/vfEnDbY=,tag:Pk3ocVIkCY7ae+CSJwA3rA==,type:str]
-            - ENC[AES256_GCM,data:ze7UA1Vo1seb07mZ,iv:dXJWcDH257fv1x/5VyVAQGNV7jlgortht3RMhogs7PI=,tag:kjbTsNqqFuVShktKCXNXNQ==,type:str]
-            - ENC[AES256_GCM,data:DEBErEHtGCFGfm9a/A==,iv:ZtiSAzm1249xqcSap6rJoDsh58gsBNwWvcvGSf4D6hE=,tag:0tDtJp+szXqxriXpTtOtUA==,type:str]
-            - ENC[AES256_GCM,data:gcrHYzE7B+E4vmTHPg6K,iv:DnaUpshzFQV4xIlULY7j4LAeQQn7LqiAd7pvgyMfa+4=,tag:Z2v9nIb3fXrsym3AqrmrRA==,type:str]
+            - ENC[AES256_GCM,data:1DwnPVYWc92AZxL3GXm9p+1PGHP8b0ekNGBihQ==,iv:OqqQKbc7w8G8TPDXzoKCuy7lvSGB045CXljZIV+sfOU=,tag:Lqw0B6Esa6scUkkUu8yJdw==,type:str]
+            - ENC[AES256_GCM,data:wICIAa0HTwmaovvwI+ZYYIS/WEeYjAfKpA==,iv:1Zc5DNAvmn9wo3YOvjueLi279LUZ6BwuV3AkC2wTh2g=,tag:j5Ar6JdElEFVaSNopjYk3A==,type:str]
+            - ENC[AES256_GCM,data:iNb7jMUPNWFrNTodrVoApjSNyw==,iv:Tt592G2u0HDBBeqr2BHoQzO16YNgxEyr0955n6Z6LoE=,tag:vrRYAq3VW6as7f+W3sybkg==,type:str]
+            - ENC[AES256_GCM,data:nNj3lFm2Q3ReHWhx,iv:FzCsG+26gKebpZsYjBji+NcVxwhbNjj/VSs8C98v2AY=,tag:eouozSAeNroLWr1Hqib2AQ==,type:str]
+            - ENC[AES256_GCM,data:w+4N7iDGQF3uZc0CTw==,iv:sLAlT7Ic8o7MUeHGAt641+pEnmvrdFzO/ru3MM6fzFI=,tag:IfTJmB49qA3YG/7E1JTwKw==,type:str]
+            - ENC[AES256_GCM,data:xVfLttfZjuZN5m7j5RGd,iv:IDeZfoagFyCIyUztwqkMDQUPtPSW0ITujxUqdinkDXs=,tag:K0B4QQQl9GesGOBXPE4xGA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -51,14 +50,14 @@ sops:
         - recipient: age1x2at6wwq2gks47fsep9a25emdeqd93e3k0gfsswtmhruqrteu5jqjvy7kd
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBJYXcxYjBMSWFCTk5ieWV6
-            YW05RVBEUFM4SHYrQUpKMTJtVTk1OG1YT2pvClY3RHEzeGgzK2FhNEdtTEc0Y20v
-            ZXc1M0JuMmRRb1F1cnczRitpai9xbXMKLS0tIDl2MnloZUpWYnVYU1BzNXhsajFS
-            bDdYbTNpSFpjeFU4Y3NrM1I0QS9FcncK6mkQ5v16/+BLNkEPaYt7shtM+RHdvdHE
-            PeOifL+S8+W3DNLuE9xork0RDLovxPr7/OsqQLlj0W5hB0J+erpZcw==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBxakRRdi9xNnpxT2pXcXBJ
+            bkx3Z2xiaTk5bEgyRVNWdUo2OXl6bjQ1c2tZClFyUytUWGFWalR3dGpyeGxXNk9S
+            NS9waStqc21tVmFyOUZ6ODhUNjJ6dWMKLS0tIGJGUkZMVGlvZkVaeU1jaWN4cFcr
+            WHFRL3FBRWNYZzVJYUtKbjk5dFFmWlUKKt0ub062VGG/G7qmbLEifjRvztx6fNNH
+            Ku+4MLvHGCq4uRmT3ett+uxoCUTC/HmnBwqXx9chY4WhkQgDEaU0cA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-08-15T19:34:37Z"
-    mac: ENC[AES256_GCM,data:qaUEBm6P4AahjOypHjy2upRdmrQRThE5Us9ElmLK2/Az+jCrjq3mf6vczWaQARCI3nUXolS4AOBTDAOcxY8rwgtes++NtPAqQRBwYn8Wt/Kt/PDgrdoMq0Oj7T13asHCyemN2g/1rzvc8HAIwe1+mRBwTp5W6YQgqCsmnXW3Kt4=,iv:5q1ocgo1YU3w3ln7RlDxR6w8sQ0GY4Sx+PqVUntqof4=,tag:gZuIn94NGCpATdhRPhGAPg==,type:str]
+    lastmodified: "2023-08-15T20:00:00Z"
+    mac: ENC[AES256_GCM,data:136LvTItWu6dV/JO5JUTJYQio2/Sgbr5l3QszZhIzCVAzu9PG18U1RG3PxFyjfvgUPHHmi+WeeM3Xsn6d68Bp/mGHpNuE6vgONXuI+wJF68z0/bK23dU3kr3qI8QT+MQPHuGUxwWOo3+dywr3JZEEMOIqWqo0aaJBrg9H/sLnQ0=,iv:dyCBNDmNLWNUd5fi03749/X6Zkq7pTa8xHffL345gJU=,tag:e7rY5FS1YmsFAesviCdTww==,type:str]
     pgp: []
     encrypted_suffix: environment
     version: 3.7.3

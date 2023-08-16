@@ -1,6 +1,9 @@
 ---
 repos:
-  - repo: https://github.com/yuvipanda/pre-commit-hook-ensure-sops
-    rev: v1.0
+  - repo: https://github.com/Tacto-Technology/ensure-sops
+    rev: 0.1.3
     hooks:
-      - id: sops-encryption
+      - id: ensure-sops
+        files: 'secrets.yaml'
+        # type: 'yaml'
+        # exclude: 'decrypted/.+'
