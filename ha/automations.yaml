@@ -1,7 +1,40 @@
-- alias: "Backup Home Assistant every night at 3 AM"
+- alias: Backup Home Assistant every night at 3 AM
   trigger:
     platform: time
-    at: "03:00:00"
+    at: 03:00:00
   action:
-    alias: "Create backup now"
+    alias: Create backup now
     service: backup.create
+  id: 7ccc397c2b1c41a8ab98bcf995f51873
+- id: '1692303458719'
+  alias: Washer Notification
+  description: ''
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: d4c6a9d7338763329877d84c479244b4
+    entity_id: 487e783b19a6314a30d6954068384020
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.notify
+    data:
+      message: Washer is complete
+      title: Washer
+  mode: single
+- id: '1692303519840'
+  alias: Dryer Notification
+  description: ''
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: d4c6a9d7338763329877d84c479244b4
+    entity_id: 487e783b19a6314a30d6954068384020
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.notify
+    data:
+      message: Dryer is complete
+      title: Dryer
+  mode: single

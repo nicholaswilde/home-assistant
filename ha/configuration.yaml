@@ -9,3 +9,20 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+device_tracker:
+  - platform: unifi_direct
+    host: 192.168.1.130
+    username: !secret unifi_direct_username
+    password: !secret unifi_direct_password
+    new_device_defaults:
+      track_new_devices: true
+logger:
+  default: info
+  logs:
+    homeassistant.helpers.config_entry_flow: debug
+    homeassistant.helpers.config_entry_oauth2_flow: debug
+notify:
+  - platform: html5
+    vapid_pub_key: !secret html5_pub_key
+    vapid_prv_key: !secret html5_prv_key
+    vapid_email: !secret html5_email

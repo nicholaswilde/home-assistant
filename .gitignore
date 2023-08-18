@@ -17,3 +17,4 @@ known_devices.yaml
 *.db*
 *.log*
 .HA_VERSION
+*.pyc
