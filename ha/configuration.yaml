@@ -26,3 +26,9 @@ notify:
     vapid_pub_key: !secret html5_pub_key
     vapid_prv_key: !secret html5_prv_key
     vapid_email: !secret html5_email
+  - name: notify_alexa
+    platform: rest
+    message_param_name: notification
+    resource: https://api.notifymyecho.com/v1/NotifyMe
+    data:
+      accessCode: !secret notify_me_access_code
