@@ -15,19 +15,25 @@ tasks:
       - test -f ~/.config/sops/age || lpass show sops-age --attach=att-2571789250549588435-38084 -q > ~/.config/sops/age/keys.txt
       - task: dec
   enc:
-    desc: Encrypt compose.yaml
+    desc: Encrypt files
     cmds:
-      - sops -e -i compose.yaml
-      - sops -e -i ./ha/secrets.yaml
-      - sops -e -i ./esphome/secrets.yaml
+      - sops -e ./ha/secrets.yaml > ./ha/secrets.yaml.enc
+      - sops -e ./ha/html5_push_registrations.conf > ./ha/html5_push_registrations.conf.enc
+      - sops -e ./esphome/secrets.yaml > ./esphome/secrets.yaml.enc
+      - sops -e ./.env > ./.env.enc
+    ignore_error: true
   dec:
     desc: Decrypt compose.yaml
     cmds:
-      - sops -d -i compose.yaml
+      - sops -d ./ha/secrets.yaml.enc > ./ha/secrets.yaml
+      - sops -d ./ha/html5_push_registrations.conf.enc > ./ha/html5_push_registrations.conf
+      - sops -d ./esphome/secrets.yaml.enc > ./esphome/secrets.yaml
+      - sops ./.env.enc > ./.enc
+    ignore_error: true
   ps:
     desc: List only relevant containers
     cmds:
-      - docker ps -a -f name=^/esphome$ -f name=^/homeassistant$
+      - docker ps -a -f name=^/esphome$ -f name=^/homeassistant$ -f name=^/wyze-bridge$ -f name=^/node-red$
   pull:
     desc: Pull service images
     cmds:
@@ -48,6 +54,10 @@ tasks:
     desc: Open a bash inside of HA container
     cmds:
       - docker exec -it homeassistant bash
+  bash-wyze-bridge:
+    desc: Open a bash inside of wyze-bridge container
+    cmds:
+      - docker exec -it wyze-bridge bash
   restart:
     desc: restart Docker containers
     cmds:
