@@ -9,7 +9,7 @@
 ## :rocket: &nbsp; TL;DR
 
 ```
-cp .env.enc .env
+cp .env.tmpl .env
 # Update .env
 docker compose up -d
 ```
@@ -24,6 +24,7 @@ docker compose up -d
 | ESPHome         | 6052  |
 | Node-RED        | 1880  |
 | Code Server     | 8443  |
+| Uptime Kuma     | 3001  |
 
 ---
 
@@ -34,8 +35,8 @@ docker compose up -d
 # att-2571789250549588435-38084 = lpass attach id of keys.txt in sops-age entry
 mkdir -p ~/.config/sops/age
 lpass show sops-age --attach=att-2571789250549588435-38084 -q > ~/.config/sops/age/keys.txt
-sops -e ./ha/secrets.yaml > ./ha/secrets.enc.yaml
-sops -d ./ha/secrets.enc.yaml > ./ha/secrets.yaml
+sops -e ./ha/secrets.yaml > ./ha/secrets.yaml.enc
+sops -d ./ha/secrets.yaml.enc > ./ha/secrets.yaml
 ```
 
 ---
