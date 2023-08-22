@@ -8,13 +8,24 @@
 .cloud
 .google.token
 **/backups
+.ssh
+.vscode
+custom_components
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
+html5_push_registrations.conf
 
 *.db*
 *.log*
 .HA_VERSION
 *.pyc
+*.py
+.env
+.bashrc
+.bash_history
+*.js
+*.js.gz
+

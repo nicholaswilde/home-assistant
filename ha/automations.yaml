@@ -17,10 +17,9 @@
     domain: binary_sensor
   condition: []
   action:
-  - service: notify.notify
+  - service: notify.notify_alexa
     data:
-      message: Washer is complete
-      title: Washer
+      message: Washer cycle is complete
   mode: single
 - id: '1692303519840'
   alias: Dryer Notification
@@ -33,8 +32,54 @@
     domain: binary_sensor
   condition: []
   action:
-  - service: notify.notify
+  - service: notify.notify_alexa
     data:
-      message: Dryer is complete
-      title: Dryer
+      message: Dryer cycle is complete
   mode: single
+- id: '1692628502207'
+  alias: Master Bathroom Fan
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: ee0bf7f9a0164efc331a35647726f2ee
+    entity_id: f2f1494eeb00246da9ffe49707e7b1fc
+    domain: switch
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+  condition: []
+  action:
+  - type: turn_off
+    device_id: ee0bf7f9a0164efc331a35647726f2ee
+    entity_id: f2f1494eeb00246da9ffe49707e7b1fc
+    domain: switch
+  mode: single
+- id: '1692628991830'
+  alias: Brother Printing Low Toner Notification
+  description: ''
+  trigger:
+  - type: value
+    platform: device
+    device_id: ff22507480fe0358b4e5563698bd37c4
+    entity_id: ea76a910da6b823a85f6e36d1ef5eb95
+    domain: sensor
+    below: 15
+  condition: []
+  action:
+  - service: notify.html5_work
+    data:
+      message: Brother printer toner is less than 15%
+  - service: notify.html5_chromebook
+    data:
+      message: Brother printer toner is less than 15%
+  - service: notify.notify_alexa
+    data:
+      message: Brother printer toner is less than 15%
+  mode: single
+- id: '1692662867261'
+  alias: Monitor the state of an appliance - by leofabri
+  description: ''
+  use_blueprint:
+    path: leofabri/appliance-status-monitor.yaml

@@ -1,63 +1,85 @@
+---
 version: "3"
 services:
-    homeassistant:
-        container_name: homeassistant
-        image: ghcr.io/home-assistant/home-assistant:stable
-        volumes:
-            - ./ha:/config
-            - /etc/localtime:/etc/localtime:ro
-            - /run/dbus:/run/dbus:ro
-        devices:
-            - /dev/ttyUSB0:/dev/ttyUSB0
-        restart: unless-stopped
-        privileged: true
-        network_mode: host
-    esphome:
-        container_name: esphome
-        image: ghcr.io/esphome/esphome
-        volumes:
-            - ./esphome:/config
-            - /etc/localtime:/etc/localtime:ro
-        restart: always
-        privileged: true
-        network_mode: host
-    wyze-bridge:
-        image: mrlt8/wyze-bridge:latest
-        container_name: wyze-bridge
-        restart: unless-stopped
-        ports:
-            # Web UI
-            - 5000:5000
-            # RTMP
-            - 1935:1935
-            # RTSP
-            - 8554:8554
-            # HLS
-            - 8888:8888
-        environment:
-            - ENC[AES256_GCM,data:1DwnPVYWc92AZxL3GXm9p+1PGHP8b0ekNGBihQ==,iv:OqqQKbc7w8G8TPDXzoKCuy7lvSGB045CXljZIV+sfOU=,tag:Lqw0B6Esa6scUkkUu8yJdw==,type:str]
-            - ENC[AES256_GCM,data:wICIAa0HTwmaovvwI+ZYYIS/WEeYjAfKpA==,iv:1Zc5DNAvmn9wo3YOvjueLi279LUZ6BwuV3AkC2wTh2g=,tag:j5Ar6JdElEFVaSNopjYk3A==,type:str]
-            - ENC[AES256_GCM,data:iNb7jMUPNWFrNTodrVoApjSNyw==,iv:Tt592G2u0HDBBeqr2BHoQzO16YNgxEyr0955n6Z6LoE=,tag:vrRYAq3VW6as7f+W3sybkg==,type:str]
-            - ENC[AES256_GCM,data:nNj3lFm2Q3ReHWhx,iv:FzCsG+26gKebpZsYjBji+NcVxwhbNjj/VSs8C98v2AY=,tag:eouozSAeNroLWr1Hqib2AQ==,type:str]
-            - ENC[AES256_GCM,data:w+4N7iDGQF3uZc0CTw==,iv:sLAlT7Ic8o7MUeHGAt641+pEnmvrdFzO/ru3MM6fzFI=,tag:IfTJmB49qA3YG/7E1JTwKw==,type:str]
-            - ENC[AES256_GCM,data:xVfLttfZjuZN5m7j5RGd,iv:IDeZfoagFyCIyUztwqkMDQUPtPSW0ITujxUqdinkDXs=,tag:K0B4QQQl9GesGOBXPE4xGA==,type:str]
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1x2at6wwq2gks47fsep9a25emdeqd93e3k0gfsswtmhruqrteu5jqjvy7kd
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBxakRRdi9xNnpxT2pXcXBJ
-            bkx3Z2xiaTk5bEgyRVNWdUo2OXl6bjQ1c2tZClFyUytUWGFWalR3dGpyeGxXNk9S
-            NS9waStqc21tVmFyOUZ6ODhUNjJ6dWMKLS0tIGJGUkZMVGlvZkVaeU1jaWN4cFcr
-            WHFRL3FBRWNYZzVJYUtKbjk5dFFmWlUKKt0ub062VGG/G7qmbLEifjRvztx6fNNH
-            Ku+4MLvHGCq4uRmT3ett+uxoCUTC/HmnBwqXx9chY4WhkQgDEaU0cA==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-08-15T20:00:00Z"
-    mac: ENC[AES256_GCM,data:136LvTItWu6dV/JO5JUTJYQio2/Sgbr5l3QszZhIzCVAzu9PG18U1RG3PxFyjfvgUPHHmi+WeeM3Xsn6d68Bp/mGHpNuE6vgONXuI+wJF68z0/bK23dU3kr3qI8QT+MQPHuGUxwWOo3+dywr3JZEEMOIqWqo0aaJBrg9H/sLnQ0=,iv:dyCBNDmNLWNUd5fi03749/X6Zkq7pTa8xHffL345gJU=,tag:e7rY5FS1YmsFAesviCdTww==,type:str]
-    pgp: []
-    encrypted_suffix: environment
-    version: 3.7.3
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/linuxserver/homeassistant:version-2023.8.1
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ./ha:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/ttyUSB1:/dev/ttyUSB1
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+  esphome:
+    container_name: esphome
+    image: ghcr.io/esphome/esphome
+    volumes:
+      - ./esphome:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    privileged: true
+    network_mode: host
+  code-server:
+    image: lscr.io/linuxserver/code-server:4.11.0-ls156
+    container_name: code-server
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - DEFAULT_WORKSPACE=/config/workspace
+      - HASS_SERVER=http://192.168.1.143:8123
+      - HASS_TOKEN=${HASS_TOKEN}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./ha:/config/workspace
+      - ./vscode/data:/config/data
+      - ./vscode/extensions:/config/extensions
+      - ./vscode/.config:/config/.config
+    ports:
+      - 8443:8443
+    restart: unless-stopped
+    privileged: true
+    # Node-RED
+  nodered:
+    container_name: nodered
+    image: nodered/node-red
+    ports:
+      - 1880:1880
+    volumes:
+      # Local path where all Node-RED config will be stored.
+      - ./node-red:/data
+      - /etc/localtime:/etc/localtime:ro
+    depends_on:
+      - homeassistant
+    restart: unless-stopped
+    user: ${PUID}:${PGID}
+    network_mode: host
+  wyze-bridge:
+    image: mrlt8/wyze-bridge:latest
+    container_name: wyze-bridge
+    restart: unless-stopped
+    ports:
+      # Web UI
+      - 5000:5000
+      # RTMP
+      - 1935:1935
+      # RTSP
+      - 8554:8554
+      # HLS
+      - 8888:8888
+    environment:
+      - WYZE_EMAIL=ncwilde43@gmail.com
+      - WYZE_PASSWORD=${WYZE_PASSWORD}
+      - TOTP_KEY=${TOTP_KEY}
+      - IGNORE_OFFLINE=true
+      - QUALITY=SD30
+      - SNAPSHOT=RTSP
+      - LOG_LEVEL=debug

@@ -1,2 +1,0 @@
-*.yaml diff=sopsdiffer
-test.yaml filter=sops-yaml diff=sops-yaml

@@ -5,7 +5,9 @@ default_config:
 # Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes
-
+  extra_module_url:
+    - /local/community/custom-brand-icons/custom-brand-icons.js
+    - /hacsfiles/lovelace-card-mod/card-mod.js
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
@@ -32,3 +34,32 @@ notify:
     resource: https://api.notifymyecho.com/v1/NotifyMe
     data:
       accessCode: !secret notify_me_access_code
+lovelace:
+  resources:
+    - url: /hacsfiles/mini-graph-card-bundle/mini-graph-card-bundle.js?v=0.11.0
+      type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/mini-media-player-bundle/mini-media-player-bundle.js?v=1.16.5
+      type: module
+    - url: /hacsfiles/my-cards/my-cards.js
+      type: module
+    - url: /hacsfiles/light-entity-card/light-entity-card.js
+      type: module
+    - url: /hacsfiles/lovelace-auto-entities/lovelace-auto-entities.js
+      type: module
+# Add vscode server docker to side panel_iframe
+panel_iframe:
+  vscode:
+    title: "Visual Studio Code"
+    url: "http://192.168.1.143:8443"
+    icon: mdi:microsoft-visual-studio-code
+  esphome:
+    title: "ESPHome"
+    url: "http://192.168.1.143:6052"
+    icon: 'phu:esphome'
+  nodered:
+    title: "Node-RED"
+    url: "http://192.168.1.148:1880"
+    icon: 'phu:nodered'
+    require_admin: true

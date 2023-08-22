@@ -9,10 +9,21 @@
 ## :rocket: &nbsp; TL;DR
 
 ```
+cp .env.enc .env
+# Update .env
 docker compose up -d
-# browse to localhost:8123 for Home Assistant
-# browse to localhost:6052 for ESPHome
 ```
+
+---
+
+## :electric_plug: &nbsp; Ports
+
+| Container       | Port  |
+|-----------------|-------|
+| Home Assistant  | 8123  |
+| ESPHome         | 6052  |
+| Node-RED        | 1880  |
+| Code Server     | 8443  |
 
 ---
 
@@ -23,8 +34,8 @@ docker compose up -d
 # att-2571789250549588435-38084 = lpass attach id of keys.txt in sops-age entry
 mkdir -p ~/.config/sops/age
 lpass show sops-age --attach=att-2571789250549588435-38084 -q > ~/.config/sops/age/keys.txt
-sops -e ./secrets/wyze_password.txt > ./secrets/wyze_password.txt.age
-sops -d ./secrets/wyze_password.txt.age > ./secrets/wyze_password.txt
+sops -e ./ha/secrets.yaml > ./ha/secrets.enc.yaml
+sops -d ./ha/secrets.enc.yaml > ./ha/secrets.yaml
 ```
 
 ---
