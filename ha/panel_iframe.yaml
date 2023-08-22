@@ -1,0 +1,13 @@
+  vscode:
+    title: "Visual Studio Code"
+    url: "http://192.168.1.143:8443"
+    icon: mdi:microsoft-visual-studio-code
+  esphome:
+    title: "ESPHome"
+    url: "http://192.168.1.143:6052"
+    icon: 'phu:esphome'
+  nodered:
+    title: "Node-RED"
+    url: "http://192.168.1.148:1880"
+    icon: 'phu:nodered'
+    require_admin: true

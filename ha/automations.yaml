@@ -78,8 +78,4 @@
     data:
       message: Brother printer toner is less than 15%
   mode: single
-- id: '1692662867261'
-  alias: Monitor the state of an appliance - by leofabri
-  description: ''
-  use_blueprint:
-    path: leofabri/appliance-status-monitor.yaml
+

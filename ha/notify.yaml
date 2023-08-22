@@ -1,0 +1,30 @@
+  - platform: html5
+    vapid_pub_key: !secret html5_pub_key
+    vapid_prv_key: !secret html5_prv_key
+    vapid_email: !secret html5_email
+  - name: notify_alexa
+    platform: rest
+    message_param_name: notification
+    resource: https://api.notifymyecho.com/v1/NotifyMe
+    data:
+      accessCode: !secret notify_me_access_code
+  - platform: group
+    name: "html5 notification group"
+    services:
+      - service: html5_work
+      - service: html5_chromebook
+  - platform: group
+    name: "Firestick notification group"
+    services:
+      - service: android_tv_fire_tv
+  - platform: group
+    name: "Nicks devices group"
+    services:
+      - service: mobile_app_pixel_6a
+      - service: mobile_app_google_pixel_watch
+  - platform: group
+    name: "all notifications"
+    services:
+      - service: html5_notification_group
+      - service: nicks_devices_group
+      - service: firestick_notification_group

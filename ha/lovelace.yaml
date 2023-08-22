@@ -1,0 +1,13 @@
+  resources:
+    - url: /hacsfiles/mini-graph-card-bundle/mini-graph-card-bundle.js?v=0.11.0
+      type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/mini-media-player-bundle/mini-media-player-bundle.js?v=1.16.5
+      type: module
+    - url: /hacsfiles/my-cards/my-cards.js
+      type: module
+    - url: /hacsfiles/light-entity-card/light-entity-card.js
+      type: module
+    - url: /hacsfiles/lovelace-auto-entities/lovelace-auto-entities.js
+      type: module
