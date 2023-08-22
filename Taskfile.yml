@@ -25,10 +25,10 @@ tasks:
   dec:
     desc: Decrypt compose.yaml
     cmds:
-      - sops -d ./ha/secrets.yaml.enc > ./ha/secrets.yaml
+      - sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secrets.yaml
       - sops -d ./ha/html5_push_registrations.conf.enc > ./ha/html5_push_registrations.conf
-      - sops -d ./esphome/secrets.yaml.enc > ./esphome/secrets.yaml
-      - sops ./.env.enc > ./.enc
+      - sops -d --input-type yaml --output-type yaml ./esphome/secrets.yaml.enc > ./esphome/secrets.yaml
+      - sops -d --input-type dotenv --output-type dotenv ./.env.enc > ./.env
     ignore_error: true
   ps:
     desc: List only relevant containers
