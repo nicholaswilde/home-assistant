@@ -66,6 +66,7 @@ services:
     image: mrlt8/wyze-bridge:latest
     container_name: wyze-bridge
     restart: unless-stopped
+    network_mode: host
     ports:
       # Web UI
       - 5000:5000
