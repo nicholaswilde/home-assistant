@@ -4,6 +4,11 @@ version: '3'
 # docker run --rm -v "${PWD}":/workdir mikefarah/yq e compose.yaml
 
 tasks:
+  hacs:
+    desc: Install HACS
+    dir: '{{.USER_WORKING_DIR}}/ha'
+    cmds:
+      - wget -O - https://get.hacs.xyz | bash -
   node-red:
     desc: Prereqs for node red
     cmds:
@@ -14,6 +19,7 @@ tasks:
       - test -d ~/.config/sops/age || mkdir -p ~/.config/sops/age
       - test -f ~/.config/sops/age || lpass show sops-age --attach=att-2571789250549588435-38084 -q > ~/.config/sops/age/keys.txt
       - task: dec
+      - task: hacs
   enc:
     desc: Encrypt files
     cmds:
