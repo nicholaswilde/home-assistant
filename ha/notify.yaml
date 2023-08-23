@@ -17,6 +17,7 @@
     name: "Firestick notification group"
     services:
       - service: android_tv_fire_tv
+      - service: master_bedroom_firestick
   - platform: group
     name: "Nicks devices group"
     services:
@@ -28,3 +29,4 @@
       - service: html5_notification_group
       - service: nicks_devices_group
       - service: firestick_notification_group
+      - service: notify_alexa

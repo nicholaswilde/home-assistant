@@ -78,4 +78,86 @@
     data:
       message: Brother printer toner is less than 15%
   mode: single
-
+- id: '1692732497590'
+  alias: Lomi has finished notification
+  description: ''
+  use_blueprint:
+    path: sbyx/notify-or-do-something-when-an-appliance-like-a-dishwasher-or-washing-machine-finishes.yaml
+    input:
+      power_sensor: sensor.lomi_active_power
+      starting_threshold: 100
+      finishing_hysteresis: 5
+      finishing_threshold: 11
+      actions:
+      - service: notify.all_notifications
+        data:
+          message: Lomi cycle is complete
+      pre_actions:
+      - service: notify.all_notifications
+        data:
+          message: Lomi cycle has started
+- id: '1692732827239'
+  alias: Low battery level detection & notification for all battery sensors
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      actions:
+      - service: notify.all_notifications
+        data:
+          message: '{{sensors}} battery level is low'
+      threshold: 15
+- id: '1692773037396'
+  alias: Sunrise Lights
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 0
+  condition: []
+  action:
+  - service: homeassistant.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.backyard_lights
+      - light.frontyard_lights
+  - type: turn_on
+    device_id: 78f43db12f09536111a6237daa4fbc84
+    entity_id: e6b081262a3cdec9f4067d7d8b31a2ef
+    domain: switch
+  mode: single
+- id: '1692773135337'
+  alias: Sunset Lights
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 0
+  condition: []
+  action:
+  - service: homeassistant.turn_on
+    data: {}
+    target:
+      entity_id:
+      - light.backyard_lights
+      - light.frontyard_lights
+      - light.gazebo_lights
+  mode: single
+- id: '1692773337087'
+  alias: 10:30 Turn Off
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:30:00'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: b1f570f8b69b182506be69f976973e10
+    entity_id: 014fc090455b41d7bedd9117e73d9e4c
+    domain: light
+  - type: turn_off
+    device_id: 78f43db12f09536111a6237daa4fbc84
+    entity_id: e6b081262a3cdec9f4067d7d8b31a2ef
+    domain: switch
+  mode: single

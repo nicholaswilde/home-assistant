@@ -4,6 +4,6 @@ repos:
     rev: 0.1.3
     hooks:
       - id: ensure-sops
-        files: 'secrets.yaml'
+        files: 'secrets.yaml|\.enc$'
         # type: 'yaml'
         # exclude: 'decrypted/.+'

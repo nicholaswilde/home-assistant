@@ -7,6 +7,7 @@ frontend: !include frontend.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+switch: !include switches.yaml
 device_tracker:
   - platform: unifi_direct
     host: 192.168.1.130
