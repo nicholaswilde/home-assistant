@@ -10,3 +10,5 @@ views:
   - !include views/living-room.yaml
   - !include views/backyard.yaml
   - !include views/frontyard.yaml
+  - !include views/master-bedroom.yaml
+  - !include views/master-bathroom.yaml
