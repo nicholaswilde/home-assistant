@@ -8,3 +8,5 @@ views:
   - !include views/bathroom.yaml
   - !include views/kitchen.yaml
   - !include views/living-room.yaml
+  - !include views/backyard.yaml
+  - !include views/frontyard.yaml
