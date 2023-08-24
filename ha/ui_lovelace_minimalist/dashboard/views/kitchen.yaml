@@ -9,3 +9,11 @@ cards:
   - type: 'custom:button-card'
     template: card_title
     name: Kitchen
+    
+  - type: 'custom:button-card'
+    template: card_title
+    label: "Lights"
+    
+  - type: 'custom:button-card'
+    template: card_title
+    label: "Sensors"
