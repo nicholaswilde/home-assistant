@@ -9,3 +9,15 @@ cards:
   - type: 'custom:button-card'
     template: card_title
     name: Living Room
+    
+  - type: 'custom:button-card'
+    template: card_title
+    label: "Lights"
+
+  - type: 'custom:button-card'
+    template: card_title
+    label: "Devices"
+    
+  - type: 'custom:button-card'
+    template: card_title
+    label: "Sensors"
