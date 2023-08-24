@@ -86,3 +86,58 @@ cards:
           action: navigate
           navigation_path: 'kitchen'
         label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+      - type: 'custom:button-card'
+        template:
+          - card_esh_room
+          - yellow_on
+        name: Frontyard
+        entity: light.group_lights
+        icon: mdi:knife
+        tap_action:
+          action: navigate
+          navigation_path: 'frontyard'
+        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+      - type: 'custom:button-card'
+        template:
+          - card_esh_room
+          - yellow_on
+        name: Backyard
+        entity: light.group_lights
+        icon: mdi:knife
+        tap_action:
+          action: navigate
+          navigation_path: 'backyard'
+        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+      - type: 'custom:button-card'
+        template:
+          - card_esh_room
+          - yellow_on
+        name: Living Room
+        entity: light.group_lights
+        icon: mdi:knife
+        tap_action:
+          action: navigate
+          navigation_path: 'living-room'
+        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+      - type: 'custom:button-card'
+        template:
+          - card_esh_room
+          - yellow_on
+        name: Master Bedroom
+        entity: light.group_lights
+        icon: mdi:knife
+        tap_action:
+          action: navigate
+          navigation_path: 'master-bedroom'
+        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+      - type: 'custom:button-card'
+        template:
+          - card_esh_room
+          - yellow_on
+        name: Backyard
+        entity: light.group_lights
+        icon: mdi:knife
+        tap_action:
+          action: navigate
+          navigation_path: 'master-bathroom'
+        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
