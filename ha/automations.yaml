@@ -143,6 +143,10 @@
       - light.backyard_lights
       - light.frontyard_lights
       - light.gazebo_lights
+  - type: turn_on
+    device_id: 73b5c3b3fa04cee187a610fb50623720
+    entity_id: ba275bddf9b9a43024f1ebe79b3db6ef
+    domain: switch
   mode: single
 - id: '1692773337087'
   alias: 10:30 Turn Off
@@ -160,4 +164,34 @@
     device_id: 78f43db12f09536111a6237daa4fbc84
     entity_id: e6b081262a3cdec9f4067d7d8b31a2ef
     domain: switch
+  mode: single
+- id: '1692850728103'
+  alias: Window check
+  description: ''
+  trigger:
+  - platform: device
+    device_id: d697659316a383ebf15b732a6fc2dd17
+    domain: samsungtv
+    type: samsungtv.turn_on
+  condition:
+  - condition: time
+    after: '22:00:00'
+    before: 05:00:00
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.sensor_opening
+      state: 'on'
+  action:
+  - service: notify.all_notifications
+    data:
+      message: A window is still open.
   mode: single
