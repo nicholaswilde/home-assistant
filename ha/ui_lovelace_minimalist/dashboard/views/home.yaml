@@ -8,25 +8,25 @@ cards:
       ulm_card_esh_welcome_collapse: input_boolean.minimalist_dropdown
       ulm_weather: "weather.openweathermap"
       entity_1:
-        nav: "bathroom"
+        nav: "frontyard"
         icon: "mdi:bathtub"
-        name: "Bathroom"
+        name: "Front"
         color: "blue"
       entity_2:
+        nav: "backyard"
+        icon: "mdi:robot-mower"
+        name: "Back"
+        color: "purple"
+      entity_3:
         nav: "lights"
         icon: "mdi:lightbulb"
         name: "Lights"
         color: "yellow"
-      entity_3:
+      entity_4:
         nav: "security"
         icon: "mdi:shield"
         name: Secure
         color: "green"
-      entity_4:
-        nav: "network"
-        icon: "mdi:nas"
-        name: Lab
-        color: "purple"
       entity_5:
         nav: "network"
         icon: "mdi:flask"
@@ -99,30 +99,6 @@ cards:
         template:
           - card_esh_room
           - yellow_on
-        name: Frontyard
-        entity: light.group_lights
-        icon: mdi:knife
-        tap_action:
-          action: navigate
-          navigation_path: 'frontyard'
-        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
-      - type: 'custom:button-card'
-        template:
-          - card_esh_room
-          - yellow_on
-        name: Backyard
-        entity: light.group_lights
-        icon: mdi:knife
-        tap_action:
-          action: navigate
-          navigation_path: 'backyard'
-        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
-  - type: horizontal-stack
-    cards:
-      - type: 'custom:button-card'
-        template:
-          - card_esh_room
-          - yellow_on
         name: Living Room
         entity: light.group_lights
         icon: mdi:sofa
@@ -142,17 +118,4 @@ cards:
           navigation_path: 'master-bedroom'
         variables:
           - ulm_custom_card_esh_room_light_entity: light.nick_s_sconce
-        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
-  - type: horizontal-stack
-    cards:
-      - type: 'custom:button-card'
-        template:
-          - card_esh_room
-          - yellow_on
-        name: Backyard
-        entity: light.group_lights
-        icon: mdi:robot-mower
-        tap_action:
-          action: navigate
-          navigation_path: 'master-bathroom'
         label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
