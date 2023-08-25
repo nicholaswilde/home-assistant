@@ -1,4 +1,4 @@
-  mode: storage
+  mode: yaml
   resources:
     - url: /hacsfiles/mini-graph-card-bundle/mini-graph-card-bundle.js?v=0.11.0
       type: module
@@ -15,4 +15,6 @@
     - url: /hacsfiles/google_keep_card/google-keep-card.js
       type: module
     - url: /hacsfiles/simple_weather_card_bundle/simple-weather-card-bundle.js?v=0.8.5
+      type: module
+    - url: /hacsfiles/weather-radar-card/weather-radar-card.js
       type: module

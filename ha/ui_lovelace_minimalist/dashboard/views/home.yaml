@@ -3,9 +3,9 @@ path: "home"
 cards:
   - type: "custom:button-card"
     template: "card_esh_welcome"
-    # triggers_update: "input_boolean.minimalist_dropdown"
+    triggers_update: "input_boolean.minimalist_dropdown"
     variables:
-      # ulm_card_esh_welcome_collapse: input_boolean.minimalist_dropdown
+      ulm_card_esh_welcome_collapse: input_boolean.minimalist_dropdown
       ulm_weather: "weather.openweathermap"
       entity_1:
         nav: "bathroom"
@@ -47,6 +47,8 @@ cards:
           ulm_card_person_entity: person.cynthia
           ulm_card_person_use_entity_picture: true
           ulm_card_person_zone1: zone.work
+  - type: horizontal-stack
+    cards:
       - type: 'custom:button-card'
         template: card_person
         variables:
@@ -68,24 +70,31 @@ cards:
         template:
           - card_esh_room
           - yellow_on
-        name: Bathroom
-        entity: light.group_lights
+        name: Master Bathroom
+        entity: light.master_bathroom_fan
         icon: mdi:bathtub
         tap_action:
           action: navigate
-          navigation_path: 'bathroom'
+          navigation_path: 'master-bathroom'
+        variables:
+          - ulm_custom_card_esh_room_light_entity: light.master_bathroom_fan
+          - ulm_card_light_enable_popup: true
         label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
       - type: 'custom:button-card'
         template:
           - card_esh_room
           - yellow_on
         name: Kitchen
-        entity: light.group_lights
+        entity: light.cabinet_lights
         icon: mdi:knife
         tap_action:
           action: navigate
           navigation_path: 'kitchen'
-        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+        variables:
+          - ulm_custom_card_esh_room_light_entity: light.master_bathroom_fan
+        label: '[[[ return states["sensor.kitchen_leak_sensor_temperature"].state + "°F" ]]]'
+  - type: horizontal-stack
+    cards:
       - type: 'custom:button-card'
         template:
           - card_esh_room
@@ -108,35 +117,41 @@ cards:
           action: navigate
           navigation_path: 'backyard'
         label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+  - type: horizontal-stack
+    cards:
       - type: 'custom:button-card'
         template:
           - card_esh_room
           - yellow_on
         name: Living Room
         entity: light.group_lights
-        icon: mdi:knife
+        icon: mdi:sofa
         tap_action:
           action: navigate
           navigation_path: 'living-room'
-        label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+        label: '[[[ return states["sensor.sensor_temperature"].state + "°F" ]]]'
       - type: 'custom:button-card'
         template:
           - card_esh_room
           - yellow_on
         name: Master Bedroom
-        entity: light.group_lights
-        icon: mdi:knife
+        entity: light.nick_s_sconce
+        icon: mdi:bed-king
         tap_action:
           action: navigate
           navigation_path: 'master-bedroom'
+        variables:
+          - ulm_custom_card_esh_room_light_entity: light.nick_s_sconce
         label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+  - type: horizontal-stack
+    cards:
       - type: 'custom:button-card'
         template:
           - card_esh_room
           - yellow_on
         name: Backyard
         entity: light.group_lights
-        icon: mdi:knife
+        icon: mdi:robot-mower
         tap_action:
           action: navigate
           navigation_path: 'master-bathroom'

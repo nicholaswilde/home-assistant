@@ -3,7 +3,7 @@ version: "3"
 services:
   homeassistant:
     container_name: homeassistant
-    image: ghcr.io/linuxserver/homeassistant:version-2023.8.1
+    image: ghcr.io/linuxserver/homeassistant:version-2023.8.4
     environment:
       - PUID=${PUID}
       - PGID=${PGID}

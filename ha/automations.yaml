@@ -171,8 +171,9 @@
   trigger:
   - platform: device
     device_id: d697659316a383ebf15b732a6fc2dd17
-    domain: samsungtv
-    type: samsungtv.turn_on
+    domain: media_player
+    entity_id: eadebe00559e9f0f62b733c39e0c2736
+    type: turned_on
   condition:
   - condition: time
     after: '22:00:00'

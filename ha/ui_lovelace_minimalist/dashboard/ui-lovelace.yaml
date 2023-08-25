@@ -12,3 +12,5 @@ views:
   - !include views/frontyard.yaml
   - !include views/master-bedroom.yaml
   - !include views/master-bathroom.yaml
+  - !include views/security.yaml
+  - !include views/network.yaml
