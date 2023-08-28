@@ -1,23 +1,87 @@
 title: "Backyard"
 path: "backyard"
+icon: mdi:robot-mower
 cards:
   - type: 'custom:button-card'
     template: chip_back
     variables:
       ulm_chip_back_path: home
 
-  - type: 'custom:button-card'
-    template: card_title
-    name: Backyard
-    
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Lights"
-
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Devices"
-    
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        name: Backyard
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: card_graph
+            entity: sensor.downstairs_temperature
+            variables:
+              ulm_card_graph_color: "var(--google-blue)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.openweathermap_temperature
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: 'custom:button-card'
+            template: card_graph
+            entity: sensor.downstairs_humidity
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Humidity
+              ulm_card_graph_entity: sensor.openweathermap_humidity
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Lights"
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.gazebo_lights
+            variables:
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.backyard_landscape_lights
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_name: Landscape Lights
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.backyard_light
+            variables:
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.window_lights
+            variables:
+              ulm_card_light_force_background_color: true
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.side_door_light
+            variables:
+              ulm_card_light_force_background_color: true
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+      - type: "custom:button-card"
+        template: 
+          - card_light
+          - blue_on
+        entity: switch.fountain_2
+        variables:
+          ulm_card_light_force_background_color: true
+          ulm_card_light_icon: mdi:fountain
+          ulm_card_light_color: blue
+      
   - type: 'custom:button-card'
     template: card_title
     label: "Sensors"

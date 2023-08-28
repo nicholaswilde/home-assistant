@@ -1,5 +1,6 @@
 title: "Network"
 path: "network"
+icon: "mdi:flask"
 cards:
   - type: 'custom:button-card'
     template: chip_back

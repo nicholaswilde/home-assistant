@@ -1,4 +1,5 @@
-title: "Living Room"
+title: Living Room
+icon: mdi:sofa
 path: "living-room"
 cards:
   - type: 'custom:button-card'
@@ -12,12 +13,40 @@ cards:
     
   - type: 'custom:button-card'
     template: card_title
-    label: "Lights"
+    label: "Devices"
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_media_player
+        entity: media_player.man_cave
+        variables:
+          ulm_card_media_player_name : Apple TV
+          ulm_card_media_player_power_button: true
+          ulm_card_media_player_enable_controls: true
+      - type: "custom:button-card"
+        template: card_media_player
+        entity: media_player.living_room_chromecast
+        variables:
+          ulm_card_media_player_name : Chromecast
+          ulm_card_media_player_power_button: true
+          ulm_card_media_player_enable_controls: true
 
   - type: 'custom:button-card'
     template: card_title
-    label: "Devices"
+    label: "Lights"
     
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Sensors"
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Sensors"
+
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: card_binary_sensor
+            variables:
+              ulm_card_binary_sensor_icon: mdi:window-closed
+              ulm_show_last_changed: false
+              ulm_card_binary_sensor_name: Window
+            entity: binary_sensor.sensor_opening

@@ -1,5 +1,6 @@
 title: "Security"
-path: "Security"
+path: security
+icon: "mdi:shield"
 cards:
   - type: 'custom:button-card'
     template: chip_back

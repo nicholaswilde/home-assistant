@@ -18,3 +18,5 @@
       type: module
     - url: /hacsfiles/weather-radar-card/weather-radar-card.js
       type: module
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module

@@ -1,23 +1,60 @@
 title: "Upstairs" 
- path: "upstairs" 
- cards: 
-   - type: 'custom:button-card' 
-     template: chip_back 
-     variables: 
-       ulm_chip_back_path: home 
+path: "upstairs" 
+icon: "mdi:stairs-up"
+cards: 
+  - type: 'custom:button-card' 
+    template: chip_back 
+    variables: 
+      ulm_chip_back_path: home 
+
+  - type: 'custom:button-card' 
+    template: card_title 
+    name: Upstairs
+
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.upstairs_thermostat_temperature
+        variables:
+          ulm_card_graph_color: "var(--google-blue)"
+          ulm_card_graph_name: Temperature
+          ulm_card_graph_entity: sensor.upstairs_thermostat_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+      - type: 'custom:button-card'
+        template: card_graph
+        entity: sensor.upstairs_thermostat_humidity
+        variables:
+          ulm_card_graph_color: "var(--google-red)"
+          ulm_card_graph_name: Humidity
+          ulm_card_graph_entity: sensor.upstairs_thermostat_humidity
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: 'custom:button-card' 
+    template: card_title 
+    label: "Lights" 
+
+  - type: 'custom:button-card' 
+    template: card_title 
+    label: "Devices"
   
-   - type: 'custom:button-card' 
-     template: card_title 
-     name: Upstairs
-  
-   - type: 'custom:button-card' 
-     template: card_title 
-     label: "Lights" 
-  
-   - type: 'custom:button-card' 
-     template: card_title 
-     label: "Devices" 
-  
-   - type: 'custom:button-card' 
-     template: card_title 
-     label: "Sensors"
+  - type: horizontal-stack
+    cards:
+    - type: "custom:button-card"
+      template: card_thermostat
+      entity: climate.upstairs_thermostat
+      variables:
+        ulm_card_thermostat_name: Thermostat
+        ulm_card_thermostat_enable_collapse: true
+        ulm_card_thermostat_enable_controls: true
+        ulm_card_thermostat_enable_hvac_modes: true
+        ulm_card_thermostat_enable_popup: true
+    - type: "custom:button-card"
+      template: card_vacuum
+      entity: vacuum.eufemo
+
+  - type: 'custom:button-card' 
+    template: card_title 
+    label: "Sensors"

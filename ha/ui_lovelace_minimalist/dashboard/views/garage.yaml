@@ -1,0 +1,114 @@
+title: "Garage"
+path: "garage"
+icon: mdi:garage
+cards:
+  - type: 'custom:button-card'
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+
+  - type: 'custom:button-card'
+    template: card_title
+    name: Garage
+      
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Lights"
+      
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template:
+              - card_light
+              - yellow_on
+            entity: light.garage_light
+      
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+
+      - type: horizontal-stack
+        cards:
+        - type: "custom:button-card"
+          template: "custom_card_haven_washer"
+          variables:
+            ulm_custom_card_washer_power: sensor.washer
+            ulm_custom_card_washer_machine_state: sensor.washer_run_state
+            ulm_custom_card_washer_machine_stop_state: "-"
+            ulm_custom_card_washer_job_state: sensor.washer_run_state
+            ulm_custom_card_washer_job_states:
+              state1:
+                name: "Detecting"
+                icon: "mdi:scale"
+              state2:
+                name: "Washing"
+                icon: "mdi:waves"
+              state3:
+                name: "Rinsing"
+                icon: "mdi:water"
+              state4:
+                name: "Spin"
+                icon: "mdi:fan"
+            ulm_custom_card_washer_label_idle: >
+              [[[
+                return "-";
+              ]]]
+            ulm_custom_card_washer_label_running: >
+              [[[
+                return states["sensor.washer_remaining_time"].state;
+              ]]]
+            ulm_custom_card_washer_label_configuring: >
+              [[[
+                  var name = states["sensor.washer_initial_time"].attributes.friendly_name;
+                  var time = states["sensor.washer_initial_time"].attributes.display_time;
+                  return name + " • " + time;
+              ]]]
+        - type: "custom:button-card"
+          template: "custom_card_haven_washer"
+          variables:
+            ulm_custom_card_washer_power: sensor.dryer
+            ulm_custom_card_washer_machine_state: sensor.dryer_run_state
+            ulm_custom_card_washer_machine_stop_state: "-"
+            ulm_custom_card_washer_job_state: sensor.dryer_run_state
+            ulm_custom_card_washer_job_states:
+              state1:
+                name: "Detecting"
+                icon: "mdi:scale"
+              state2:
+                name: "Washing"
+                icon: "mdi:waves"
+              state3:
+                name: "Rinsing"
+                icon: "mdi:water"
+              state4:
+                name: "Spin"
+                icon: "mdi:fan"
+            ulm_custom_card_washer_label_idle: >
+              [[[
+                return "-";
+              ]]]
+            ulm_custom_card_washer_label_running: >
+              [[[
+                return states["sensor.dryer_remaining_time"].state;
+              ]]]
+            ulm_custom_card_washer_label_configuring: >
+              [[[
+                  var name = states["sensor.dryer_initial_time"].attributes.friendly_name;
+                  var time = states["sensor.dryer_initial_time"].attributes.display_time;
+                  return name + " • " + time;
+              ]]]
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_cover
+            entity: cover.garage_door_opener
+            variables:
+              ulm_card_cover_enable_controls: true
+              ulm_card_cover_color: "green"    
+  - type: 'custom:button-card'
+    template: card_title
+    label: "Sensors"

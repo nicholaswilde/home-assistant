@@ -5,12 +5,15 @@ title: "Minimalist"
 background: "var(--background-image)"
 views:
   - !include views/home.yaml
-  - !include views/bathroom.yaml
   - !include views/kitchen.yaml
+  - !include views/breakfast-nook.yaml
+  - !include views/family-room.yaml
   - !include views/living-room.yaml
-  - !include views/backyard.yaml
-  - !include views/frontyard.yaml
+  - !include views/garage.yaml
   - !include views/master-bedroom.yaml
-  - !include views/master-bathroom.yaml
+  - !include views/frontyard.yaml
+  - !include views/backyard.yaml
+  - !include views/downstairs.yaml
+  - !include views/upstairs.yaml
   - !include views/security.yaml
   - !include views/network.yaml

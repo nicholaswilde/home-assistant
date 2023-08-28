@@ -1,23 +1,80 @@
 title: "Frontyard"
 path: "frontyard"
+icon: mdi:watering-can
 cards:
   - type: 'custom:button-card'
     template: chip_back
     variables:
       ulm_chip_back_path: home
 
-  - type: 'custom:button-card'
-    template: card_title
-    name: Frontyard
-    
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Lights"
-
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Devices"
-    
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        name: Frontyard
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: card_graph
+            entity: sensor.downstairs_temperature
+            variables:
+              ulm_card_graph_color: "var(--google-blue)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.openweathermap_temperature
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: 'custom:button-card'
+            template: card_graph
+            entity: sensor.downstairs_humidity
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Humidity
+              ulm_card_graph_entity: sensor.openweathermap_humidity
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Lights"
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.porch_light
+            variables:
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.driveway_light
+            variables:
+              ulm_card_light_force_background_color: true
+      - type: horizontal-stack
+        cards:   
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.frontyard_landscape_lights
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_name: Landscape Lights
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+      - type: "custom:button-card"
+        entity: camera.front_door
+        template: "custom_card_camera"
+        show_icon: True
+        variables:
+          ulm_custom_card_camera_title: true
+          ulm_custom_card_camera_name: Front Door
+      - type: "custom:button-card"
+        entity: camera.front_north
+        template: "custom_card_camera"
+        show_icon: True
+        variables:
+          ulm_custom_card_camera_title: true
+          ulm_custom_card_camera_name: Front North
+      
   - type: 'custom:button-card'
     template: card_title
     label: "Sensors"

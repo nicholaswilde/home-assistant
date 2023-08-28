@@ -1,5 +1,6 @@
 title: "Kitchen"
 path: "kitchen"
+icon: mdi:knife
 cards:
   - type: 'custom:button-card'
     template: chip_back
@@ -9,15 +10,57 @@ cards:
   - type: 'custom:button-card'
     template: card_title
     name: Kitchen
-    
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Lights"
-
+  
+  - type: vertical-stack
+    cards:
+    - type: 'custom:button-card'
+      template: card_title
+      label: "Lights"
+    - type: horizontal-stack
+      cards:
+        - type: "custom:button-card"
+          template: card_light
+          entity: light.cabinet_lights
+          variables:
+            ulm_card_light_force_background_color: true
+        - type: "custom:button-card"
+          template: card_light
+          entity: light.pantry_light
+          variables:
+            ulm_card_light_force_background_color: true
   - type: 'custom:button-card'
     template: card_title
     label: "Devices"
-    
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Sensors"
+  
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Sensors"
+
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: card_binary_sensor
+            variables:
+              ulm_card_binary_sensor_icon: mdi:window-closed
+              ulm_show_last_changed: false
+              ulm_card_binary_sensor_name: Window North
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_2
+
+          - type: 'custom:button-card'
+            template: card_binary_sensor
+            variables:
+              ulm_card_binary_sensor_icon: mdi:window-closed
+              ulm_show_last_changed: false
+              ulm_card_binary_sensor_name: Window South
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: card_binary_sensor
+            variables:
+              ulm_card_binary_sensor_icon: mdi:door-closed
+              ulm_show_last_changed: false
+              ulm_card_binary_sensor_name: Pantry Door
+            entity: binary_sensor.pantry_door_sensor_contact

@@ -1,23 +1,67 @@
 title: "Master Bedroom"
 path: "master-bedroom"
+icon: mdi:bed-king
 cards:
   - type: 'custom:button-card'
     template: chip_back
     variables:
       ulm_chip_back_path: home
 
-  - type: 'custom:button-card'
-    template: card_title
-    name: Master Bedroom
-    
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Lights"
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        name: Master Bedroom
 
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Devices"
-    
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Sensors"
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Lights"
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.cindy_s_sconce
+            variables:
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.nick_s_sconce
+            variables:
+              ulm_card_light_force_background_color: true
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.closet_light
+            variables:
+              ulm_card_light_force_background_color: true
+  
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template:
+              - card_light
+              - green_on
+            variables:
+              ulm_card_light_icon: mdi:fan
+              ulm_card_light_name: Fan
+              ulm_card_light_color: green
+            entity: light.master_bathroom_fan
+  
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Sensors"
+      - type: 'custom:button-card'
+        template: card_binary_sensor
+        entity: binary_sensor.closet_door_contact
+        variables:
+          ulm_card_binary_sensor_icon: mdi:door-sliding
+          ulm_card_binary_sensor_name: Closet Door

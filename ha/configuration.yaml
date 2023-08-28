@@ -24,3 +24,4 @@ notify: !include notify.yaml
 lovelace: !include lovelace.yaml
 panel_iframe: !include panel_iframe.yaml
 sensor: !include sensors.yaml
+camera: !include cameras.yaml

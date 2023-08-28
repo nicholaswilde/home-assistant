@@ -1,5 +1,6 @@
-title: "Master Bathroom"
-path: "master-bathroom"
+title: "Lights"
+path: lights
+icon: "mdi:shield"
 cards:
   - type: 'custom:button-card'
     template: chip_back
@@ -8,7 +9,7 @@ cards:
 
   - type: 'custom:button-card'
     template: card_title
-    name: Master Bathroom
+    name: Lights
     
   - type: 'custom:button-card'
     template: card_title

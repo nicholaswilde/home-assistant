@@ -80,6 +80,8 @@ services:
       - 8554:8554
       # HLS
       - 8888:8888
+      - 8889:8889 #WebRTC
+      - 8189:8189/udp # WebRTC/ICE
     environment:
       - WYZE_EMAIL=ncwilde43@gmail.com
       - WYZE_PASSWORD=${WYZE_PASSWORD}
@@ -88,6 +90,7 @@ services:
       - QUALITY=SD30
       - SNAPSHOT=RTSP
       - LOG_LEVEL=debug
+      - WB_IP=192.168.1.143
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
