@@ -1,3 +1,27 @@
   - platform: ffmpeg
+    name: Back North
+    input: rtsp://192.168.1.143:8554/back-north
+  - platform: ffmpeg
+    name: Back South
+    input: rtsp://192.168.1.143:8554/back-south
+  - platform: ffmpeg
+    name: Family Room
+    input: rtsp://192.168.1.143:8554/family-room
+  - platform: ffmpeg
+    name: Front North
     input: rtsp://192.168.1.143:8554/front-north
-    name: front-north
+  - platform: ffmpeg
+    name: Front South
+    input: rtsp://192.168.1.143:8554/front-south
+  - platform: ffmpeg
+    name: Kitchen Nook
+    input: rtsp://192.168.1.143:8554/kitchen-nook
+  - platform: ffmpeg
+    name: Living Room
+    input: rtsp://192.168.1.143:8554/living-room
+  - platform: ffmpeg
+    name: Wall North
+    input: rtsp://192.168.1.143:8554/wall-north
+  - platform: ffmpeg
+    name: Wall South
+    input: rtsp://192.168.1.143:8554/wall-south
