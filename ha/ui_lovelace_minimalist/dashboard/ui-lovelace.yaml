@@ -15,5 +15,6 @@ views:
   - !include views/backyard.yaml
   - !include views/downstairs.yaml
   - !include views/upstairs.yaml
+  - !include views/lights.yaml
   - !include views/security.yaml
   - !include views/network.yaml
