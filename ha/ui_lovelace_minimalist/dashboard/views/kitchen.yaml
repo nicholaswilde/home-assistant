@@ -1,18 +1,18 @@
 title: "Kitchen"
 path: "kitchen"
-icon: mdi:knife
+icon: mdi:silverware
 cards:
   - type: 'custom:button-card'
     template: chip_back
     variables:
       ulm_chip_back_path: home
-
-  - type: 'custom:button-card'
-    template: card_title
-    name: Kitchen
   
   - type: vertical-stack
     cards:
+    - type: 'custom:button-card'
+      template: card_title
+      name: Kitchen
+
     - type: 'custom:button-card'
       template: card_title
       label: "Lights"
@@ -28,9 +28,6 @@ cards:
           entity: light.pantry_light
           variables:
             ulm_card_light_force_background_color: true
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Devices"
   
   - type: vertical-stack
     cards:
@@ -55,8 +52,16 @@ cards:
               ulm_show_last_changed: false
               ulm_card_binary_sensor_name: Window South
             entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening
+          
       - type: horizontal-stack
         cards:
+          - type: 'custom:button-card'
+            template: card_binary_sensor
+            variables:
+              ulm_card_binary_sensor_icon: mdi:window-closed
+              ulm_show_last_changed: false
+              ulm_card_binary_sensor_name: Nook Window
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_3
           - type: 'custom:button-card'
             template: card_binary_sensor
             variables:
@@ -64,3 +69,4 @@ cards:
               ulm_show_last_changed: false
               ulm_card_binary_sensor_name: Pantry Door
             entity: binary_sensor.pantry_door_sensor_contact
+          

@@ -6,7 +6,6 @@ cards:
     template: chip_back
     variables:
       ulm_chip_back_path: home
-
   - type: vertical-stack
     cards:
       - type: 'custom:button-card'
@@ -14,7 +13,79 @@ cards:
         name: Lights
       - type: 'custom:button-card'
         template: card_title
-        name: Backyard
+        label: Kitchen
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.cabinet_lights
+            variables:
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.pantry_light
+            variables:
+              ulm_card_light_force_background_color: true
+      - type: 'custom:button-card'
+        template: card_title
+        label: Garage
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template:
+              - card_light
+              - yellow_on
+            entity: light.garage_light
+      - type: 'custom:button-card'
+        template: card_title
+        label: Master Bedroom
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.cindy_s_sconce
+            variables:
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.nick_s_sconce
+            variables:
+              ulm_card_light_force_background_color: true
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.closet_light
+            variables:
+              ulm_card_light_force_background_color: true
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: Frontyard
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.porch_light
+            variables:
+              ulm_card_light_force_background_color: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.driveway_light
+            variables:
+              ulm_card_light_force_background_color: true
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.frontyard_landscape_lights
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_name: Landscape Lights
+      - type: 'custom:button-card'
+        template: card_title
+        label: Backyard
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -47,28 +118,4 @@ cards:
             entity: light.side_door_light
             variables:
               ulm_card_light_force_background_color: true
-  - type: vertical-stack
-    cards:
-      - type: 'custom:button-card'
-        template: card_title
-        name: Frontyard
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.porch_light
-            variables:
-              ulm_card_light_force_background_color: true
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.driveway_light
-            variables:
-              ulm_card_light_force_background_color: true
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.frontyard_landscape_lights
-            variables:
-              ulm_card_light_force_background_color: true
-              ulm_card_light_name: Landscape Lights
+ 

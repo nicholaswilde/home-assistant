@@ -1,0 +1,22 @@
+title: "Office"
+path: "office"
+icon: mdi:printer
+cards:
+  - type: 'custom:button-card'
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+
+  - type: vertical-stack
+    cards:  
+      - type: 'custom:button-card'
+        template: card_title
+        name: Office
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+      - type: "custom:button-card"
+        template: card_generic_swap
+        entity: sensor.hl_2270dw_status
+        variables:
+          ulm_card_generic_swap_name: Brother HL 2270DW

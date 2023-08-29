@@ -6,9 +6,9 @@ background: "var(--background-image)"
 views:
   - !include views/home.yaml
   - !include views/kitchen.yaml
-  - !include views/breakfast-nook.yaml
   - !include views/family-room.yaml
   - !include views/living-room.yaml
+  - !include views/office.yaml
   - !include views/garage.yaml
   - !include views/master-bedroom.yaml
   - !include views/frontyard.yaml
