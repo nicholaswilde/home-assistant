@@ -43,6 +43,12 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 
 ---
 
+## :pencil: &nbsp; Notes
+
+Random notes about my setup.
+
+---
+
 ## ​:balance_scale:​&nbsp;​ License
 
 ​[​Apache License 2.0](./LICENSE)
