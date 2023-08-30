@@ -102,3 +102,5 @@ services:
     restart: always
     network_mode: host
     privileged: true
+    environment:
+      - UPTIME_KUMA_CLOUDFLARED_TOKEN=${UPTIME_KUMA_CLOUDFLARED_TOKEN}
