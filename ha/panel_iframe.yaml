@@ -1,13 +1,17 @@
   vscode:
     title: "Visual Studio Code"
-    url: "http://192.168.1.143:8443"
+    url: "https://code.nicholaswilde.io"
     icon: mdi:microsoft-visual-studio-code
   esphome:
     title: "ESPHome"
-    url: "http://192.168.1.143:6052"
+    url: "https://esphome.nicholaswilde.io"
     icon: 'phu:esphome'
   nodered:
     title: "Node-RED"
-    url: "http://192.168.1.148:1880"
+    url: "https://nodered.nicholaswilde.io"
     icon: 'phu:nodered'
     require_admin: true
+  portainer:
+    title: "Portainer"
+    url: "https://portainer.nicholaswilde.io/"
+    icon: 'phu:portainer'

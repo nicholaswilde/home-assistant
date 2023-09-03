@@ -1,0 +1,13 @@
+  - platform: template
+    sensors:
+      front_door_lock:
+        friendly_name: "Front Door Lock"
+        device_class: lock
+        value_template: "{{ states('lock.front_door_lock')=='unlocked' }}"
+
+  - platform: template
+    sensors:
+      garage_door_opener:
+        friendly_name: "Garage Door Opener"
+        device_class: garage_door
+        value_template: "{{ states('cover.garage_door_opener')=='open' }}"

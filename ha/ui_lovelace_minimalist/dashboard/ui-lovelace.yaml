@@ -8,6 +8,7 @@ views:
   - !include views/kitchen.yaml
   - !include views/family-room.yaml
   - !include views/living-room.yaml
+  - !include views/entryway.yaml
   - !include views/office.yaml
   - !include views/garage.yaml
   - !include views/master-bedroom.yaml

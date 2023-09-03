@@ -4,6 +4,11 @@ version: '3'
 # docker run --rm -v "${PWD}":/workdir mikefarah/yq e compose.yaml
 
 tasks:
+  update:
+    desc: Update running containers
+    cmds:
+      - docker compose up --force-recreate --build -d
+      - docker image prune -f
   hacs:
     desc: Install HACS
     dir: '{{.USER_WORKING_DIR}}/ha'
@@ -31,6 +36,8 @@ tasks:
   dec:
     desc: Decrypt compose.yaml
     cmds:
+      - git restore ./ha/secrets.yaml ./ha/html5_push_registrations.conf ./esphome/secrets.yaml ./.env
+      - git pull origin
       - sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secrets.yaml
       - sops -d ./ha/html5_push_registrations.conf.enc > ./ha/html5_push_registrations.conf
       - sops -d --input-type yaml --output-type yaml ./esphome/secrets.yaml.enc > ./esphome/secrets.yaml

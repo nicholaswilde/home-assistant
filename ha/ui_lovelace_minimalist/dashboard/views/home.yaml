@@ -82,6 +82,17 @@ cards:
             variables:
               ulm_custom_card_esh_room_light_entity: light.cabinet_lights
             label: '[[[ return states["sensor.kitchen_leak_sensor_temperature"].state + "°F" ]]]'
+          - type: 'custom:button-card'
+            template:
+              - card_esh_room
+              - green_on
+            name: Family Room
+            entity: light.lomi_light
+            icon: mdi:sofa
+            tap_action:
+              action: navigate
+              navigation_path: 'family-room'
+            label: '[[[ return states["sensor.sensor_temperature"].state + "°F" ]]]'
 
       - type: horizontal-stack
         cards:
@@ -100,12 +111,14 @@ cards:
             template:
               - card_esh_room
               - green_on
-            name: Family Room
-            entity: light.lomi_light
-            icon: mdi:sofa
+            name: Entryway
+            entity: lock.front_door_lock
+            icon: mdi:door
             tap_action:
               action: navigate
-              navigation_path: 'family-room'
+              navigation_path: 'entryway'
+            variables:
+              ulm_custom_card_esh_room_light_entity: light.hallway_light
             label: '[[[ return states["sensor.sensor_temperature"].state + "°F" ]]]'
       - type: horizontal-stack
         cards:
@@ -187,3 +200,9 @@ cards:
             variables:
               ulm_custom_card_esh_room_light_entity: light.backyard_lights
             label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+  - type: vertical-stack
+    cards:
+      - type: custom:button-card
+        template:
+          - custom_card_paddy_waste_collection
+        entity: sensor.96_gallon_cart_service_green_waste

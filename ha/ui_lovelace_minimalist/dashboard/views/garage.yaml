@@ -7,12 +7,12 @@ cards:
     variables:
       ulm_chip_back_path: home
 
-  - type: 'custom:button-card'
-    template: card_title
-    name: Garage
-      
   - type: vertical-stack
     cards:
+      - type: 'custom:button-card'
+        template: card_title
+        name: Garage
+
       - type: 'custom:button-card'
         template: card_title
         label: "Lights"
@@ -109,6 +109,3 @@ cards:
             variables:
               ulm_card_cover_enable_controls: true
               ulm_card_cover_color: "green"    
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Sensors"

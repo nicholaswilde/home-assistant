@@ -11,6 +11,9 @@ cards:
       - type: 'custom:button-card'
         template: card_title
         name: Lights
+      - type: "custom:button-card"
+        template: custom_card_yagrasdemonde_lights_count
+        entity: sensor.lights_on
       - type: 'custom:button-card'
         template: card_title
         label: Kitchen

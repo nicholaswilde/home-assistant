@@ -7,15 +7,20 @@ cards:
     variables:
       ulm_chip_back_path: home
 
-  - type: 'custom:button-card'
-    template: card_title
-    name: Living Room
-    
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Devices"
   - type: vertical-stack
     cards:
+      - type: 'custom:button-card'
+        template: card_title
+        name: Living Room
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+      - type: 'custom:button-card'
+        template: card_generic_swap
+        entity: media_player.lg_webos_tv_91b9
+        variables:
+          ulm_card_generic_swap_name: TV
+          ulm_card_generic_swap_icon: mdi:television
       - type: "custom:button-card"
         template: card_media_player
         entity: media_player.man_cave
@@ -31,10 +36,6 @@ cards:
           ulm_card_media_player_power_button: true
           ulm_card_media_player_enable_controls: true
 
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Lights"
-    
   - type: vertical-stack
     cards:
       - type: 'custom:button-card'

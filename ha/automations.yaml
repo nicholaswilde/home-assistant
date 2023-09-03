@@ -196,3 +196,36 @@
     data:
       message: A window is still open.
   mode: single
+- id: '1693648121703'
+  alias: Closet Light On
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 5c34ee5eff0db81090cf616220062fc6
+    entity_id: edeb6cc28e67a7d2d0e314ab56c62458
+    domain: binary_sensor
+  condition: []
+  action:
+  - type: turn_on
+    device_id: e944d0de9738b61bef8d9447bdfdf7d6
+    entity_id: 2ac3a8c40b47f71695b9ec3c1c7ff675
+    domain: light
+    brightness_pct: 100
+  mode: single
+- id: '1693648169342'
+  alias: Closet Light Off
+  description: ''
+  trigger:
+  - type: not_opened
+    platform: device
+    device_id: 5c34ee5eff0db81090cf616220062fc6
+    entity_id: edeb6cc28e67a7d2d0e314ab56c62458
+    domain: binary_sensor
+  condition: []
+  action:
+  - type: turn_off
+    device_id: e944d0de9738b61bef8d9447bdfdf7d6
+    entity_id: 2ac3a8c40b47f71695b9ec3c1c7ff675
+    domain: light
+  mode: single

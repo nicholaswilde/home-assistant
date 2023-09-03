@@ -11,12 +11,15 @@
 .ssh
 .vscode
 custom_components
+portainer
+www
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 html5_push_registrations.conf
+secret.txt
 
 *.db*
 *.log*

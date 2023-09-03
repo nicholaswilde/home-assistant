@@ -1,0 +1,23 @@
+  - sensor:
+      - name: "lights on"
+        unique_id: lights_on
+        icon: mdi:lightbulb-on-outline
+        state: >
+          {% set lights = [
+              states.light.attic_light,
+              states.light.cabinet_lights,
+              states.light.pantry_light,
+              states.light.garage_light,
+              states.light.cindy_s_sconce,
+              states.light.nick_s_sconce,
+              states.light.closet_light,
+              states.light.porch_light,
+              states.light.driveway_light,
+              states.light.frontyard_landscape_lights,
+              states.light.gazebo_lights,
+              states.light.backyard_landscape_lights,
+              states.light.backyard_light,
+              states.light.window_lights,
+              states.light.side_door_light,
+              ] %}
+          {{ lights | selectattr('state','eq','on') | list | count }}
