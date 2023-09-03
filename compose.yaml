@@ -100,7 +100,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 3001:3001
-    restart: always
+    restart: unless-stopped
     network_mode: host
     privileged: true
   cloudflared:
@@ -109,6 +109,7 @@ services:
     command: tunnel --no-autoupdate run
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    restart: unless-stopped
   mosquitto:
     image: eclipse-mosquitto:2.0.17
     container_name: mosquitto
@@ -125,6 +126,7 @@ services:
     restart: unless-stopped
   portainer:
     image: portainer/portainer-ce:2.19.0
+    container_name: portainer
     ports:
       - 9443:9443
     volumes:
