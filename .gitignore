@@ -13,6 +13,9 @@
 custom_components
 portainer
 www
+node-red
+vscode
+mosquitto
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
