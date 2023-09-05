@@ -13,6 +13,7 @@
 ```
 cp .env.tmpl .env
 # Update .env
+# Update .sop.yaml to include the age public key id
 docker compose up -d
 ```
 
@@ -50,7 +51,7 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 
 ## :pencil: &nbsp; Notes
 
-Random notes about my setup.
+- My setup is using the [UI Lovelace Minimalist theme][15].
 
 ---
 
@@ -96,3 +97,4 @@ Random notes about my setup.
 [12]: <https://www.amazon.com/Intel-NUC-10-Performance-Kit/dp/B083GGZ6TG/>
 [13]: <https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html>
 [14]: <https://github.com/getsops/sops>
+[15]: <https://ui-lovelace-minimalist.github.io/UI/>
