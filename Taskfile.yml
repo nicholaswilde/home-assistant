@@ -4,6 +4,11 @@ version: '3'
 # docker run --rm -v "${PWD}":/workdir mikefarah/yq e compose.yaml
 
 tasks:
+  show-pub-key:
+    desc: Show public age key
+    cmds:
+      - "cat ~/.config/sops/age/keys.txt | grep \"public key\" | awk \'{split($0,a,\": \"); print a[2]}\'"
+    silent: true
   update:
     desc: Update running containers
     cmds:
@@ -26,7 +31,7 @@ tasks:
       - task: dec
       - task: hacs
   enc:
-    desc: Encrypt files
+    desc: Encrypt secret files
     cmds:
       - sops -e ./ha/secrets.yaml > ./ha/secrets.yaml.enc
       - sops -e ./ha/html5_push_registrations.conf > ./ha/html5_push_registrations.conf.enc
@@ -34,7 +39,7 @@ tasks:
       - sops -e ./.env > ./.env.enc
     ignore_error: true
   dec:
-    desc: Decrypt compose.yaml
+    desc: Decrypt secret files
     cmds:
       - git restore ./ha/secrets.yaml ./ha/html5_push_registrations.conf ./esphome/secrets.yaml ./.env
       - git pull origin
@@ -72,11 +77,11 @@ tasks:
     cmds:
       - docker exec -it wyze-bridge bash
   restart:
-    desc: restart Docker containers
+    desc: Restart Docker containers
     cmds:
       - "docker compose restart"
   up:
-    desc: run Docker compose in the foreground.
+    desc: Tun Docker compose in the foreground.
     cmds:
       - docker compose up
   up-d:
