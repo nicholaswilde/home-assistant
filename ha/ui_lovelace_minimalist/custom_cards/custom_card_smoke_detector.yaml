@@ -1,0 +1,13 @@
+  custom_card_smoke_detector:
+    template:
+      - on_off
+      - icon_info_bg
+    state:
+      - label: OK
+        id: 'off'
+        value: 'off'
+        icon: mdi:shield-check
+      - label: Fire
+        id: 'on'
+        value: 'on'
+        icon: mdi:fire

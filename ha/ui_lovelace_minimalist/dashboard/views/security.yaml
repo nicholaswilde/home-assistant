@@ -23,66 +23,87 @@ cards:
         entity: binary_sensor.security_group
       - type: 'custom:button-card'
         template: card_title
-        label: "Devices"
+        label: "Doors"
       
       - type: horizontal-stack
         cards:
-          - type: "custom:button-card"
-            template: 
-              - card_cover
+          - type: 'custom:button-card'
+            template:
+              - red_open
+              - green_closed
+              - icon_info_bg
+            name: Garage
             entity: cover.garage_door_opener
-            variables:
-              ulm_card_cover_color: "red"
-              ulm_card_cover_enable_popup: true
-              ulm_card_cover_name: Garage Door
+            state:
+              - id: 'closed'
+                value: 'closed'
+                icon: mdi:garage
+                label: 'Closed'
+              - id: 'open'
+                value: 'open'
+                icon: mdi:garage
+                label: 'Open'
           - type: "custom:button-card"
             entity: lock.front_door_lock
             template: "custom_card_eraycetinay_lock"
-            name: "Front Door"
+            name: "Front"
             variables:
               ulm_custom_card_eraycetinay_lock_tap_control: true
               ulm_custom_card_eraycetinay_lock_battery_level: sensor.front_door_battery
             triggers_update:
               - "sensor.front_door_battery"
 
+
   - type: vertical-stack
     cards:
       - type: 'custom:button-card'
         template: card_title
-        label: "Sensors"
+        label: "Windows"
 
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_binary_sensor
-            variables:
-              ulm_card_binary_sensor_icon: mdi:window-closed
-              ulm_show_last_changed: false
-              ulm_card_binary_sensor_name: Kitchen Window North
+            template: custom_card_window_secure
+            name: Kitchen North
             entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_2
 
           - type: 'custom:button-card'
-            template: card_binary_sensor
-            variables:
-              ulm_card_binary_sensor_icon: mdi:window-closed
-              ulm_show_last_changed: false
-              ulm_card_binary_sensor_name: Kitchen Window South
+            template: custom_card_window_secure
+            name: Kitchen South
             entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template:
-              - green_closed
-              - card_binary_sensor
-            variables:
-              ulm_card_binary_sensor_icon: mdi:window-closed
-              ulm_show_last_changed: false
-              ulm_card_binary_sensor_name: Nook Window
+            template: custom_card_window_secure
             entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_3
+            name: Breakfast Nook
           - type: 'custom:button-card'
-            template: card_binary_sensor
-            variables:
-              ulm_card_binary_sensor_icon: mdi:window-closed
-              ulm_show_last_changed: false
-              ulm_card_binary_sensor_name: Living Room Window
+            template: custom_card_window_secure
+            name: Living Room
             entity: binary_sensor.sensor_opening
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Smoke Alarms"
+
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: custom_card_smoke_detector
+            name: M Bedroom
+            entity: binary_sensor.nest_protect_master_bedroom_smoke_status
+          - type: 'custom:button-card'
+            template: custom_card_smoke_detector
+            name: J Bedroom
+            entity: binary_sensor.nest_protect_bedroom_smoke_status
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: custom_card_smoke_detector
+            name: Upstairs
+            entity: binary_sensor.nest_protect_hallway_smoke_status_2
+          - type: 'custom:button-card'
+            template: custom_card_smoke_detector
+            name: Downstairs
+            entity: binary_sensor.nest_protect_hallway_smoke_status

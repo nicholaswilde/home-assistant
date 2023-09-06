@@ -1,0 +1,13 @@
+  custom_card_window_secure:
+    template:
+      - on_off
+      - icon_info_bg
+    state:
+      - label: Closed
+        id: 'off'
+        value: 'off'
+        icon: mdi:window-closed
+      - label: Open
+        id: 'on'
+        value: 'on'
+        icon: mdi:window-open

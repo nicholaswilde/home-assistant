@@ -1,0 +1,19 @@
+  on_off:
+    template:
+      - red_on
+      - green_off
+    state:
+      - id: 'on'
+        value: 'on'
+        styles:
+          label:
+            - color: "rgba(var(--color-theme),1)"
+          name:
+            - color: "rgba(var(--color-theme),1)"
+      - id: 'off'
+        value: 'off'
+        styles:
+          label:
+            - color: "rgba(var(--color-theme),1)"
+          name:
+            - color: "rgba(var(--color-theme),1)"

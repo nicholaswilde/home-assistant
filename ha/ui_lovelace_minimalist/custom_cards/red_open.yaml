@@ -1,14 +1,14 @@
 --- 
-green_closed: 
+red_open: 
   state: 
     - styles: 
         icon: 
-          - color: "rgba(var(--color-green),1)" 
+          - color: "rgba(var(--color-red),1)" 
         label: 
           - color: "rgba(var(--color-theme),1)"
         name: 
           - color: "rgba(var(--color-theme),1)" 
         img_cell: 
-          - background-color: "rgba(var(--color-green), 0.2)" 
-      value: "closed" 
-      id: "closed"
+          - background-color: "rgba(var(--color-red), 0.2)" 
+      value: "open" 
+      id: "open"
