@@ -1,0 +1,23 @@
+  - sensor:
+      name: "Acurite Temperature"
+      state_topic: "rtl_433/Acurite-Tower/3771"
+      unit_of_measurement: "°F"
+      suggested_display_precision: 1
+      force_update: true
+      device_class: temperature
+      value_template: "{{ value_json.temperature_F }}"
+  - sensor:
+      name: "Acurite Humidity"
+      state_topic: "rtl_433/Acurite-Tower/3771"
+      unit_of_measurement: "%"
+      suggested_display_precision: 1
+      force_update: true
+      device_class: humidity
+      value_template: "{{ value_json.humidity }}"
+  - binary_sensor:
+      name: "Acurite Battery"
+      state_topic: "rtl_433/Acurite-Tower/3771"
+      device_class: battery
+      value_template: "{{ value_json.battery_ok }}"
+      payload_on: "1"
+      payload_off: "0"

@@ -12,11 +12,40 @@ cards:
       - type: 'custom:button-card'
         template: card_title
         name: Office
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: card_graph
+            entity: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_4
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_4
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_title
         label: "Devices"
       - type: "custom:button-card"
-        template: card_generic_swap
-        entity: sensor.hl_2270dw_status
+        template: card_media_player
+        entity: media_player.bedroom_dot
         variables:
-          ulm_card_generic_swap_name: Brother HL 2270DW
+          ulm_card_media_player_name : Echo
+          ulm_card_media_player_enable_controls: true
+      - type: horizontal-stack
+        cards:   
+          - type: "custom:button-card"
+            template: card_generic_swap
+            entity: sensor.hl_2270dw_status
+            variables:
+              ulm_card_generic_swap_name: Brother HL 2270DW
+          - type: 'custom:button-card'
+            template: 
+              - card_binary_sensor
+              - battery_info
+            variables:
+              ulm_card_binary_sensor_icon: mdi:window-closed
+              ulm_show_last_changed: false
+              ulm_card_binary_sensor_name: Window
+              ulm_battery_entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_4
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_4

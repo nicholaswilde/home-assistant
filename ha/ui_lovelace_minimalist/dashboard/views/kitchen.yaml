@@ -12,7 +12,17 @@ cards:
     - type: 'custom:button-card'
       template: card_title
       name: Kitchen
-
+    - type: horizontal-stack
+      cards:
+        - type: 'custom:button-card'
+          template: card_graph
+          entity: sensor.kitchen_leak_sensor_temperature
+          variables:
+            ulm_card_graph_color: "var(--google-red)"
+            ulm_card_graph_name: Temperature
+            ulm_card_graph_entity: sensor.kitchen_leak_sensor_temperature
+            ulm_card_graph_type: fill
+            ulm_card_graph_hours: 24
     - type: 'custom:button-card'
       template: card_title
       label: "Lights"
@@ -38,35 +48,57 @@ cards:
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_binary_sensor
+            template: 
+              - card_binary_sensor
+              - battery_info
             variables:
               ulm_card_binary_sensor_icon: mdi:window-closed
               ulm_show_last_changed: false
               ulm_card_binary_sensor_name: Window North
+              ulm_battery_entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_2
             entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_2
 
           - type: 'custom:button-card'
-            template: card_binary_sensor
+            template: 
+              - card_binary_sensor
+              - battery_info
             variables:
               ulm_card_binary_sensor_icon: mdi:window-closed
               ulm_show_last_changed: false
               ulm_card_binary_sensor_name: Window South
+              ulm_battery_entity:  sensor.lumi_lumi_sensor_magnet_aq2_battery
             entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening
           
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_binary_sensor
+            template: 
+              - card_binary_sensor
+              - battery_info
             variables:
               ulm_card_binary_sensor_icon: mdi:window-closed
               ulm_show_last_changed: false
               ulm_card_binary_sensor_name: Nook Window
+              ulm_battery_entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_3
             entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_3
           - type: 'custom:button-card'
-            template: card_binary_sensor
+            template: 
+              - card_binary_sensor
+              - battery_info
             variables:
               ulm_card_binary_sensor_icon: mdi:door-closed
               ulm_show_last_changed: false
               ulm_card_binary_sensor_name: Pantry Door
+              ulm_battery_entity: sensor.pantry_door_sensor_battery
             entity: binary_sensor.pantry_door_sensor_contact
-          
+  - type: vertical-stack
+    cards:
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+      - type: "custom:button-card"
+        template: card_media_player
+        entity: media_player.kitchen_echo
+        variables:
+          ulm_card_media_player_name : Echo
+          ulm_card_media_player_enable_controls: true

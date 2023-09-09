@@ -1,0 +1,60 @@
+title: "Man Cave"
+path: "man-cave"
+icon: mdi:speaker
+cards:
+  - type: 'custom:button-card'
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+
+  - type: vertical-stack
+    cards:  
+      - type: 'custom:button-card'
+        template: card_title
+        name: Man Cave
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: card_graph
+            entity: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_6
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_6
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+      - type: horizontal-stack
+        cards:   
+          - type: 'custom:button-card'
+            template: 
+              - card_binary_sensor
+              - battery_info
+            variables:
+              ulm_card_binary_sensor_icon: mdi:window-closed
+              ulm_show_last_changed: false
+              ulm_card_binary_sensor_name: Window
+              ulm_battery_entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_6
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_6
+      - type: horizontal-stack
+        cards: 
+          - type: "custom:button-card"
+            template: "custom_card_vncntdev_device_tracker"
+            entity: device_tracker.man_cave_switch
+            variables:
+              custom_card_vncntdev_device_tracker_name: "Switch"
+          - type: custom:button-card
+            template: card_neekster_update
+            entity: update.man_cave_switch
+      - type: horizontal-stack
+        cards: 
+          - type: "custom:button-card"
+            template: "custom_card_vncntdev_device_tracker"
+            entity: device_tracker.man_cave_ap
+            variables:
+              custom_card_vncntdev_device_tracker_name: "AP"
+          - type: custom:button-card
+            template: card_neekster_update
+            entity: update.man_cave_ap

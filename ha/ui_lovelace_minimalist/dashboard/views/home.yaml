@@ -25,14 +25,28 @@ cards:
         color: "yellow"
       entity_4:
         nav: "security"
-        icon: "mdi:shield"
+        icon: >
+          [[[
+            let state = states["binary_sensor.security_group"].state;
+            if(state == 'on'){
+              return 'mdi:shield-alert'
+            }
+            return "mdi:shield-check"
+          ]]]
         name: Secure
-        color: "green"
+        color: >
+          [[[
+            let state = states["binary_sensor.security_group"].state;
+            if(state == 'on'){
+              return 'red'
+            }
+            return 'green'
+          ]]]
       entity_5:
         nav: "network"
         icon: "mdi:flask"
         name: Lab
-        color: "red"
+        color: "pink"
   - type: vertical-stack
     cards:
       - type: horizontal-stack
@@ -119,7 +133,8 @@ cards:
               navigation_path: 'entryway'
             variables:
               ulm_custom_card_esh_room_light_entity: light.hallway_light
-            label: '[[[ return states["sensor.sensor_temperature"].state + "°F" ]]]'
+            label: '[[[ return states["sensor.downstairs_temperature"].state + "°F" ]]]'
+
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
@@ -133,7 +148,20 @@ cards:
             tap_action:
               action: navigate
               navigation_path: 'office'
-            label: '[[[ return states["sensor.kitchen_leak_sensor_temperature"].state + "°F" ]]]'
+            label: '[[[ return states["sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_4"].state + "°F" ]]]'
+          - type: 'custom:button-card'
+            template:
+              - card_esh_room
+            name: Man Cave
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_6
+            icon: mdi:speaker
+            color: auto
+            tap_action:
+              action: navigate
+              navigation_path: 'man-cave'
+            label: '[[[ return states["sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_6"].state + "°F" ]]]'
+      - type: horizontal-stack
+        cards:
           - type: 'custom:button-card'
             template:
               - card_esh_room
@@ -199,7 +227,7 @@ cards:
               navigation_path: 'backyard'
             variables:
               ulm_custom_card_esh_room_light_entity: light.backyard_lights
-            label: '[[[ return states["sensor.openweathermap_temperature"].state + "°F" ]]]'
+            label: '[[[ return states["sensor.backyard_temperature"].state + "°F" ]]]'
   - type: vertical-stack
     cards:
       - type: custom:button-card

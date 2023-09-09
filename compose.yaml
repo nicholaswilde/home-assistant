@@ -11,11 +11,11 @@ services:
       - ./ha:/config
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
-      - /dev/ttyUSB0:/dev/ttyUSB0
-      - /dev/ttyUSB1:/dev/ttyUSB1
+      - /dev/serial/by-id/usb-Nabu_Casa_SkyConnect_v1.0_8aaab0838e91ed1196c1c3d13b20a988-if00-port0:/dev/ttyUSB0
+      # - /dev/ttyUSB1:/dev/ttyUSB1
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
-      - /dev/ttyUSB1:/dev/ttyUSB1
+      # - /dev/ttyUSB1:/dev/ttyUSB1
     restart: unless-stopped
     privileged: true
     network_mode: host
@@ -24,6 +24,7 @@ services:
       # - wyze-bridge
       - uptime-kuma
       - mosquitto
+      - rtl433
   esphome:
     container_name: esphome
     image: ghcr.io/esphome/esphome
@@ -134,3 +135,16 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
+  rtl433:
+    image: hertzg/rtl_433:22.11
+    container_name: rtl433
+    devices:
+      - /dev/bus/usb/001/004
+    command:
+      - "-Mtime:unix:usec:utc"
+      - "-Fmqtt://192.168.1.143:1883,retain=1,user=${RTL_USER},pass=${RTL_PASS},events=rtl_433[/model][/id]"
+      - "-Ccustomary"
+      - "-f915M"
+      - "-f433.9M"
+    restart: unless-stopped
+    network_mode: host

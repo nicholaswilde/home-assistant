@@ -24,13 +24,19 @@ cards:
               - card_light
               - yellow_on
             entity: light.garage_light
-      
-  - type: vertical-stack
-    cards:
+
       - type: 'custom:button-card'
         template: card_title
         label: "Devices"
 
+      - type: horizontal-stack
+        cards:
+        - type: "custom:button-card"
+          template: card_cover
+          entity: cover.garage_door_opener
+          variables:
+            ulm_card_cover_enable_controls: true
+            ulm_card_cover_color: "green"   
       - type: horizontal-stack
         cards:
         - type: "custom:button-card"
@@ -101,11 +107,26 @@ cards:
                   var time = states["sensor.dryer_initial_time"].attributes.display_time;
                   return name + " • " + time;
               ]]]
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_cover
-            entity: cover.garage_door_opener
-            variables:
-              ulm_card_cover_enable_controls: true
-              ulm_card_cover_color: "green"    
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_media_player
+        entity: media_player.garage_fire_stick
+        variables:
+          ulm_card_media_player_name : Firestick
+          ulm_card_media_player_power_button: true
+          ulm_card_media_player_enable_controls: true
+      - type: "custom:button-card"
+        template: card_media_player
+        entity: media_player.garage_chromecast
+        variables:
+          ulm_card_media_player_name : Chromecast
+          ulm_card_media_player_power_button: true
+          ulm_card_media_player_enable_controls: true
+      - type: "custom:button-card"
+        template: card_media_player
+        entity: media_player.garage_echo
+        variables:
+          ulm_card_media_player_name : Echo
+          ulm_card_media_player_enable_controls: true
+ 

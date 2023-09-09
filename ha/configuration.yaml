@@ -27,3 +27,4 @@ sensor: !include sensors.yaml
 camera: !include cameras.yaml
 template: !include templates.yaml
 binary_sensor: !include binary_sensors.yaml
+mqtt: !include mqtt.yaml

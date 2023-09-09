@@ -67,14 +67,4 @@ cards:
         variables:
           ulm_custom_card_camera_title: true
           ulm_custom_card_camera_name: Front Door
-      - type: "custom:button-card"
-        entity: camera.front_north
-        template: "custom_card_camera"
-        show_icon: True
-        variables:
-          ulm_custom_card_camera_title: true
-          ulm_custom_card_camera_name: Front North
-      
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Sensors"
+

@@ -16,11 +16,11 @@ cards:
         cards:
           - type: 'custom:button-card'
             template: card_graph
-            entity: sensor.downstairs_temperature
+            entity: sensor.backyard_temperature
             variables:
               ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.openweathermap_temperature
+              ulm_card_graph_entity: sensor.backyard_temperature
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: 'custom:button-card'
@@ -32,6 +32,21 @@ cards:
               ulm_card_graph_entity: sensor.openweathermap_humidity
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
+      - type: 'custom:button-card'
+        template: card_title
+        label: "Devices"
+      - type: "custom:button-card"
+        template: 
+          - card_light
+          - blue_on
+        entity: switch.fountain_2
+        variables:
+          ulm_card_light_force_background_color: true
+          ulm_card_light_icon: mdi:fountain
+          ulm_card_light_color: blue
+
+  - type: vertical-stack
+    cards:
       - type: 'custom:button-card'
         template: card_title
         label: "Lights"
@@ -67,21 +82,3 @@ cards:
             entity: light.side_door_light
             variables:
               ulm_card_light_force_background_color: true
-  - type: vertical-stack
-    cards:
-      - type: 'custom:button-card'
-        template: card_title
-        label: "Devices"
-      - type: "custom:button-card"
-        template: 
-          - card_light
-          - blue_on
-        entity: switch.fountain_2
-        variables:
-          ulm_card_light_force_background_color: true
-          ulm_card_light_icon: mdi:fountain
-          ulm_card_light_color: blue
-      
-  - type: 'custom:button-card'
-    template: card_title
-    label: "Sensors"

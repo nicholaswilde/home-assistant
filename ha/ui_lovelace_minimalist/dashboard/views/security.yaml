@@ -2,25 +2,40 @@ title: "Security"
 path: security
 icon: "mdi:shield"
 cards:
-  - type: 'custom:button-card'
-    template: chip_back
-    variables:
-      ulm_chip_back_path: home
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:button-card'
+        template: chip_back
+        variables:
+          ulm_chip_back_path: home
+      - type: 'custom:button-card'
+        template: 'custom_chip_group_counter'
+        entity: binary_sensor.window_sensors_security
+        variables:
+          ulm_custom_chip_group_counter_color: 'red'
+          ulm_custom_chip_group_counter_type: 'light'
+          ulm_custom_chip_group_counter_icon_one: 'mdi:window-open'
+          ulm_custom_chip_group_counter_icon_multiple: 'mdi:window-open'
   - type: vertical-stack
     cards:
       - type: 'custom:button-card'
         template: card_title
         name: Security
       - type: 'custom:button-card'
-        template: 
-          - custom_card_binary_sensor
-        variables:
-          ulm_custom_card_binary_sensor: true
-          ulm_custom_card_binary_sensor_icon: mdi:shield
-          ulm_custom_card_binary_sensor_name: Secure
-          ulm_custom_card_binary_sensor_color: red
-          ulm_custom_card_binary_sensor_force_background_color: true
         entity: binary_sensor.security_group
+        template:
+          - on_off
+          - icon_info_bg
+        state:
+          - label: OK
+            id: 'off'
+            value: 'off'
+            icon: mdi:shield-check
+          - label: Alert
+            id: 'on'
+            value: 'on'
+            icon: mdi:shield-alert
+
       - type: 'custom:button-card'
         template: card_title
         label: "Doors"
@@ -53,7 +68,6 @@ cards:
             triggers_update:
               - "sensor.front_door_battery"
 
-
   - type: vertical-stack
     cards:
       - type: 'custom:button-card'
@@ -81,6 +95,12 @@ cards:
             template: custom_card_window_secure
             name: Living Room
             entity: binary_sensor.sensor_opening
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: custom_card_window_secure
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_4
+            name: Office
   - type: vertical-stack
     cards:
       - type: 'custom:button-card'
