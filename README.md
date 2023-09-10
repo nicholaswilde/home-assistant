@@ -61,6 +61,7 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 - [Intel NUC NUC10i3FNK][12]
 - [Samsung SmartThings Hub Gen3 (Z-Wave)][11]
 - [SkyConnect (ZigBee)][13]
+- [NooElec NESDR Mini 2 SDR & DVB-T USB Stick (RTL2832 + R820T2)][16]
 - [Aeotec Range Extender 7 (Z-Wave)][10]
 - [Minoston Z-Wave Outlet Mini Plug-in Socket][7]
 - [Innr Zigbee Smart Plugs][2]
@@ -99,3 +100,4 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 [13]: <https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html>
 [14]: <https://github.com/getsops/sops>
 [15]: <https://ui-lovelace-minimalist.github.io/UI/>
+[16]: <https://www.amazon.com/dp/B00P2UOU72>
