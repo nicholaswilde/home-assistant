@@ -193,7 +193,7 @@ cards:
               navigation_path: 'master-bedroom'
             variables:
               ulm_custom_card_esh_room_light_entity: light.sconce_group
-            label: '[[[ return states["sensor.upstairs_thermostat_temperature"].state + "°F" ]]]'
+            label: '[[[ return states["sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_5"].state + "°F" ]]]'
 
   - type: vertical-stack
     cards:

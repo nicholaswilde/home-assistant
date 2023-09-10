@@ -16,11 +16,11 @@ cards:
         cards:
           - type: 'custom:button-card'
             template: card_graph
-            entity: sensor.nest_temperature_sensor_master_bedroom_temperature
+            entity: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_5
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.nest_temperature_sensor_master_bedroom_temperature
+              ulm_card_graph_entity: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_5
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
@@ -70,13 +70,13 @@ cards:
               ulm_card_light_name: Fan
               ulm_card_light_color: green
             entity: light.master_bathroom_fan
-          - type: 'custom:button-card'
-            template: card_generic_swap
+          - type: "custom:button-card"
+            template: card_media_player
             entity: media_player.un55f7100
             variables:
-              ulm_card_generic_swap_name: TV
-              ulm_card_generic_swap_icon: mdi:television
-
+              ulm_card_media_player_name : TV
+              ulm_card_media_player_power_button: true
+              ulm_card_media_player_enable_controls: false
       - type: "custom:button-card"
         template: card_media_player
         entity: media_player.bedroom_fire_stick
@@ -113,12 +113,24 @@ cards:
       - type: 'custom:button-card'
         template: card_title
         label: "Sensors"
-      - type: 'custom:button-card'
-        template: 
-          - card_binary_sensor
-          - battery_info
-        entity: binary_sensor.closet_door_contact
-        variables:
-          ulm_card_binary_sensor_icon: mdi:door-sliding
-          ulm_card_binary_sensor_name: Closet Door
-          ulm_battery_entity: sensor.closet_door_battery
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            template: 
+              - card_binary_sensor
+              - battery_info
+            entity: binary_sensor.closet_door_contact
+            variables:
+              ulm_card_binary_sensor_icon: mdi:door-sliding
+              ulm_card_binary_sensor_name: Closet Door
+              ulm_battery_entity: sensor.closet_door_battery
+          - type: 'custom:button-card'
+            template: 
+              - card_binary_sensor
+              - battery_info
+            variables:
+              ulm_card_binary_sensor_icon: mdi:window-closed
+              ulm_show_last_changed: false
+              ulm_card_binary_sensor_name: Window
+              ulm_battery_entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_5
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_5

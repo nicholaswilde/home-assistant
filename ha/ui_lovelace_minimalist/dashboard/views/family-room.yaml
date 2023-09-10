@@ -41,3 +41,10 @@ cards:
               ulm_card_power_outlet_name: Lomi
               ulm_card_power_outlet_icon: mdi:compost
             entity: switch.lomi
+          - type: "custom:button-card"
+            template: card_media_player
+            entity: media_player.lg_webos_tv_415b
+            variables:
+              ulm_card_media_player_name : TV
+              ulm_card_media_player_power_button: true
+              ulm_card_media_player_enable_controls: false
