@@ -148,3 +148,17 @@ services:
       - "-f433.9M"
     restart: unless-stopped
     network_mode: host
+    # Dozzle - Real-time Docker Log Viewer
+  dozzle:
+    image: amir20/dozzle:v4.11.4
+    container_name: dozzle
+    ports:
+      - "8081:8080" # qBittorrent is using port 8080
+    environment:
+      DOZZLE_LEVEL: info
+      DOZZLE_TAILSIZE: 300
+      DOZZLE_FILTER: "status=running"
+      # DOZZLE_FILTER: "label=log_me" # limits logs displayed to containers with this label.
+      # DOCKER_HOST: tcp://socket-proxy:2375 # Use this instead if you have Socket Proxy enabled.
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Use Docker Socket Proxy and comment this line for improved security.

@@ -29,6 +29,7 @@ docker compose up -d
 | Code Server     | 8443  |
 | Uptime Kuma     | 3001  |
 | Portainer       | 9443  | 
+| Dozzle          | 8081  |
 
 ---
 
