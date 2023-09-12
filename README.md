@@ -57,6 +57,7 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 - Remove ZHA device
     - Copy `Settings` → `Devices & services` → `Zigbee Home Automation` → `<Device>` → `Device info` → `Zigbee info` → `IEEE`
     - `Development tools` → `Services` → `zha.remove`
+- Debug `rtl_433` - `Settings` → `Devices & services` → `MQTT` → `Configure` → `Listen to a topic` → `rtl_433/#` → `Start listenting`
 
 ---
 
