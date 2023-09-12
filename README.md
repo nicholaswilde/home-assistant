@@ -53,6 +53,10 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 ## :pencil: &nbsp; Notes
 
 - My setup is using the [UI Lovelace Minimalist theme][15].
+- [Remove unwanted entities][17] - `Development tools` → `Services` → `recorder.purge_entities`
+- Remove ZHA device
+    - Copy `Settings` → `Devices & services` → `Zigbee Home Automation` → `<Device>` → `Device info` → `Zigbee info` → `IEEE`
+    - `Development tools` → `Services` → `zha.remove`
 
 ---
 
@@ -101,3 +105,4 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 [14]: <https://github.com/getsops/sops>
 [15]: <https://ui-lovelace-minimalist.github.io/UI/>
 [16]: <https://www.amazon.com/dp/B00P2UOU72>
+[17]: <https://community.home-assistant.io/t/how-to-remove-unwanted-entities/433103/10>
