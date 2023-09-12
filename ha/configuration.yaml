@@ -17,9 +17,9 @@ device_tracker:
       track_new_devices: true
 logger:
   default: info
-  logs:
-    homeassistant.helpers.config_entry_flow: debug
-    homeassistant.helpers.config_entry_oauth2_flow: debug
+  # logs:
+  #   homeassistant.helpers.config_entry_flow: debug
+  #   homeassistant.helpers.config_entry_oauth2_flow: debug
 notify: !include notify.yaml
 lovelace: !include lovelace.yaml
 panel_iframe: !include panel_iframe.yaml

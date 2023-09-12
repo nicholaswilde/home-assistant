@@ -101,6 +101,11 @@ cards:
             template: custom_card_window_secure
             entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_4
             name: Office
+          - type: 'custom:button-card'
+            template: custom_card_window_secure
+            entity: binary_sensor.lumi_lumi_sensor_magnet_aq2_opening_6
+            name: Man Cave
+
   - type: vertical-stack
     cards:
       - type: 'custom:button-card'

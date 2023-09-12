@@ -42,6 +42,12 @@ cards:
       - type: 'custom:button-card'
         template: card_title
         label: Master Bedroom
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.sconce_group
+        variables:
+          ulm_card_light_force_background_color: true
+          ulm_card_light_name: Sconces
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
