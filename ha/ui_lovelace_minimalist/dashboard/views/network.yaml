@@ -38,89 +38,67 @@ cards:
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.kitchen_leak_sensor_battery
             variables:
               ulm_card_battery_name: Kitchen Leak
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.pantry_door_sensor_battery
             variables:
               ulm_card_battery_name: Pantry Door
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.lumi_lumi_sensor_magnet_aq2_battery
             variables:
               ulm_card_battery_name: Kitchen South
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_2
             variables:
               ulm_card_battery_name: Kitchen North
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_3
             variables:
               ulm_card_battery_name: Breakfast Nook
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_4
             variables:
               ulm_card_battery_name: Office
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_5
             variables:
               ulm_card_battery_name: Master Bedroom
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_6
             variables:
               ulm_card_battery_name: Man Cave
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.front_door_battery_2
             variables:
               ulm_card_battery_name: Front Door
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.closet_door_battery
             variables:
               ulm_card_battery_name: Closet Door
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_battery
+            template: custom_card_battery
             entity: sensor.nest_temperature_sensor_master_bedroom_battery_level
             variables:
               ulm_card_battery_name: Nest Puck
-              ulm_card_battery_battery_level_danger: 30
-              ulm_card_battery_battery_level_warning: 80

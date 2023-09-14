@@ -1,4 +1,3 @@
----
 custom_card_nik_door:
   template:
     - "ulm_language_variables"
@@ -113,7 +112,7 @@ custom_card_nik_door:
               entity: "[[[ return entity.entity_id ]]]"
               tap_action:
                 action: "call-service"
-                service: "lock.unlock"
+                service: "lock.open"
                 service_data:
                   entity_id: "[[[ return variables.ulm_custom_card_entity_1_lock ]]]"
               state:

@@ -16,23 +16,15 @@ cards:
       - type: horizontal-stack
         cards:
           - type: 'custom:button-card'
-            template: card_graph
+            template: custom_card_graph_temperature
             entity: sensor.upstairs_thermostat_temperature
             variables:
-              ulm_card_graph_color: "var(--google-blue)"
-              ulm_card_graph_name: Temperature
               ulm_card_graph_entity: sensor.upstairs_thermostat_temperature
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
           - type: 'custom:button-card'
-            template: card_graph
+            template: custom_card_graph_humidity
             entity: sensor.upstairs_thermostat_humidity
             variables:
-              ulm_card_graph_color: "var(--google-red)"
-              ulm_card_graph_name: Humidity
               ulm_card_graph_entity: sensor.upstairs_thermostat_humidity
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:

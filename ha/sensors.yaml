@@ -1,1 +1,54 @@
-[]
+  - platform: template
+    sensors:
+      sensor_count:
+        friendly_name: "Number of Sensors"
+        value_template: >-
+          {{ states.sensor | rejectattr('state', 'eq', 'unavailable') | list | count }}
+      automation_count:
+        friendly_name: "Number of Automations"
+        value_template: >-
+          {{ states.automation | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      script_count:
+        friendly_name: "Number of Scripts"
+        value_template: >-
+          {{ states.script | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      binary_sensor_count:
+        friendly_name: "Number of Binary Sensors"
+        value_template: >-
+          {{ states.binary_sensor | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      tracker_count:
+        friendly_name: "Number of Devices"
+        value_template: >-
+          {{ states.device_tracker | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      light_count:
+        friendly_name: "Number of Lights"
+        value_template: >-
+          {{ states.light | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      switch_count:
+        friendly_name: "Number of Switches"
+        value_template: >-
+          {{ states.switch | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      person_count:
+        friendly_name: "Number of People"
+        value_template: >-
+          {{ states.person | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      camera_count:
+        friendly_name: "Number of online Cameras"
+        value_template: >-
+          {{ states.camera | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      entity_count:
+        friendly_name: "Number of Entities"
+        value_template: >-
+          {{ states | rejectattr('state', 'eq', 'unavailable') |list | count }}
+      na_entity_count:
+        friendly_name: "Number of N/A Entities"
+        value_template: >-
+          {{ states | selectattr('state', 'eq', 'unavailable') | map(attribute='entity_id') |list | count }}
+      month_is:
+        friendly_name: "Month is"
+        value_template: >-
+          {{ ['January','Februrary','March','April','May','June','July','August','September','October','November','December'][now().month-1] }}
+      today_is:
+        friendly_name: "Today is"
+        value_template: >-
+          {{ ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][now().weekday()] }}

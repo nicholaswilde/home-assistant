@@ -28,3 +28,5 @@ camera: !include cameras.yaml
 template: !include templates.yaml
 binary_sensor: !include binary_sensors.yaml
 mqtt: !include mqtt.yaml
+shell_command:
+  curl_get: 'curl -X GET {{ url }}'

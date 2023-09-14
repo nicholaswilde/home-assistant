@@ -1,0 +1,5 @@
+custom_card_battery:
+  template: card_battery
+  variables:
+    ulm_card_battery_battery_level_danger: 30
+    ulm_card_battery_battery_level_warning: 80
