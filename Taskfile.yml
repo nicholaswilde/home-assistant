@@ -4,6 +4,10 @@ version: '3'
 # docker run --rm -v "${PWD}":/workdir mikefarah/yq e compose.yaml
 
 tasks:
+  chown:
+    desc: chown mosquitto
+    cmds:
+      - sudo chown -R nicholas:nicholas mosquitto/
   show-pub-key:
     desc: Show public age key
     cmds:
