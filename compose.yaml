@@ -139,7 +139,7 @@ services:
     image: hertzg/rtl_433:22.11
     container_name: rtl433
     devices:
-      - /dev/bus/usb/001/004
+      - /dev/rtl433:/dev/bus/usb/001/003
     command:
       - "-Mtime:unix:usec:utc"
       - "-Fmqtt://192.168.1.143:1883,retain=1,user=${RTL_USER},pass=${RTL_PASS},events=rtl_433[/model][/id]"
@@ -162,3 +162,5 @@ services:
       # DOCKER_HOST: tcp://socket-proxy:2375 # Use this instead if you have Socket Proxy enabled.
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock # Use Docker Socket Proxy and comment this line for improved security.
+    restart: unless-stopped
+    network_mode: host

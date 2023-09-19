@@ -60,6 +60,22 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 - Debug `rtl_433` - `Settings` → `Devices & services` → `MQTT` → `Configure` → `Listen to a topic` → `rtl_433/#` → `Start listening`
 - List all entities `Template` → `{{ states | map(attribute='entity_id') | list | join('\n') }}`
 
+### [rtl_433][18]
+
+```
+lsusb
+Bus 001 Device 003: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
+# /etc/udev/rules.d/99-rtl433.rules
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", SYMLINK+="rtl433"
+# compose.yaml
+...
+services:
+  rtl433:
+    devices:
+      - /dev/rtl433:/dev/bus/usb/001/003
+...
+```
+
 ---
 
 ## :hammer_and_wrench: &nbsp; Hardware
@@ -108,3 +124,4 @@ sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secret
 [15]: <https://ui-lovelace-minimalist.github.io/UI/>
 [16]: <https://www.amazon.com/dp/B00P2UOU72>
 [17]: <https://community.home-assistant.io/t/how-to-remove-unwanted-entities/433103/10>
+[18]: <https://github.com/hertzg/rtl_433_docker/issues/14#issuecomment-868524131>

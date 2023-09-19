@@ -91,7 +91,7 @@ tasks:
   up-d:
     desc: Run Docker compose in the background.
     cmds:
-      - docker compose up -d
+      - docker compose up -d --remove-orphans
   default:
     cmds:
       - task -l
