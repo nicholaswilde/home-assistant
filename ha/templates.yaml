@@ -21,3 +21,38 @@
               states.light.side_door_light,
               ] %}
           {{ lights | selectattr('state','eq','on') | list | count }}
+          # 039d8a93dc5ceb8fa7ba63d9b7278f2c
+  # Front Door Motion 
+  - trigger:
+      - platform: event
+        event_type: nest_event
+        event_data:
+          device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
+          type: camera_motion
+      - platform: event
+        event_type: nest_event
+        event_data:
+          device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
+          type: person_detected
+      - platform: event
+        event_type: nest_event
+        event_data:
+          device_id: <replace by your device id>
+          type: doorbell_chime
+    binary_sensor:
+      - name: "Front Door Motion Sensor"
+        device_class: motion
+        auto_off: 60
+        state: "on"
+
+  #Front Door Doorbell
+  - trigger:
+      - platform: event
+        event_type: nest_event
+        event_data:
+          device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
+          type: doorbell_chime
+    binary_sensor:
+      - name: "Front Door Doorbell"
+        auto_off: 15
+        state: "true"

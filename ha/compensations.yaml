@@ -1,0 +1,40 @@
+  kitchen_window_south_temperature:
+    source: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature
+    data_points:
+      - [0, 0]
+      - [100, 100]
+  kitchen_window_north_temperature:
+    source: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_2
+    data_points:
+      - [0, 0]
+      - [100, 100]
+  breakfast_nook_temperature:
+    source: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_3
+    data_points:
+      - [0, 0]
+      - [100, 100]
+  breakfast_nook_window_temperature:
+    source: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_3
+    data_points:
+      - [0, 0]
+      - [100, 100]
+  office_window_temperature:
+    source: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_4
+    data_points:
+      - [0, 0]
+      - [100, 100]
+  master_bedroom_window_temperature:
+    source: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_5
+    data_points:
+      - [0, 0]
+      - [100, 100]
+  man_cave_window_temperature:
+    source: sensor.lumi_lumi_sensor_magnet_aq2_device_temperature_6
+    data_points:
+      - [0, 0]
+      - [100, 100]
+  living_room_window_temperature:
+    source: sensor.sensor_temperature
+    data_points:
+      - [0, 0]
+      - [100, 100]

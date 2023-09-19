@@ -229,17 +229,17 @@
     entity_id: 2ac3a8c40b47f71695b9ec3c1c7ff675
     domain: light
   mode: single
-- id: wunderground_data_upload
-  alias: WUnderground data upload
-  use_blueprint:
-    path: dvandonkelaar/wunderground_upload.yaml
-    input:
-      station_id: !secret wunderground_station_id
-      station_key: !secret wunderground_station_key
-      sensor_temp: sensor.lacrosse_tx141thbv2_temperature
-      sensor_humidity: sensor.lacrosse_tx141thbv2_humidity
-      refresh_frequency: 300
-      trigger_entities:
-        - sensor.lacrosse_tx141thbv2_temperature
-        - sensor.lacrosse_tx141thbv2_humidity
-      curl_command_service: shell_command.curl_get
+- id: '1695107284353'
+  alias: Front Door Notification
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.front_door_doorbell
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.alexa_media_kitchen_echo
+    data:
+      message: Someone is at the door
+  mode: single
