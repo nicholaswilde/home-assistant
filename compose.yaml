@@ -112,7 +112,7 @@ services:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
     restart: unless-stopped
   mosquitto:
-    image: eclipse-mosquitto:2.0.17
+    image: eclipse-mosquitto:2.0.18
     container_name: mosquitto
     volumes:
       - ./mosquitto:/mosquitto
