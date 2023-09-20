@@ -13,6 +13,19 @@ cards:
         name: Family Room
       - type: 'custom:button-card'
         template: card_title
+        label: "Lights"  
+      - type: vertical-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.mantle_lights
+            variables:
+              ulm_card_light_enable_slider: true
+              ulm_card_light_enable_horizontal: true
+              ulm_card_light_enable_horizontal_wide: true
+              ulm_card_light_force_background_color: true
+      - type: 'custom:button-card'
+        template: card_title
         label: "Devices"     
       - type: vertical-stack
         cards:

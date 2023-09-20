@@ -147,6 +147,10 @@
     device_id: 73b5c3b3fa04cee187a610fb50623720
     entity_id: ba275bddf9b9a43024f1ebe79b3db6ef
     domain: switch
+  - type: turn_on
+    device_id: b21fcfea4e8f3d81616d6c16a856ef09
+    entity_id: 0f12552120df4ecf3d23a3d2e2885995
+    domain: light
   mode: single
 - id: '1692773337087'
   alias: 10:30 Turn Off
@@ -164,6 +168,10 @@
     device_id: 78f43db12f09536111a6237daa4fbc84
     entity_id: e6b081262a3cdec9f4067d7d8b31a2ef
     domain: switch
+  - type: turn_off
+    device_id: b21fcfea4e8f3d81616d6c16a856ef09
+    entity_id: 0f12552120df4ecf3d23a3d2e2885995
+    domain: light
   mode: single
 - id: '1692850728103'
   alias: Window check
@@ -175,22 +183,14 @@
     entity_id: eadebe00559e9f0f62b733c39e0c2736
     type: turned_on
   condition:
-  - condition: time
-    after: '22:00:00'
-    before: 05:00:00
-    weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-    - sat
   - condition: and
     conditions:
     - condition: state
-      entity_id: binary_sensor.sensor_opening
       state: 'on'
+      entity_id: binary_sensor.window_sensors_security
+    - condition: time
+      after: '22:00:00'
+      before: 05:00:00
   action:
   - service: notify.all_notifications
     data:
