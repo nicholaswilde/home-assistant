@@ -2,7 +2,7 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge)](https://pre-commit.com/)
 [![task](https://img.shields.io/badge/task-enabled-brightgreen?logo=task&logoColor=white&style=for-the-badge)](https://taskfile.dev/#/)
 
-🏠 My home assistant backup 🤖
+🏠 My [Home Assistant][19] backup 🤖
 
 ![screenshot](./images/screenshot.png)
 
@@ -125,3 +125,4 @@ services:
 [16]: <https://www.amazon.com/dp/B00P2UOU72>
 [17]: <https://community.home-assistant.io/t/how-to-remove-unwanted-entities/433103/10>
 [18]: <https://github.com/hertzg/rtl_433_docker/issues/14#issuecomment-868524131>
+[19]: <https://www.home-assistant.io/>
