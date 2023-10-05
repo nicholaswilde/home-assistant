@@ -92,6 +92,11 @@ tasks:
     desc: Run Docker compose in the background.
     cmds:
       - docker compose up -d --remove-orphans
+  upgrade:
+    desc: upgrade
+    cmds:
+      - git pull origin
+      - task: update
   default:
     cmds:
       - task -l
