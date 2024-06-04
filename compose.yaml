@@ -106,7 +106,7 @@ services:
     privileged: true
   cloudflared:
     container_name: cloudflared
-    image: cloudflare/cloudflared:2024.5.0
+    image: cloudflare/cloudflared:2024.6.0
     command: tunnel --no-autoupdate run
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN}
