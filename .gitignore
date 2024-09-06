@@ -16,6 +16,10 @@ www
 node-red
 vscode
 mosquitto
+esphome/trash/
+ha/.cache/
+ha/.local/
+
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
