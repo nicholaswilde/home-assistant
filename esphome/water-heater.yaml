@@ -1,0 +1,41 @@
+---
+esphome:
+  name: water-heater
+  friendly_name: water-heater
+
+esp32:
+  board: esp32-s2-saola-1
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "CdQcjJKnJiuiYemE7XVLajY/bFgeAJo+XDXTmRydQyk="
+
+ota:
+  - platform: esphome
+    password: "55594853ddc0f4f9a6d9ac698a75bdf7"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Water-Heater Fallback Hotspot"
+    password: "haLsGTdZu2r7"
+
+captive_portal:
+
+sensor:
+  - platform: adc
+    pin: GPIO10
+    name: "Voltage"
+    accuracy_decimals: 3
+    update_interval: 15s
+    filters:
+      - multiply: 0.5
