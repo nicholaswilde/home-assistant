@@ -17,7 +17,7 @@ tasks:
     desc: Update running containers
     cmds:
       - docker compose up --force-recreate --build -d
-      - docker image prune -f
+      - docker image prune -a -f
   hacs:
     desc: Install HACS
     dir: '{{.USER_WORKING_DIR}}/ha'
