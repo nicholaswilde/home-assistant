@@ -136,7 +136,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
   rtl433:
-    image: hertzg/rtl_433:23.11
+    image: hertzg/rtl_433:24.10
     container_name: rtl433
     devices:
       - /dev/rtl433:/dev/bus/usb/001/003
