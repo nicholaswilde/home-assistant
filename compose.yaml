@@ -150,7 +150,7 @@ services:
     network_mode: host
     # Dozzle - Real-time Docker Log Viewer
   dozzle:
-    image: amir20/dozzle:v8.4.1
+    image: amir20/dozzle:v8.8.2
     container_name: dozzle
     ports:
       - "8081:8080" # qBittorrent is using port 8080
