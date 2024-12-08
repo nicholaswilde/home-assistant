@@ -27,7 +27,7 @@ services:
       - rtl433
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome:2024.8.3
+    image: ghcr.io/esphome/esphome:2024.11.3
     volumes:
       - ./esphome:/config
       - /etc/localtime:/etc/localtime:ro
