@@ -14,7 +14,7 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "CdQcjJKnJiuiYemE7XVLajY/bFgeAJo+XDXTmRydQyk="
+    key: !secret water_heater_key
 
 ota:
   - platform: esphome
@@ -38,4 +38,4 @@ sensor:
     accuracy_decimals: 3
     update_interval: 15s
     filters:
-      - multiply: 0.5
+      - multiply: 0.99

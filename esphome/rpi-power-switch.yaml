@@ -1,0 +1,96 @@
+---
+# https://rudd-o.com/linux-and-free-software/switching-an-usb-load-on-or-off-using-the-sinilink-xy-wfusb-and-esphome
+substitutions:
+  name: "rpi-power-switch"
+  name_underscored: "rpi_power_switch"
+  friendly_name: RPi Power Switch
+
+esphome:
+  name: rpi-power-switch
+  friendly_name: rpi-power-switch
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret rpi_switch_key
+
+ota:
+  - platform: esphome
+    password: "27b9b548359681e6544668ed9f2f6f0b"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Rpi-Power-Switch"
+    password: "qUzRjvQmOJWa"
+
+captive_portal:
+
+button:
+  - platform: restart
+    name: Restart
+    entity_category: diagnostic
+    icon: mdi:restart
+  - platform: safe_mode
+    name: Safe mode restart
+    entity_category: diagnostic
+    icon: mdi:restart-alert
+
+# Blue LED
+status_led:
+  pin:
+    number: GPIO16
+
+switch:
+  # Relay
+  - platform: gpio
+    id: relay
+    pin: GPIO5
+
+  # Green LED
+  - platform: gpio
+    pin: GPIO14
+    id: green_led
+    inverted: true  # start on
+
+  # Switch template to link relay and green LED states
+  # LED is on when relay is off
+  - platform: template
+    id: ${name_underscored}_switch
+    name: Switch
+    lambda: |-
+      if (id(relay).state) {
+        return true;
+      } else {
+        return false;
+      }
+    turn_on_action:
+      - switch.turn_on:
+          id: green_led
+      - switch.turn_on:
+          id: relay
+    turn_off_action:
+      - switch.turn_off:
+          id: green_led
+      - switch.turn_off:
+          id: relay
+
+# Button
+binary_sensor:
+  - platform: gpio
+    id: ${name_underscored}_button
+    pin:
+      number: GPIO04
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      - switch.toggle: "${name_underscored}_switch"

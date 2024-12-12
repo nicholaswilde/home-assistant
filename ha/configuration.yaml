@@ -22,7 +22,7 @@ logger:
   #   homeassistant.helpers.config_entry_oauth2_flow: debug
 notify: !include notify.yaml
 lovelace: !include lovelace.yaml
-panel_iframe: !include panel_iframe.yaml
+# panel_iframe: !include panel_iframe.yaml
 sensor: !include sensors.yaml
 camera: !include cameras.yaml
 template: !include templates.yaml

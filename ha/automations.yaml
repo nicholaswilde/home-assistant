@@ -110,39 +110,42 @@
 - id: '1692773037396'
   alias: Sunrise Lights
   description: ''
-  trigger:
-  - platform: sun
-    event: sunrise
+  triggers:
+  - event: sunrise
     offset: 0
-  condition: []
-  action:
-  - service: homeassistant.turn_off
-    data: {}
+    trigger: sun
+  conditions: []
+  actions:
+  - data: {}
     target:
       entity_id:
-      - light.backyard_lights
       - light.frontyard_lights
+      - light.backyard_lights
+      - light.backyard_landscape_lights
+    action: homeassistant.turn_off
   - type: turn_on
     device_id: 78f43db12f09536111a6237daa4fbc84
     entity_id: e6b081262a3cdec9f4067d7d8b31a2ef
     domain: switch
+    enabled: false
   mode: single
 - id: '1692773135337'
   alias: Sunset Lights
   description: ''
-  trigger:
-  - platform: sun
-    event: sunset
+  triggers:
+  - event: sunset
     offset: 0
-  condition: []
-  action:
-  - service: homeassistant.turn_on
-    data: {}
+    trigger: sun
+  conditions: []
+  actions:
+  - action: light.turn_on
     target:
       entity_id:
-      - light.backyard_lights
       - light.frontyard_lights
+      - light.backyard_lights
+      - light.backyard_landscape_lights
       - light.gazebo_lights
+    data: {}
   - type: turn_on
     device_id: 73b5c3b3fa04cee187a610fb50623720
     entity_id: ba275bddf9b9a43024f1ebe79b3db6ef
@@ -151,15 +154,31 @@
     device_id: b21fcfea4e8f3d81616d6c16a856ef09
     entity_id: 0f12552120df4ecf3d23a3d2e2885995
     domain: light
+  - type: turn_on
+    device_id: 8ed555279b2ca4204d228b03ef1ca456
+    entity_id: 8b7b7c98bb4c797d5668ff62c0ec5cba
+    domain: switch
+  - type: turn_on
+    device_id: e9e3a750a50ea7dd9a030767fb0674de
+    entity_id: bfc87ce76cfa942a3cd24e2bd0aa1eb2
+    domain: switch
+  - type: turn_on
+    device_id: 48bc44d5e1da57d01d588202da16aa8d
+    entity_id: 7e43f0f0dbe0f293cd918db8f0b7fc1d
+    domain: switch
+  - type: turn_on
+    device_id: baf5b190da2872a2254596a1516aece3
+    entity_id: 8aeb8431c2ad324314f4f90b3daf51e7
+    domain: switch
   mode: single
 - id: '1692773337087'
   alias: 10:30 Turn Off
   description: ''
-  trigger:
-  - platform: time
-    at: '22:30:00'
-  condition: []
-  action:
+  triggers:
+  - at: '22:30:00'
+    trigger: time
+  conditions: []
+  actions:
   - type: turn_off
     device_id: b1f570f8b69b182506be69f976973e10
     entity_id: 014fc090455b41d7bedd9117e73d9e4c
@@ -172,6 +191,18 @@
     device_id: b21fcfea4e8f3d81616d6c16a856ef09
     entity_id: 0f12552120df4ecf3d23a3d2e2885995
     domain: light
+  - type: turn_off
+    device_id: 8ed555279b2ca4204d228b03ef1ca456
+    entity_id: 8b7b7c98bb4c797d5668ff62c0ec5cba
+    domain: switch
+  - type: turn_off
+    device_id: e9e3a750a50ea7dd9a030767fb0674de
+    entity_id: bfc87ce76cfa942a3cd24e2bd0aa1eb2
+    domain: switch
+  - type: turn_off
+    device_id: baf5b190da2872a2254596a1516aece3
+    entity_id: 8aeb8431c2ad324314f4f90b3daf51e7
+    domain: switch
   mode: single
 - id: '1692850728103'
   alias: Window check
