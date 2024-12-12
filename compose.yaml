@@ -1,5 +1,4 @@
 ---
-version: "3"
 services:
   homeassistant:
     container_name: homeassistant
@@ -164,3 +163,26 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock # Use Docker Socket Proxy and comment this line for improved security.
     restart: unless-stopped
     network_mode: host
+  zwave-js-ui:
+    container_name: "zwave-js-ui"
+    image: "zwavejs/zwave-js-ui:9.27.7"
+    tty: true
+    stop_signal: SIGINT
+    devices:
+      - "/dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00:/dev/zwave"
+    environment:
+      - "SESSION_SECRET=mysupersecretkey"
+    # networks:
+    #   - "zwave"
+    ports:
+      - "3000:3000"
+      - "8091:8091"
+    restart: "always"
+    volumes:
+      - "/home/nicholas/git/nicholaswilde/home-assistant/zwave:/usr/src/app/store"
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+    working_dir: "/usr/src/app"
+    network_mode: host
+# network:
+#   zwave:
