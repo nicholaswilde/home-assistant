@@ -1,0 +1,14 @@
+---
+services:
+  matter:
+    container_name: matter-server
+    image: ghcr.io/home-assistant-libs/python-matter-server:stable
+    privileged: true
+    network_mode: host
+    restart: unless-stopped
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - ./matter:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro

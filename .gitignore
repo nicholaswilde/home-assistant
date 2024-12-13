@@ -20,6 +20,9 @@ esphome/trash/
 ha/.cache/
 ha/.local/
 
+# Matter
+matter/*
+!matter/.gitkeep
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
