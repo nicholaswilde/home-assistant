@@ -97,13 +97,13 @@ services:
 
 ---
 
-## ​:balance_scale:​&nbsp;​ License
+## :balance_scale: License
 
 ​[​Apache License 2.0](./LICENSE)
 
 ---
 
-## ​:pencil:​&nbsp;​ Author
+## :pencil: Author
 
 ​This project was started in 2023 by [​Nicholas Wilde​](https://github.com/nicholaswilde/).
 
