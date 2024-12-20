@@ -93,7 +93,7 @@ services:
       # - LOG_LEVEL=debug
       # - WB_IP=192.168.1.143
   uptime-kuma:
-    image: louislam/uptime-kuma:1.23.15
+    image: louislam/uptime-kuma:1.23.16
     container_name: uptime-kuma
     volumes:
       - ./uptime-kuma:/app/data
