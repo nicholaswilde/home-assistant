@@ -165,7 +165,7 @@ services:
     network_mode: host
   zwave-js-ui:
     container_name: "zwave-js-ui"
-    image: "zwavejs/zwave-js-ui:9.32.0"
+    image: "zwavejs/zwave-js-ui:9.33.0"
     tty: true
     stop_signal: SIGINT
     devices:
