@@ -125,7 +125,7 @@ services:
       - 9001:9001
     restart: unless-stopped
   portainer:
-    image: portainer/portainer-ce:2.28.0
+    image: portainer/portainer-ce:2.28.1
     container_name: portainer
     ports:
       - 9443:9443
