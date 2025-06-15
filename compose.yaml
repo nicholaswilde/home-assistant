@@ -11,7 +11,6 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /run/dbus:/run/dbus:ro
       - /dev/serial/by-id/usb-Nabu_Casa_SkyConnect_v1.0_8aaab0838e91ed1196c1c3d13b20a988-if00-port0:/dev/ttyUSB0
-      # - /dev/ttyUSB1:/dev/ttyUSB1
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
       # - /dev/ttyUSB1:/dev/ttyUSB1
@@ -20,10 +19,9 @@ services:
     network_mode: host
     depends_on:
       - esphome
-      # - wyze-bridge
-      - uptime-kuma
       - mosquitto
       - rtl433
+      - zwave-js-ui
   esphome:
     container_name: esphome
     image: ghcr.io/esphome/esphome:2025.5.2
@@ -33,83 +31,6 @@ services:
     restart: always
     privileged: true
     network_mode: host
-  code-server:
-    image: lscr.io/linuxserver/code-server:4.100.3
-    container_name: code-server
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - DEFAULT_WORKSPACE=/config/workspace
-      - HASS_SERVER=http://192.168.1.143:8123
-      - HASS_TOKEN=${HASS_TOKEN}
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./ha:/config/workspace
-      - ./vscode/data:/config/data
-      - ./vscode/extensions:/config/extensions
-      - ./vscode/.config:/config/.config
-    ports:
-      - 8443:8443
-    restart: unless-stopped
-    privileged: true
-    # Node-RED
-  nodered:
-    container_name: nodered
-    image: nodered/node-red:3.1.15-14
-    ports:
-      - 1880:1880
-    volumes:
-      # Local path where all Node-RED config will be stored.
-      - ./node-red:/data
-      - /etc/localtime:/etc/localtime:ro
-    depends_on:
-      - homeassistant
-    restart: unless-stopped
-    user: ${PUID}:${PGID}
-    network_mode: host
-  # wyze-bridge:
-    # image: mrlt8/wyze-bridge:latest
-    # container_name: wyze-bridge
-    # restart: unless-stopped
-    # network_mode: host
-    # ports:
-      # # Web UI
-      # - 5000:5000
-      # # RTMP
-      # - 1935:1935
-      # # RTSP
-      # - 8554:8554
-      # # HLS
-      # - 8888:8888
-      # - 8889:8889 #WebRTC
-      # - 8189:8189/udp # WebRTC/ICE
-    # environment:
-      # - WYZE_EMAIL=ncwilde43@gmail.com
-      # - WYZE_PASSWORD=${WYZE_PASSWORD}
-      # - TOTP_KEY=${TOTP_KEY}
-      # - IGNORE_OFFLINE=true
-      # - QUALITY=SD30
-      # - SNAPSHOT=RTSP
-      # - LOG_LEVEL=debug
-      # - WB_IP=192.168.1.143
-  uptime-kuma:
-    image: louislam/uptime-kuma:1.23.16
-    container_name: uptime-kuma
-    volumes:
-      - ./uptime-kuma:/app/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 3001:3001
-    restart: unless-stopped
-    network_mode: host
-    privileged: true
-  cloudflared:
-    container_name: cloudflared
-    image: cloudflare/cloudflared:2025.5.0
-    command: tunnel --no-autoupdate run
-    environment:
-      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
-    restart: unless-stopped
   mosquitto:
     image: eclipse-mosquitto:2.0.21
     container_name: mosquitto
@@ -124,43 +45,17 @@ services:
       - 1883:1883
       - 9001:9001
     restart: unless-stopped
-  portainer:
-    image: portainer/portainer-ce:2.30.1
-    container_name: portainer
-    ports:
-      - 9443:9443
-    volumes:
-      - ./portainer:/data
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /etc/localtime:/etc/localtime:ro
-    restart: unless-stopped
   rtl433:
     image: hertzg/rtl_433:25.02
     container_name: rtl433
     devices:
-      - /dev/rtl433:/dev/bus/usb/001/003
+      - /dev/rtl433:/dev/bus/usb/001/004
     command:
       - "-Mtime:unix:usec:utc"
-      - "-Fmqtt://192.168.1.143:1883,retain=1,user=${RTL_USER},pass=${RTL_PASS},events=rtl_433[/model][/id]"
+      - "-Fmqtt://192.168.2.88:1883,retain=1,user=${RTL_USER},pass=${RTL_PASS},events=rtl_433[/model][/id]"
       - "-Ccustomary"
       - "-f915M"
       - "-f433.9M"
-    restart: unless-stopped
-    network_mode: host
-    # Dozzle - Real-time Docker Log Viewer
-  dozzle:
-    image: amir20/dozzle:v8.12.20
-    container_name: dozzle
-    ports:
-      - "8081:8080" # qBittorrent is using port 8080
-    environment:
-      DOZZLE_LEVEL: info
-      DOZZLE_TAILSIZE: 300
-      DOZZLE_FILTER: "status=running"
-      # DOZZLE_FILTER: "label=log_me" # limits logs displayed to containers with this label.
-      # DOCKER_HOST: tcp://socket-proxy:2375 # Use this instead if you have Socket Proxy enabled.
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # Use Docker Socket Proxy and comment this line for improved security.
     restart: unless-stopped
     network_mode: host
   zwave-js-ui:
@@ -172,8 +67,6 @@ services:
       - "/dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00:/dev/zwave"
     environment:
       - "SESSION_SECRET=mysupersecretkey"
-    # networks:
-    #   - "zwave"
     ports:
       - "3000:3000"
       - "8091:8091"
@@ -184,5 +77,3 @@ services:
       - /etc/localtime:/etc/localtime:ro
     working_dir: "/usr/src/app"
     network_mode: host
-# network:
-#   zwave:

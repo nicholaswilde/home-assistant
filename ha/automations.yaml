@@ -39,22 +39,19 @@
 - id: '1692628502207'
   alias: Master Bathroom Fan
   description: ''
-  trigger:
-  - platform: device
-    type: turned_on
-    device_id: ee0bf7f9a0164efc331a35647726f2ee
-    entity_id: f2f1494eeb00246da9ffe49707e7b1fc
-    domain: switch
-    for:
-      hours: 1
-      minutes: 0
-      seconds: 0
-  condition: []
-  action:
-  - type: turn_off
-    device_id: ee0bf7f9a0164efc331a35647726f2ee
-    entity_id: f2f1494eeb00246da9ffe49707e7b1fc
-    domain: switch
+  triggers:
+  - type: turned_on
+    device_id: c38ad635023c8ef3e42c9b3c84d5be79
+    entity_id: c3effbaf6cf323444485d74c6fe7467e
+    domain: fan
+    trigger: device
+  conditions: []
+  actions:
+  - action: timer.start
+    metadata: {}
+    data: {}
+    target:
+      entity_id: timer.master_bathroom_fan_timer
   mode: single
 - id: '1692628991830'
   alias: Brother Printing Low Toner Notification
@@ -121,13 +118,11 @@
       entity_id:
       - light.frontyard_lights
       - light.backyard_lights
-      - light.backyard_landscape_lights
     action: homeassistant.turn_off
   - type: turn_on
-    device_id: 78f43db12f09536111a6237daa4fbc84
-    entity_id: e6b081262a3cdec9f4067d7d8b31a2ef
+    device_id: 646ac28bc137e10c8268b9390fbc7ca4
+    entity_id: 824593148f9dbd267b52cbaf82b59787
     domain: switch
-    enabled: false
   mode: single
 - id: '1692773135337'
   alias: Sunset Lights
@@ -143,33 +138,10 @@
       entity_id:
       - light.frontyard_lights
       - light.backyard_lights
-      - light.backyard_landscape_lights
-      - light.gazebo_lights
+      device_id:
+      - 051506996b7025af1718fd0938479c5f
+      - b21fcfea4e8f3d81616d6c16a856ef09
     data: {}
-  - type: turn_on
-    device_id: 73b5c3b3fa04cee187a610fb50623720
-    entity_id: ba275bddf9b9a43024f1ebe79b3db6ef
-    domain: switch
-  - type: turn_on
-    device_id: b21fcfea4e8f3d81616d6c16a856ef09
-    entity_id: 0f12552120df4ecf3d23a3d2e2885995
-    domain: light
-  - type: turn_on
-    device_id: 8ed555279b2ca4204d228b03ef1ca456
-    entity_id: 8b7b7c98bb4c797d5668ff62c0ec5cba
-    domain: switch
-  - type: turn_on
-    device_id: e9e3a750a50ea7dd9a030767fb0674de
-    entity_id: bfc87ce76cfa942a3cd24e2bd0aa1eb2
-    domain: switch
-  - type: turn_on
-    device_id: 48bc44d5e1da57d01d588202da16aa8d
-    entity_id: 7e43f0f0dbe0f293cd918db8f0b7fc1d
-    domain: switch
-  - type: turn_on
-    device_id: baf5b190da2872a2254596a1516aece3
-    entity_id: 8aeb8431c2ad324314f4f90b3daf51e7
-    domain: switch
   mode: single
 - id: '1692773337087'
   alias: 10:30 Turn Off
@@ -179,30 +151,22 @@
     trigger: time
   conditions: []
   actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      device_id:
+      - b21fcfea4e8f3d81616d6c16a856ef09
+      - d8011ac1e60de7e4669232b3cfdc3349
   - type: turn_off
-    device_id: b1f570f8b69b182506be69f976973e10
-    entity_id: 014fc090455b41d7bedd9117e73d9e4c
-    domain: light
-  - type: turn_off
-    device_id: 78f43db12f09536111a6237daa4fbc84
-    entity_id: e6b081262a3cdec9f4067d7d8b31a2ef
+    device_id: 646ac28bc137e10c8268b9390fbc7ca4
+    entity_id: 824593148f9dbd267b52cbaf82b59787
     domain: switch
-  - type: turn_off
-    device_id: b21fcfea4e8f3d81616d6c16a856ef09
-    entity_id: 0f12552120df4ecf3d23a3d2e2885995
-    domain: light
-  - type: turn_off
-    device_id: 8ed555279b2ca4204d228b03ef1ca456
-    entity_id: 8b7b7c98bb4c797d5668ff62c0ec5cba
-    domain: switch
-  - type: turn_off
-    device_id: e9e3a750a50ea7dd9a030767fb0674de
-    entity_id: bfc87ce76cfa942a3cd24e2bd0aa1eb2
-    domain: switch
-  - type: turn_off
-    device_id: baf5b190da2872a2254596a1516aece3
-    entity_id: 8aeb8431c2ad324314f4f90b3daf51e7
-    domain: switch
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      device_id: 3e6416a58f68aca51d7751b3ba70b5fa
   mode: single
 - id: '1692850728103'
   alias: Window check
@@ -228,37 +192,50 @@
       message: A window is still open.
   mode: single
 - id: '1693648121703'
-  alias: Closet Light On
+  alias: Closet Light On Night
   description: ''
-  trigger:
+  triggers:
   - type: opened
-    platform: device
-    device_id: 5c34ee5eff0db81090cf616220062fc6
-    entity_id: edeb6cc28e67a7d2d0e314ab56c62458
+    device_id: 9dec1c7b264036bd932081326c6a6e7d
+    entity_id: 17af9eb7645bea406f9f601dd1166eae
     domain: binary_sensor
-  condition: []
-  action:
-  - type: turn_on
-    device_id: e944d0de9738b61bef8d9447bdfdf7d6
-    entity_id: 2ac3a8c40b47f71695b9ec3c1c7ff675
-    domain: light
-    brightness_pct: 100
+    trigger: device
+  conditions:
+  - condition: time
+    after: '22:00:00'
+    before: 05:00:00
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - sat
+    - fri
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 2
+    target:
+      device_id: b16c11ad9c696225677d8e91545f56d1
   mode: single
 - id: '1693648169342'
   alias: Closet Light Off
   description: ''
-  trigger:
+  triggers:
   - type: not_opened
-    platform: device
-    device_id: 5c34ee5eff0db81090cf616220062fc6
-    entity_id: edeb6cc28e67a7d2d0e314ab56c62458
+    device_id: 9dec1c7b264036bd932081326c6a6e7d
+    entity_id: a6af11327505b39414c87495e5ce37a4
     domain: binary_sensor
-  condition: []
-  action:
-  - type: turn_off
-    device_id: e944d0de9738b61bef8d9447bdfdf7d6
-    entity_id: 2ac3a8c40b47f71695b9ec3c1c7ff675
-    domain: light
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      device_id: b16c11ad9c696225677d8e91545f56d1
   mode: single
 - id: '1695107284353'
   alias: Front Door Notification
@@ -273,4 +250,81 @@
   - service: notify.alexa_media_kitchen_echo
     data:
       message: Someone is at the door
+  mode: single
+- id: '1734163502991'
+  alias: Pantry Light On
+  description: ''
+  triggers:
+  - type: opened
+    device_id: cc5e563dc5c560175d3789d50dd3d563
+    entity_id: b5ce6fc656c42af61d4cb7d829010c11
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      device_id: 21664bfdfb83949e25457d17ab205675
+  mode: single
+- id: '1734163621802'
+  alias: Pantry Light Off
+  description: ''
+  triggers:
+  - type: not_opened
+    device_id: cc5e563dc5c560175d3789d50dd3d563
+    entity_id: b5ce6fc656c42af61d4cb7d829010c11
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      device_id: 21664bfdfb83949e25457d17ab205675
+  mode: single
+- id: '1747835657133'
+  alias: Nightlight On
+  description: ''
+  triggers:
+  - trigger: time
+    at: '19:00:00'
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      device_id: 3e6416a58f68aca51d7751b3ba70b5fa
+  mode: single
+- id: '1748833639350'
+  alias: Closet Light On Day
+  description: ''
+  triggers:
+  - type: opened
+    device_id: 9dec1c7b264036bd932081326c6a6e7d
+    entity_id: 17af9eb7645bea406f9f601dd1166eae
+    domain: binary_sensor
+    trigger: device
+  conditions:
+  - condition: time
+    after: 05:00:00
+    before: '22:00:00'
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+    - sat
+    - fri
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 100
+    target:
+      device_id: b16c11ad9c696225677d8e91545f56d1
   mode: single
