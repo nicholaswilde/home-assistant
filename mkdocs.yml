@@ -15,6 +15,7 @@ edit_uri: "edit/main/docs/"
 # Page tree
 nav:
   - Home: index.md
+  - SOPS: sops.md
   - Z-Wave JS UI: z-wave-js-ui.md
   - Hardware: hardware.md
   - Tags: tags.md
