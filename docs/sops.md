@@ -13,4 +13,4 @@ sops -e --input-type yaml --output-type yaml ./ha/secrets.yaml > ./ha/secrets.ya
 sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secrets.yaml
 ```
 
-[1]: <>
+[1]: <https://getsops.io/>
