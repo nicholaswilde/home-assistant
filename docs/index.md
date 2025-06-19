@@ -1,6 +1,5 @@
 ---
 # :house_with_garden: Home Assistant :robot:
-
 [![task](https://img.shields.io/badge/Task-Enabled-brightgreen?style=for-the-badge&logo=task&logoColor=white)](https://taskfile.dev/#/)
 [![ci](https://img.shields.io/github/actions/workflow/status/nicholaswilde/home-assistant/ci.yaml?label=ci&style=for-the-badge&branch=main)](https://github.com/nicholaswilde/home-assistant/actions/workflows/ci.yaml)
 
