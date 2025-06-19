@@ -3,7 +3,28 @@ version: '3'
 
 # docker run --rm -v "${PWD}":/workdir mikefarah/yq e compose.yaml
 
+vars:
+  IMAGE: nicholaswilde/mkdocs-material
+  PORT: 8000
+
 tasks:
+  serve:
+    desc: >-
+      Start development server on http://0.0.0.0:{{ .PORT }} using
+      Docker and mkdocs-material
+    cmds:
+      - >-
+        docker run --rm -it -p {{ .PORT }}:{{ .PORT}} -v ${PWD}:/docs
+        --platform linux/amd64 {{ .IMAGE }} serve
+        --dev-addr 0.0.0.0:{{ .PORT }} -f ./mkdocs.yml
+    deps:
+      - build
+  build:
+    desc: Build documentation using Docker and mkdocs-material
+    cmds:
+      - >-
+        docker run --rm -it -v ${PWD}:/docs --platform linux/amd64
+        {{ .IMAGE }} build -f ./mkdocs.yml
   chown:
     desc: chown mosquitto
     cmds:

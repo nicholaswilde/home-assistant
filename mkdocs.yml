@@ -15,6 +15,12 @@ edit_uri: "edit/main/docs/"
 # Page tree
 nav:
   - Home: index.md
+  - Z-Wave JS UI: z-wave-js-ui.md
+  - Hardware: hardware.md
+  - Tags: tags.md
+
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:
@@ -66,8 +72,8 @@ theme:
 
 plugins:
   - search
-  - tags:
-      tags_file: reference/tags.md
+  - tags
+      # tags_file: reference/tags.md
   - minify:
       minify_html: true
 
