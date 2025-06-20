@@ -2,4 +2,6 @@
 
 ## :link: References
 
+- <https://esphome.io/>
+
 [1]: <https://esphome.io/>
