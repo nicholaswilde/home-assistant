@@ -1,4 +1,4 @@
-# ![zwave](https://cdn.jsdelivr.net/gh/selfhst/icons/png/z-wave-js-ui.png){ "width" = 32 } Z-Wave JS UI
+# ![zwave](https://cdn.jsdelivr.net/gh/selfhst/icons/png/z-wave-js-ui.png){ width="32" } Z-Wave JS UI
 
 ## :link: References
 
