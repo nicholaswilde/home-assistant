@@ -44,34 +44,6 @@ WIP
 - Debug `rtl_433` - `Settings` → `Devices & services` → `MQTT` → `Configure` → `Listen to a topic` → `rtl_433/#` → `Start listening`
 - List all entities `Template` → `{{ states | map(attribute='entity_id') | list | join('\n') }}`
 
-### [rtl_433][18]
-
-!!! code
-
-    ```shell
-    lsusb
-    ```
-
-    ```shell
-    # Output
-    Bus 001 Device 003: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
-    ```
-
-!!! abstract "/etc/udev/rules.d/99-rtl433.rules"
-
-    ```
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", SYMLINK+="rtl433"
-    ```
-
-!!! abstract "compose.yaml"
-
-    ```yaml
-    services:
-      rtl433:
-        devices:
-          - /dev/rtl433:/dev/bus/usb/001/003
-    ```
-
 ## :hammer_and_wrench: &nbsp; Hardware
 
 - [Raspberry Pi 4 8GB][12]
