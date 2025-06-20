@@ -16,6 +16,7 @@ edit_uri: "edit/main/docs/"
 nav:
   - Home: index.md
   - SOPS: sops.md
+  - ESPHome: esphome.md
   - rtl_434: rtl_433.md
   - Z-Wave JS UI: z-wave-js-ui.md
   - Hardware: hardware.md
