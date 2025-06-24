@@ -24,7 +24,7 @@ services:
       - zwave-js-ui
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome:2025.6.0
+    image: ghcr.io/esphome/esphome:2025.6.1
     volumes:
       - ./esphome:/config
       - /etc/localtime:/etc/localtime:ro
