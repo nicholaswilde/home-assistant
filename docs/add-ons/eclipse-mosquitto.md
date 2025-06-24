@@ -10,7 +10,11 @@ WIP
 
 ## :gear: Config
 
-WIP
+!!! example ""
+
+    Web port: `3000`
+    
+    Interface port: `1883`
 
 ## :link: References
 
