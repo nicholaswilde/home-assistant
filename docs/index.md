@@ -26,14 +26,6 @@ My [Home Assistant][19] backup.
 
 WIP
 
-## :electric_plug: Ports
-
-| Container       | Port  |
-|-----------------|-------|
-| Home Assistant  | 8123  |
-| ESPHome         | 6052  |
-| Node-RED        | 1880  |
-
 ## :pencil: &nbsp; Notes
 
 - My setup is using the [UI Lovelace Minimalist theme][15].
@@ -43,22 +35,6 @@ WIP
     - `Development tools` → `Services` → `zha.remove`
 - Debug `rtl_433` - `Settings` → `Devices & services` → `MQTT` → `Configure` → `Listen to a topic` → `rtl_433/#` → `Start listening`
 - List all entities `Template` → `{{ states | map(attribute='entity_id') | list | join('\n') }}`
-
-## :hammer_and_wrench: &nbsp; Hardware
-
-- [Raspberry Pi 4 8GB][12]
-- [SkyConnect (ZigBee)][13]
-- [NooElec NESDR Mini 2 SDR & DVB-T USB Stick (RTL2832 + R820T2)][16]
-- [Aeotec Range Extender 7 (Z-Wave)][10]
-- [Minoston Z-Wave Outlet Mini Plug-in Socket][7]
-- [Innr Zigbee Smart Plugs][2]
-- [GE Enbrighten Z-Wave Plus Smart Light Switch][1]
-- [Enbrighten 14298 Z-Wave Plus Plug-In Outdoor Smart Switch, Gen5][3]
-- [Aeotec Recessed Door Sensor Gen5][4] 
-- [GE 12730 Z-Wave Smart Fan Control][5]
-- [Aeon Labs Aeotec Z-Wave Door/Window Sensor, 2nd Edition][6]
-- [Aqara Door and Window][8]
-- [Enbrighten Zigbee Smart Light Switch Outdoor Plug-In][9]
 
 ## :scales: License
 

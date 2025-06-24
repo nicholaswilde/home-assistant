@@ -1,3 +1,4 @@
+# --8<-- [start:home-assistant]
 ---
 services:
   homeassistant:
@@ -22,6 +23,8 @@ services:
       - mosquitto
       - rtl433
       - zwave-js-ui
+  # --8<-- [end:home-assistant]
+  # --8<-- [start:esphome]
   esphome:
     container_name: esphome
     image: ghcr.io/esphome/esphome:2025.6.1
@@ -31,6 +34,8 @@ services:
     restart: always
     privileged: true
     network_mode: host
+  # --8<-- [end:esphome]
+  # --8<-- [start:mosquitto]
   mosquitto:
     image: eclipse-mosquitto:2.0.21
     container_name: mosquitto
@@ -45,6 +50,8 @@ services:
       - 1883:1883
       - 9001:9001
     restart: unless-stopped
+  # --8<-- [end:mosquitto]
+  # --8<-- [start:rtl433]
   rtl433:
     image: hertzg/rtl_433:25.02
     container_name: rtl433
@@ -58,6 +65,8 @@ services:
       - "-f433.9M"
     restart: unless-stopped
     network_mode: host
+  # --8<-- [end:rtl433]
+  # --8<-- [start:zwave-js-ui]
   zwave-js-ui:
     container_name: "zwave-js-ui"
     image: "zwavejs/zwave-js-ui:10.7.0"
@@ -77,3 +86,4 @@ services:
       - /etc/localtime:/etc/localtime:ro
     working_dir: "/usr/src/app"
     network_mode: host
+    # --8<-- [end:zwave-js-ui]

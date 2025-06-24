@@ -16,14 +16,14 @@ edit_uri: "edit/main/docs/"
 nav:
   - Home: index.md
   - Home Assistant: home-assistant.md
-  - Notes: notes.md
-  - Hardware: hardware.md
   - Add-Ons:
       - ESPHome: add-ons/esphome.md
+      - Mosquitto: add-ons/mosquitto.md
       - rtl_434: add-ons/rtl_433.md
-      - Z-Wave JS UI: add-ons/z-wave-js-ui.md
+      - Z-Wave JS UI: add-ons/zwave-js-ui.md
   - Tools:
       - SOPS: tools/sops.md
+  - Hardware: hardware.md
   - Reference:
       - Tags: tags.md
 
@@ -118,8 +118,7 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.snippets:
       base_path:
-        - ./pve
-        - ./docker
+        - ./
   - pymdownx.smartsymbols
   - pymdownx.superfences:
       custom_fences:
