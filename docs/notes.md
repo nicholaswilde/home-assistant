@@ -1,6 +1,5 @@
 # :pencil: Notes
 
-- My setup is using the [UI Lovelace Minimalist theme][15].
 - [Remove unwanted entities][17] - `Development tools` → `Services` → `recorder.purge_entities`
 - Remove ZHA device
     - Copy `Settings` → `Devices & services` → `Zigbee Home Automation` → `<Device>` → `Device info` → `Zigbee info` → `IEEE`
