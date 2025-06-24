@@ -15,6 +15,7 @@ edit_uri: "edit/main/docs/"
 # Page tree
 nav:
   - Home: index.md
+  - Home Assistant: home-assistant.md
   - SOPS: sops.md
   - Notes: notes.md
   - ESPHome: esphome.md
