@@ -8,3 +8,5 @@
 - List all entities `Template` → `{{ states | map(attribute='entity_id') | list | join('\n') }}`
 
 ## :link: References
+
+[17]: <https://community.home-assistant.io/t/how-to-remove-unwanted-entities/433103/10>
