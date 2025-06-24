@@ -12,7 +12,7 @@ WIP
 
 !!! example ""
 
-    Web port: `3000`
+    Web port: `9001`
     
     Interface port: `1883`
 
