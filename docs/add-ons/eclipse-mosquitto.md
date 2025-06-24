@@ -2,7 +2,7 @@
 
 [Eclipse Mosquitto][1] is an open source (EPL/EDL licensed) message broker that implements the MQTT protocol. 
 
-I use it to extract devices from [`rtl_433`](./rtl433.md).
+I use it to extract devices from [`rtl_433`](./rtl_433.md).
 
 ## :hammer_and_wrench: Hardware
 
