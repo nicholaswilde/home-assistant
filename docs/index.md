@@ -7,20 +7,22 @@ My [Home Assistant][19] backup.
 
 ## :rocket: TL;DR
 
-=== "Task"
+!!! code
 
-    ```
-    task up-d
-    ```
+    === "Task"
 
-=== "Manual"
+        ```
+        task up-d
+        ```
 
-    ```
-    cp .env.tmpl .env
-    # Update .env
-    # Update .sop.yaml to include the age public key id
-    docker compose up -d
-    ```
+    === "Manual"
+
+        ```
+        cp .env.tmpl .env
+        # Update .env
+    ;   # Update .sop.yaml to include the age public key id
+        docker compose up -d
+        ```
 
 ## :frame_with_picture: Background
 
