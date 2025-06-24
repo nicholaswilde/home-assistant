@@ -2,7 +2,7 @@
 
 [Eclipse Mosquitto][1] is an open source (EPL/EDL licensed) message broker that implements the MQTT protocol. 
 
-The MQTT protocol provides a lightweight method of carrying out messaging using a publish/subscribe model. This makes it suitable for Internet of Things messaging such as with low power sensors or mobile devices such as phones, embedded computers, or microcontrollers.
+I use it to extract devices from [`rsl_433`](./rsl433.md).
 
 ## :hammer_and_wrench: Hardware
 
