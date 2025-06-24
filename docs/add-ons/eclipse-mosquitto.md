@@ -16,6 +16,12 @@ WIP
     
     Interface port: `1883`
 
+??? abstract "compose.yaml"
+
+    ```yaml
+    --8<-- "compose.yaml:mosquitto"
+    ```
+
 ## :link: References
 
 [1]: <https://mosquitto.org/>
