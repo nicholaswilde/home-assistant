@@ -17,8 +17,8 @@ nav:
   - Home: index.md
   - Home Assistant: home-assistant.md
   - Add-Ons:
+      - Eclipse Mosquitto: add-ons/eclipse-mosquitto.md
       - ESPHome: add-ons/esphome.md
-      - Mosquitto: add-ons/mosquitto.md
       - rtl_434: add-ons/rtl_433.md
       - Z-Wave JS UI: add-ons/zwave-js-ui.md
   - Tools:
