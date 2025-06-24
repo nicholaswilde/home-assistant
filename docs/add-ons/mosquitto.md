@@ -1,4 +1,4 @@
-# Mosquitto
+# Eclipse Mosquitto
 
 ## :hammer_and_wrench: Hardware
 
@@ -9,3 +9,5 @@ WIP
 WIP
 
 ## :link: References
+
+[1] <https://mosquitto.org/>
