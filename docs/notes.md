@@ -1,3 +1,3 @@
-# Notes
+# :pencil: Notes
 
 ## :link: References
