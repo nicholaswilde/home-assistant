@@ -12,9 +12,9 @@ WIP
 
 !!! example ""
 
-    Web port: `9001`
+    :material-console-network: Web port: `9001`
     
-    Interface port: `1883`
+    :material-console-network: Interface port: `1883`
 
 ??? abstract "compose.yaml"
 
