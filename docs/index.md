@@ -26,16 +26,6 @@ My [Home Assistant][19] backup.
 
 WIP
 
-## :pencil: &nbsp; Notes
-
-- My setup is using the [UI Lovelace Minimalist theme][15].
-- [Remove unwanted entities][17] - `Development tools` → `Services` → `recorder.purge_entities`
-- Remove ZHA device
-    - Copy `Settings` → `Devices & services` → `Zigbee Home Automation` → `<Device>` → `Device info` → `Zigbee info` → `IEEE`
-    - `Development tools` → `Services` → `zha.remove`
-- Debug `rtl_433` - `Settings` → `Devices & services` → `MQTT` → `Configure` → `Listen to a topic` → `rtl_433/#` → `Start listening`
-- List all entities `Template` → `{{ states | map(attribute='entity_id') | list | join('\n') }}`
-
 ## :scales: License
 
 ​[​Apache License 2.0](https://raw.githubusercontent.com/nicholaswilde/home-assistant/refs/heads/main/docs/LICENSE)
