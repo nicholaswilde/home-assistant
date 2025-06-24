@@ -1,4 +1,4 @@
-# :material-home-assistant: Home Assistant
+# ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="32" } Home Assistant
 
 ## :gear: Config
 
