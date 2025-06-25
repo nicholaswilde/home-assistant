@@ -28,7 +28,7 @@
     --8<-- "compose.yaml:zwave-js-ui"
     ```
 
-### ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="24" } Home Assistant
+### ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="16" } Home Assistant
 
 WIP
 
