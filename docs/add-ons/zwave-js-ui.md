@@ -1,3 +1,7 @@
+---
+tags:
+  - add-ons
+---
 # ![zwave](https://cdn.jsdelivr.net/gh/selfhst/icons/png/z-wave-js-ui.png){ width="32" } Z-Wave JS UI
 
 ## :hammer_and_wrench: Hardware
