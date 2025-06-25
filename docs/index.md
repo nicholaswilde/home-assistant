@@ -20,7 +20,7 @@ My [Home Assistant][19] backup.
         ```
         cp .env.tmpl .env
         # Update .env
-    ;   # Update .sop.yaml to include the age public key id
+        # Update .sop.yaml to include the age public key id
         docker compose up -d
         ```
 
