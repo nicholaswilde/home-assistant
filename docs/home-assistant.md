@@ -17,7 +17,7 @@ I toyed around with moving to HAOS to make it easier to install and manage integ
 !!! code ""
 
     ```shell
-    ls /dev/serial/by-id
+    sudo ls -la /dev/serial/by-id
     ```
 
     ```shell
