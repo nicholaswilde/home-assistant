@@ -36,7 +36,7 @@ Creating custom devices was a bit difficult due to the programming language.
 
 After SmartThings was bought by Samsung, I didn't do much with home automation.
 
-### ![ha](){ width="20" } Home Assistant
+### ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="20" } Home Assistant
 
 I started using Home Assistant for all of it's third party integrations. I kept my z-wave and zigbee devices on SmartThings and integrated SmartThings and Home Assistant together.
 
