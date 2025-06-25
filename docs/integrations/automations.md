@@ -1,3 +1,7 @@
+---
+tags:
+  - integrations
+---
 # :robot: Automations
 
 Automations that I use.
