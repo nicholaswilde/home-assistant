@@ -4,6 +4,10 @@ tags:
 ---
 # :hammer_and_wrench: &nbsp; Hardware
 
+I used to run HA on a bare-metal NUC running Ubuntu Server, but a lot of computing potential was wasted on the NUC.
+
+I have since moved over to a dedicated Raspberry Pi 4 8GB running Raspberry Pi OS. This, too, may be underutilized.
+
 - [Raspberry Pi 4 8GB][12]
 - [SkyConnect (ZigBee)][13]
 - [NooElec NESDR Mini 2 SDR & DVB-T USB Stick (RTL2832 + R820T2)][16]
