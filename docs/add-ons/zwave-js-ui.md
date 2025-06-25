@@ -35,6 +35,7 @@ WIP
 ## :link: References
 
 - <https://zwave-js.github.io/zwave-js-ui/>
+- <https://www.home-assistant.io/integrations/zwave_js/>
 
 [1]: <https://zwave-js.github.io/zwave-js-ui/>
 [2]: <https://www.amazon.com/dp/B0BW171KP3>
