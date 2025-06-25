@@ -16,6 +16,8 @@ edit_uri: "edit/main/docs/"
 nav:
   - Home: index.md
   - Home Assistant: home-assistant.md
+  - Integrations:
+      - Automations: integrations/automations.md
   - Add-Ons:
       - Eclipse Mosquitto: add-ons/eclipse-mosquitto.md
       - ESPHome: add-ons/esphome.md
