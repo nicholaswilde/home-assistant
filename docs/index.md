@@ -26,7 +26,21 @@ My [Home Assistant][19] backup.
 
 ## :frame_with_picture: Background
 
-WIP
+My home automation journey has been quite long. I started off with a z-wave stick that used with a software package that I can't remember.
+
+### ![st](){ width="20" }SmartThings
+
+I then moved over to SmartThings when it was first created as a Kickstarter project. That opened my world into home automation and my investment into devices.
+
+Creating custom devices was a bit difficult due to the programming language.
+
+After SmartThings was bought by Samsung, I didn't do much with home automation.
+
+### ![ha](){ width="20" } Home Assistant
+
+I started using Home Assistant for all of it's third party integrations. I kept my z-wave and zigbee devices on SmartThings and integrated SmartThings and Home Assistant together.
+
+I've since moved over to Home Assistant completely, which has been great and pretty seamless.
 
 ## :scales: License
 
