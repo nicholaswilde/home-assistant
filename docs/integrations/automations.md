@@ -6,11 +6,11 @@ Automations that I use.
 
 The vast majority of my automations consist of controlling lights around the house.
 
-### Sunrise
+### :sunrise: Sunrise
 
 WIP
 
-### Sunset
+### :sunrise_over_mountains: Sunset
 
 WIP
 
