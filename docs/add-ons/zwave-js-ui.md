@@ -30,7 +30,18 @@
 
 ### ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="16" } Home Assistant
 
-WIP
+!!! note
+
+    The hostname in the URL should match the container name of Z-Wave JS.
+
+!!! example ""
+
+    === "URL"
+    
+        ```
+        ws://zwave-js-ui:3000
+        ```
+
 
 ## :link: References
 
