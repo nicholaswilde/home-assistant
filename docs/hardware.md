@@ -4,11 +4,20 @@ tags:
 ---
 # :hammer_and_wrench: &nbsp; Hardware
 
+## Intel NUC
+
 I used to run HA on a bare-metal NUC running Ubuntu Server, but a lot of computing potential was wasted on the NUC.
+
+## [Raspberry Pi 4 8GB][12]
 
 I have since moved over to a dedicated Raspberry Pi 4 8GB running Raspberry Pi OS. This, too, may be underutilized.
 
-- [Raspberry Pi 4 8GB][12]
+## HA Yellow
+
+WIP
+
+## Devices
+
 - [SkyConnect (ZigBee)][13]
 - [NooElec NESDR Mini 2 SDR & DVB-T USB Stick (RTL2832 + R820T2)][16]
 - [Aeotec Range Extender 7 (Z-Wave)][10]
@@ -43,4 +52,4 @@ I have since moved over to a dedicated Raspberry Pi 4 8GB running Raspberry Pi O
 [18]: <https://github.com/hertzg/rtl_433_docker/issues/14#issuecomment-868524131>
 [19]: <https://www.home-assistant.io/>
 [20]: <https://github.com/nicholaswilde/>
-
+[21]: <https://www.home-assistant.io/yellow>
