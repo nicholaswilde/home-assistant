@@ -4,7 +4,7 @@ tags:
 ---
 # :hammer_and_wrench: &nbsp; Hardware
 
-## Intel NUC
+## :computer: Intel NUC
 
 I used to run HA on a bare-metal NUC running Ubuntu Server, but a lot of computing potential was wasted on the NUC.
 
@@ -12,9 +12,11 @@ I used to run HA on a bare-metal NUC running Ubuntu Server, but a lot of computi
 
 I have since moved over to a dedicated Raspberry Pi 4 8GB running Raspberry Pi OS. This, too, may be underutilized.
 
-## HA Yellow
+This is a repurposed Raspberry Pi.
 
-WIP
+## [Home Assistant Yellow][21]
+
+I know that that the Home Assistant Yellow exists, but just haven't looked into it.
 
 ## Devices
 
