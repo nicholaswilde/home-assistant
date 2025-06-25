@@ -14,6 +14,17 @@ I toyed around with moving to HAOS to make it easier to install and manage integ
 
     :material-console-network: Default Port: `8123`
 
+!!! code ""
+
+    ```shell
+    ls /dev/serial/by-id
+    ```
+
+    ```shell
+    # Output
+    /dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00
+    ```
+
 ??? abstract "compose.yaml"
 
     ```yaml
