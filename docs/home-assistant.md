@@ -28,7 +28,7 @@ I toyed around with moving to HAOS to make it easier to install and manage integ
 - `Development tools` → `Services` → `zha.remove`
 - List all entities `Template` → `{{ states | map(attribute='entity_id') | list | join('\n') }}`
 
-## :: Update
+## :rocket: Upgrade
 
 !!! code
 
@@ -36,6 +36,12 @@ I toyed around with moving to HAOS to make it easier to install and manage integ
 
         ```shell
         task upgrade
+        ```
+
+    === "Manual"
+
+        ```shell
+        
         ```
 
 ## :link: References
