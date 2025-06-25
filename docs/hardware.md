@@ -14,7 +14,7 @@ I have since moved over to a dedicated Raspberry Pi 4 8GB running Raspberry Pi O
 
 This is a repurposed Raspberry Pi.
 
-## [Home Assistant Yellow][21]
+## ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="24" } [Home Assistant Yellow][21]
 
 I know that that the Home Assistant Yellow exists, but just haven't looked into it.
 
