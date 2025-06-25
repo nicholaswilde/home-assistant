@@ -1,3 +1,7 @@
+---
+tags:
+ - tools
+---
 # :key: SOPS
 
 [SOPS][1] is used to encrypt files that contain secrets. The encrypted copy of the file ends in `*.enc`.
