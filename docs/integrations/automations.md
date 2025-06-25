@@ -18,7 +18,7 @@ WIP
 
 WIP
 
-### Closet & Pantry
+### :door: Closet & Pantry
 
 WIP
 
