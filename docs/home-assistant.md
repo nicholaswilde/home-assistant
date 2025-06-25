@@ -4,7 +4,7 @@
 
 I run HA in a Docker container using Docker compose to enable the ease of updating via Renovate.
 
-## HAOS
+## ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="24" } HAOS
 
 I toyed around with moving to HAOS to make it easier to install and manage integratios, but I didn't like the command line.
 
