@@ -14,7 +14,7 @@
 !!! code ""
 
     ```shell
-    ls /dev/serial/by-id
+    sudo ls -la /dev/serial/by-id
     ```
 
     ```shell
