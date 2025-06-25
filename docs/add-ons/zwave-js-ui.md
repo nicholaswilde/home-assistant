@@ -28,6 +28,10 @@
     --8<-- "compose.yaml:zwave-js-ui"
     ```
 
+### ![ha](){ width="32" } Home Assistant
+
+WIP
+
 ## :link: References
 
 - <https://zwave-js.github.io/zwave-js-ui/>
