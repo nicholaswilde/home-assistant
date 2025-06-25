@@ -18,7 +18,7 @@ This is a repurposed Raspberry Pi.
 
 I know that that the Home Assistant Yellow exists, but just haven't looked into it.
 
-## Devices
+## :bulb: Devices
 
 - [SkyConnect (ZigBee)][13]
 - [NooElec NESDR Mini 2 SDR & DVB-T USB Stick (RTL2832 + R820T2)][16]
