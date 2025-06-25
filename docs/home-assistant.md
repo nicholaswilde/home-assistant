@@ -22,7 +22,7 @@ I toyed around with moving to HAOS to make it easier to install and manage integ
 
     ```shell
     # Output
-    /dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00
+    /dev/serial/by-id//dev/serial/by-id/usb-Nabu_Casa_SkyConnect_v1.0_8aaab0838e91ed1196c1c3d13b20a988-if00-port0
     ```
 
 ??? abstract "compose.yaml"
