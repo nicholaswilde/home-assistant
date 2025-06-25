@@ -1,5 +1,13 @@
 # ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="32" } Home Assistant
 
+## :whale2: Docker Compose
+
+I run HA in a Docker container using Docker compose to enable the ease of updating via Renovate.
+
+## HAOS
+
+I toyed around with moving to HAOS to make it easier to install and manage integratios, but I didn't like the command line.
+
 ## :gear: Config
 
 !!! example ""
@@ -19,6 +27,16 @@
 - Copy `Settings` → `Devices & services` → `Zigbee Home Automation` → `<Device>` → `Device info` → `Zigbee info` → `IEEE`
 - `Development tools` → `Services` → `zha.remove`
 - List all entities `Template` → `{{ states | map(attribute='entity_id') | list | join('\n') }}`
+
+## :: Update
+
+!!! code
+
+    === "Task"
+
+        ```shell
+        task upgrade
+        ```
 
 ## :link: References
 
