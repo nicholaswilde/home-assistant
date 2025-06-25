@@ -28,7 +28,7 @@ My [Home Assistant][19] backup.
 
 My home automation journey has been quite long. I started off with a z-wave stick that used with a software package that I can't remember.
 
-### ![st](){ width="20" }SmartThings
+### :simple-smartthings: SmartThings
 
 I then moved over to SmartThings when it was first created as a Kickstarter project. That opened my world into home automation and my investment into devices.
 
