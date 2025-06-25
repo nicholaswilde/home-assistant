@@ -3,7 +3,7 @@
 services:
   homeassistant:
     container_name: homeassistant
-    image: ghcr.io/linuxserver/homeassistant:2025.6.3
+    image: ghcr.io/linuxserver/homeassistant:2025.6.2
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -17,12 +17,16 @@ services:
       # - /dev/ttyUSB1:/dev/ttyUSB1
     restart: unless-stopped
     privileged: true
-    network_mode: host
+    # network_mode: host
+    networks:
+      - localnet
     depends_on:
       - esphome
       - mosquitto
       - rtl433
       - zwave-js-ui
+    ports:
+      - 8123:8123
   # --8<-- [end:home-assistant]
   # --8<-- [start:esphome]
   esphome:
@@ -31,9 +35,11 @@ services:
     volumes:
       - ./esphome:/config
       - /etc/localtime:/etc/localtime:ro
-    restart: always
+    restart: unless-stopped
     privileged: true
-    network_mode: host
+    networks:
+      - localnet
+    # network_mode: host
   # --8<-- [end:esphome]
   # --8<-- [start:mosquitto]
   mosquitto:
@@ -50,6 +56,8 @@ services:
       - 1883:1883
       - 9001:9001
     restart: unless-stopped
+    networks:
+      - localnet
   # --8<-- [end:mosquitto]
   # --8<-- [start:rtl433]
   rtl433:
@@ -59,12 +67,14 @@ services:
       - /dev/rtl433:/dev/bus/usb/001/004
     command:
       - "-Mtime:unix:usec:utc"
-      - "-Fmqtt://192.168.2.88:1883,retain=1,user=${RTL_USER},pass=${RTL_PASS},events=rtl_433[/model][/id]"
+      - "-Fmqtt://mosquitto:1883,retain=1,user=${RTL_USER},pass=${RTL_PASS},events=rtl_433[/model][/id]"
       - "-Ccustomary"
       - "-f915M"
       - "-f433.9M"
     restart: unless-stopped
-    network_mode: host
+    networks:
+      - localnet
+    # network_mode: host
   # --8<-- [end:rtl433]
   # --8<-- [start:zwave-js-ui]
   zwave-js-ui:
@@ -85,5 +95,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
     working_dir: "/usr/src/app"
-    network_mode: host
+    networks:
+      - localnet
+    # network_mode: host
     # --8<-- [end:zwave-js-ui]
+
+networks:
+  localnet:
+    driver: bridge
