@@ -26,7 +26,7 @@ WIP
 
 !!! note
 
-    The hostname in the URL should match the container name of Z-Wave JS.
+    The `Broker` should match the container name of Eclipse Mosquitto.
 
 !!! example ""
 
@@ -37,5 +37,8 @@ WIP
         Port: `1883`
 
 ## :link: References
+
+- <https://mosquitto.org/>
+- <https://www.home-assistant.io/integrations/mqtt/>
 
 [1]: <https://mosquitto.org/>
