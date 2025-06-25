@@ -15,5 +15,6 @@
 ## :link: References
 
 - <https://esphome.io/>
+- <https://www.home-assistant.io/integrations/esphome/>
 
 [1]: <https://esphome.io/>
