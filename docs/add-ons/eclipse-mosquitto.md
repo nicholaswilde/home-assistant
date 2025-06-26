@@ -26,7 +26,9 @@ WIP
     --8<-- "compose.yaml:mosquitto"
     ```
 
-### :lock: Password
+### :lock: Credentials
+
+Generate `username` and `password` for mosquitto.
 
 !!! code "./mosquitto/config/password.txt"
 
@@ -54,7 +56,7 @@ WIP
 
 !!! note
 
-    The `Broker` should match the container name of Eclipse Mosquitto.
+    The `Broker` should match the container name of Eclipse Mosquitto and the `username` and `password` should match the generated ones above.
 
 !!! example ""
 
@@ -63,6 +65,10 @@ WIP
         Broker: `mosquitto`
 
         Port: `1883`
+
+        Username: `username`
+
+        Password: `password`
 
 ## :link: References
 
