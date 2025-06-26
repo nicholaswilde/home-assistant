@@ -4,6 +4,10 @@ tags:
 ---
 # ![esphome](https://cdn.jsdelivr.net/gh/selfhst/icons/png/esphome.png){width="32"} ESPHome
 
+[ESPHome][] is used to connect my custom IoT devices to Home Assistant.
+
+I prefer to use ESP32 devices over ESP8266.
+
 ## :gear: Config
 
 !!! example ""
