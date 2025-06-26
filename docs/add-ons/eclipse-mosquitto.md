@@ -52,6 +52,12 @@ Generate `username` and `password` for mosquitto.
         exit 
         ```
 
+!!! success "Check"
+
+    ```shell
+    sudo cat ./mosquitto/config/password.txt
+    ```
+
 ### ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="16" } Home Assistant
 
 !!! note
