@@ -20,7 +20,7 @@ I prefer to use ESP32 devices over ESP8266.
     --8<-- "compose.yaml:esphome"
     ```
 
-## Examples
+## :bulb: Examples
 
 ### :hot_springs: Water Heater Monitor
 
