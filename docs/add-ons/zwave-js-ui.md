@@ -1,6 +1,6 @@
 ---
 tags:
-  - add-ons
+  - add-on
 ---
 # ![zwave](https://cdn.jsdelivr.net/gh/selfhst/icons/png/z-wave-js-ui.png){ width="32" } Z-Wave JS UI
 
