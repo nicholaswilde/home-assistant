@@ -4,7 +4,7 @@ tags:
 ---
 # ![esphome](https://cdn.jsdelivr.net/gh/selfhst/icons/png/esphome.png){width="32"} ESPHome
 
-[ESPHome][] is used to connect my custom IoT devices to Home Assistant.
+[ESPHome][1] is used to connect my custom IoT devices to Home Assistant.
 
 I prefer to use ESP32 devices over ESP8266.
 
@@ -19,6 +19,12 @@ I prefer to use ESP32 devices over ESP8266.
     ```yaml
     --8<-- "compose.yaml:esphome"
     ```
+
+## Examples
+
+### :hot_springs: Water Heater Monitor
+
+I have added a device to monitor my water heater pilot to ensure that the pilot is still lit. I had an issue where my water heater thermocouple malfunctioned which caused my pilot light to go out.
 
 ## :link: References
 
