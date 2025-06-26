@@ -33,13 +33,14 @@ WIP
     === "Automatic"
 
         ```shell
-        touch ./mosquitto/config/password.txt
+        sudo touch ./mosquitto/config/password.txt
         docker run -it --rm -v $PWD/mosquitto/config/password.txt:/mosquitto/config/password.txt eclipse-mosquitto -- mosquitto_passwd -c /mosquitto/config/password.txt username
         ```
 
     === "Manual"
     
         ```shell
+        sudo touch ./mosquitto/config/password.txt
         docker exec -it -v $PWD/mosquitto/config/password.txt:/mosquitto/config/password.txt mosquitto sh
         ```
 
