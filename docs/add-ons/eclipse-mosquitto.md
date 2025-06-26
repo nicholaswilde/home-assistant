@@ -26,6 +26,29 @@ WIP
     --8<-- "compose.yaml:mosquitto"
     ```
 
+### :lock: Password
+
+!!! code "./mosquitto/config/password.txt"
+
+    === "Automatic"
+
+        ```shell
+        touch ./mosquitto/config/password.txt
+        docker run -it --rm -v $PWD/mosquitto/config/password.txt:/mosquitto/config/password.txt eclipse-mosquitto -- mosquitto_passwd -c /mosquitto/config/password.txt username
+        ```
+
+    === "Manual"
+    
+        ```shell
+        docker exec -it -v $PWD/mosquitto/config/password.txt:/mosquitto/config/password.txt mosquitto sh
+        ```
+
+        ```shell
+        mosquitto_passwd -c /mosquitto/config/password.txt username
+        chown root:root /mosquitto/config/password.txt
+        exit 
+        ```
+
 ### ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="16" } Home Assistant
 
 !!! note
