@@ -15,7 +15,7 @@ portainer
 www
 node-red
 vscode
-mosquitto
+# mosquitto
 esphome/trash/
 ha/.cache/
 ha/.local/
@@ -43,3 +43,5 @@ secret.txt
 *.js.gz
 
 site/
+
+**/mosquitto.conf
