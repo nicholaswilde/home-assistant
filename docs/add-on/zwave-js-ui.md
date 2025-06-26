@@ -21,8 +21,7 @@ tags:
     sudo ls -la /dev/serial/by-id
     ```
 
-    ```shell
-    # Output
+    ```shell title="Output"
     /dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00
     ```
     
