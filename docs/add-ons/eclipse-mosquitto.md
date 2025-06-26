@@ -1,6 +1,6 @@
 ---
 tags:
-  - add-ons
+  - add-on
 ---
 # ![mosquitto](https://cdn.jsdelivr.net/gh/selfhst/icons/png/mosquitto.png){ width="32" } Eclipse Mosquitto
 
