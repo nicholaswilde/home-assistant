@@ -1,6 +1,6 @@
 ---
 tags:
-  - add-ons
+  - add-on
 ---
 # ![esphome](https://cdn.jsdelivr.net/gh/selfhst/icons/png/esphome.png){width="32"} ESPHome
 
