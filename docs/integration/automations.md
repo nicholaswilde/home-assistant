@@ -1,6 +1,6 @@
 ---
 tags:
-  - integrations
+  - integration
 ---
 # :robot: Automations
 
