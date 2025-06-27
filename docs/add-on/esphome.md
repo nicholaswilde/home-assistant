@@ -30,7 +30,7 @@ I prefer to use ESP32 devices over ESP8266.
 
     === "ESPHome"
     
-        Host: `http://esphome`
+        Host: `esphome`
 
         Port: `6053`
 
