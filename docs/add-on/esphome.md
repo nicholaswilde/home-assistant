@@ -40,6 +40,16 @@ I prefer to use [ESP32][2] devices over [ESP8266][3].
 
 I have added a device to monitor my water heater pilot to ensure that the pilot is still lit. I had an issue where my water heater thermocouple malfunctioned which caused my pilot light to go out.
 
+## :rocket: Future
+
+Future planned devices.
+
+### :droplet: Water Level Sensor
+
+I have an indoor plant grower that runs out of water.
+
+Create a sensor to send a notification when the water level is low.
+
 ## :link: References
 
 - <https://esphome.io/>
