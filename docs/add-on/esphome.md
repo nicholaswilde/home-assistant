@@ -32,7 +32,7 @@ I prefer to use ESP32 devices over ESP8266.
     
         Host: `esphome`
 
-        Port: `6053`
+        Port: `6052`
 
 ## :bulb: Examples
 
