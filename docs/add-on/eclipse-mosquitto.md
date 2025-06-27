@@ -8,10 +8,6 @@ tags:
 
 I use it to extract devices from [`rtl_433`](./rtl_433.md).
 
-## :hammer_and_wrench: Hardware
-
-WIP
-
 ## :gear: Config
 
 !!! example ""
