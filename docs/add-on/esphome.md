@@ -6,7 +6,7 @@ tags:
 
 [ESPHome][1] is used to connect my custom IoT devices to Home Assistant.
 
-I prefer to use ESP32 devices over ESP8266.
+I prefer to use [ESP32][2] devices over [ESP8266][3].
 
 ## :gear: Config
 
@@ -46,3 +46,5 @@ I have added a device to monitor my water heater pilot to ensure that the pilot 
 - <https://www.home-assistant.io/integrations/esphome/>
 
 [1]: <https://esphome.io/>
+[2]: <https://en.wikipedia.org/wiki/ESP32>
+[3]: <https://en.wikipedia.org/wiki/ESP8266>
