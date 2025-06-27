@@ -15,7 +15,7 @@ tags:
 
     :material-console-network: Default Port: `3000`
 
-!!! code ""
+!!! code "Find USB device ID"
 
     ```shell
     sudo ls -la /dev/serial/by-id
@@ -24,7 +24,9 @@ tags:
     ```shell title="Output"
     /dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00
     ```
-    
+
+Add the device ID to `devices`.
+
 ??? abstract "compose.yaml"
 
     ```yaml

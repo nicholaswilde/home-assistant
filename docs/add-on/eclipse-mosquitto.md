@@ -38,19 +38,19 @@ To be able to edit the config file using the current user on the host, the mosqu
 
 !!! code "Add the mosquitto group"
 
-    ```shell
+    ```shell title="Host"
     sudo groupadd -g 1883 mosquitto
     ```
 
 !!! code "Add current user to the mosquitto group"
 
-    ```shell
+    ```shell title="Host"
     sudo usermod -aG mosquitto $(whoami)
     ```
 
 !!! success "Check"
 
-    ```shell
+    ```shell title="Host"
     cat /etc/group | grep 1883
     ```
 
@@ -62,19 +62,19 @@ To be able to edit the config file using the current user on the host, the mosqu
 
 !!! code "Make directories"
 
-    ```shell
+    ```shell title="Host"
     mkdir -p ./mosquitto/config ./mosquitto/data ./mosquitto/log
     ```
 
 !!! code "Grant group write"
 
-    ```shell
+    ```shell title="Host"
     sudo chmod -R g+w ./mosquitto
     ```
 
 !!! code "Change folder permissions"
 
-    ```shell
+    ```shell title="Host"
     sudo chown -R 1883:1883 ./mosquitto
     ```
   
@@ -84,21 +84,24 @@ Generate `username` and `password` for mosquitto.
 
 !!! code "./mosquitto/config/password.txt"
 
-    === "Automatic"
-
-        ```shell
-        sudo touch ./mosquitto/config/password.txt
-        docker run -it --rm -v $PWD/mosquitto/config/password.txt:/mosquitto/config/password.txt eclipse-mosquitto -- mosquitto_passwd -c /mosquitto/config/password.txt username
-        ```
-
-    === "Manual"
+    ```shell title="Host"
+    sudo touch ./mosquitto/config/password.txt
+    docker compose up mosquitto -d
+    ```
     
-        ```shell
-        sudo touch ./mosquitto/config/password.txt
-        docker exec -it -v $PWD/mosquitto/config/password.txt:/mosquitto/config/password.txt mosquitto sh
+    === "Host"
+
+        ```shell title="Host"
+        docker exec -it mosquitto mosquitto_passwd -c /mosquitto/config/password.txt username
         ```
 
-        ```shell
+    === "Docker container"
+    
+        ```shell title="Host"
+        docker exec -it mosquitto sh
+        ```
+
+        ```shell title="Docker container"
         mosquitto_passwd -c /mosquitto/config/password.txt username
         chown root:root /mosquitto/config/password.txt
         exit 
@@ -106,18 +109,43 @@ Generate `username` and `password` for mosquitto.
 
 !!! code "Change permissions again"
 
-    ```shell
+    ```shell title="Host"
     sudo chown -R 1883:1883 ./mosquitto
     ```
 
 !!! success "Check"
 
-    ```shell
-    sudo cat ./mosquitto/config/password.txt
-    ```
+    === "Host"
+    
+        ```shell
+        sudo cat ./mosquitto/config/password.txt
+        ```
+    === "Docker container"
+
+        ```shell
+        docker exec -it mosquitto cat /mosquitto/config/password.txt
+        ```
+
 
     ```shell title="Output"
     username:$7$101$o0s01iFdr/lPCuvc$HEUdUhd50k212ZV/B9bjLYb/iKC6R+4srHgVz+3LbIebVavtD+5uRumiEOZGZOdy5LNq/siDdlxXxomOM8u3jA==
+    ```
+
+!!! code "Stop the container"
+
+    ```shell title="Host"
+    docker compose down mosquitto
+    ```
+
+!!! success "Check that it's not running"
+
+    ```shell title="Host"
+    docker container ps
+    ```
+
+    ```shell title="Output"
+    CONTAINER ID    IMAGE    COMMAND    CREATED   STATUS  PORTS   NAMES
+
     ```
 
 ### ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="16" } Home Assistant

@@ -45,3 +45,4 @@ secret.txt
 site/
 
 **/mosquitto.conf
+**/password.txt
