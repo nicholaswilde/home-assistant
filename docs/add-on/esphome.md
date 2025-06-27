@@ -20,6 +20,20 @@ I prefer to use ESP32 devices over ESP8266.
     --8<-- "compose.yaml:esphome"
     ```
 
+### ![ha](https://cdn.jsdelivr.net/gh/selfhst/icons/png/home-assistant.png){ width="16" } Home Assistant
+
+!!! note
+
+    The `Host` should match the container name of ESPHome.
+
+!!! example ""
+
+    === "ESPHome"
+    
+        Host: `http://esphome`
+
+        Port: `6053`
+
 ## :bulb: Examples
 
 ### :hot_springs: Water Heater Monitor
