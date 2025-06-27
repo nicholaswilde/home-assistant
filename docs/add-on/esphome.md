@@ -34,7 +34,7 @@ I prefer to use [ESP32][2] devices over [ESP8266][3].
 
         Port: `6052`
 
-## :bulb: Examples
+## :bulb: Devices
 
 ### :hot_springs: Water Heater Monitor
 
