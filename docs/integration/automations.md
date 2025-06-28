@@ -10,17 +10,19 @@ Automations that I use.
 
 The vast majority of my automations consist of controlling lights around the house.
 
-### :sunrise: Sunrise
 
-WIP
 
 ### :sunrise_over_mountains: Sunset
 
-WIP
+At sunset, I turn on all of my outdoor lights and some indoor lights, such as kitchen cabinet and mantle lights.
 
 ### :crescent_moon: Night
 
-WIP
+At about 10:30 PM I turn off some indoor and outdoor lights, such as the mantle and gazebo lights.
+
+### :sunrise: Sunrise
+
+At sunrise, I turn off the rest of of my outdoor lights.
 
 ### :door: Closet & Pantry
 
