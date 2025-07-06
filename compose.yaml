@@ -39,6 +39,8 @@ services:
     privileged: true
     networks:
       - localnet
+    ports:
+      - 6052:6052
     # network_mode: host
   # --8<-- [end:esphome]
   # --8<-- [start:mosquitto]
