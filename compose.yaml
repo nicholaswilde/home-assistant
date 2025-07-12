@@ -45,7 +45,7 @@ services:
   # --8<-- [end:esphome]
   # --8<-- [start:mosquitto]
   mosquitto:
-    image: eclipse-mosquitto:2.0.21
+    image: eclipse-mosquitto:2.0.22
     container_name: mosquitto
     volumes:
       - ./mosquitto:/mosquitto
