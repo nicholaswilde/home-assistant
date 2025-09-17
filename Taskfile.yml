@@ -8,6 +8,10 @@ vars:
   PORT: 8000
 
 tasks:
+  watch:
+    desc: Watch the logs
+    cmds:
+      - docker compose logs -f
   serve:
     desc: >-
       Start development server on http://0.0.0.0:{{ .PORT }} using
