@@ -81,7 +81,7 @@ services:
   # --8<-- [start:zwave-js-ui]
   zwave-js-ui:
     container_name: "zwave-js-ui"
-    image: "zwavejs/zwave-js-ui:11.6.1"
+    image: "zwavejs/zwave-js-ui:11.7.0"
     tty: true
     stop_signal: SIGINT
     devices:
