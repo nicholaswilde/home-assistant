@@ -31,7 +31,7 @@ services:
   # --8<-- [start:esphome]
   esphome:
     container_name: esphome
-    image: ghcr.io/esphome/esphome:2025.11.2
+    image: ghcr.io/esphome/esphome:2025.11.3
     volumes:
       - ./esphome:/config
       - /etc/localtime:/etc/localtime:ro
