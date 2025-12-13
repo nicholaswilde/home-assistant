@@ -63,7 +63,7 @@ services:
   # --8<-- [end:mosquitto]
   # --8<-- [start:rtl433]
   rtl433:
-    image: hertzg/rtl_433:25.02
+    image: hertzg/rtl_433:25.12
     container_name: rtl433
     devices:
       - /dev/rtl433:/dev/bus/usb/001/004
