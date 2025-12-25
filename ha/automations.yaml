@@ -138,6 +138,8 @@
       entity_id:
       - light.frontyard_lights
       - light.backyard_lights
+      - light.christmas_lights
+      - light.mini_christmas_tree
       device_id:
       - 051506996b7025af1718fd0938479c5f
       - b21fcfea4e8f3d81616d6c16a856ef09
@@ -158,6 +160,7 @@
       device_id:
       - b21fcfea4e8f3d81616d6c16a856ef09
       - d8011ac1e60de7e4669232b3cfdc3349
+      entity_id: light.christmas_lights
   - type: turn_off
     device_id: 646ac28bc137e10c8268b9390fbc7ca4
     entity_id: 824593148f9dbd267b52cbaf82b59787

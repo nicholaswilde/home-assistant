@@ -37,3 +37,61 @@
       force_update: true
       device_class: humidity
       value_template: "{{ value_json.humidity }}"
+  - sensor:
+    - name: "FrameFi Status"
+      state_topic: "frame-fi/state"
+      value_template: "{{ value_json.mode }}"
+      icon: "mdi:image-frame"
+    - name: "FrameFi File Count"
+      state_topic: "frame-fi/state"
+      value_template: "{{ value_json.sd_card.file_count }}"
+      unit_of_measurement: "files"
+      icon: "mdi:file-multiple"
+    - name: "FrameFi Used Space"
+      state_topic: "frame-fi/state"
+      value_template: "{{ (value_json.sd_card.used_size | float / 1024 / 1024 / 1024) | round(2) }}"
+      unit_of_measurement: "GB"
+      icon: "mdi:sd"
+    - name: "FrameFi Total Space"
+      state_topic: "frame-fi/state"
+      value_template: "{{ (value_json.sd_card.total_size | float / 1024 / 1024 / 1024) | round(2) }}"
+      unit_of_measurement: "GB"
+      icon: "mdi:sd"
+  - switch:
+    - name: "FrameFi Display"
+      state_topic: "frame-fi/display/status"
+      command_topic: "frame-fi/display/set"
+      payload_on: "ON"
+      payload_off: "OFF"
+      state_on: "ON"
+      state_off: "OFF"
+      optimistic: false
+      qos: 0
+      retain: true
+      icon: "mdi:monitor"
+  - select:
+    - name: "FrameFi Mode"
+      state_topic: "frame-fi/state"
+      value_template: "{{ value_json.mode }}"
+      command_topic: "frame-fi/mode/set"
+      options:
+        - "ftp"
+        - "msc"
+      optimistic: false
+      qos: 0
+      retain: true
+      icon: "mdi:swap-horizontal"
+  - button:
+    - name: "FrameFi Restart"
+      command_topic: "frame-fi/restart"
+      payload_press: "RESTART"
+      icon: "mdi:restart"
+  - device_tracker:
+    - name: "FrameFi"
+      state_topic: "frame-fi/status"
+      availability_topic: "frame-fi/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      payload_home: "online"
+      payload_not_home: "offline"
+      source_type: "router"
