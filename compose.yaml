@@ -66,7 +66,7 @@ services:
     image: hertzg/rtl_433:25.12
     container_name: rtl433
     devices:
-      - /dev/rtl433:/dev/bus/usb/001/004
+      - /dev/rtl433:/dev/bus/usb/001/001
     command:
       - "-Mtime:unix:usec:utc"
       - "-Fmqtt://mosquitto:1883,retain=1,user=${RTL_USER},pass=${RTL_PASS},events=rtl_433[/model][/id]"
@@ -84,6 +84,7 @@ services:
     image: "zwavejs/zwave-js-ui:11.9.1"
     tty: true
     stop_signal: SIGINT
+    user: ${PUID}:${PGID}
     devices:
       - "/dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00:/dev/zwave"
     environment:
@@ -94,7 +95,7 @@ services:
     restart: "always"
     volumes:
       - "/home/nicholas/git/nicholaswilde/home-assistant/zwave:/usr/src/app/store"
-      - /var/run/docker.sock:/var/run/docker.sock
+      - "/var/run/docker.sock:/var/run/docker.sock"
       - /etc/localtime:/etc/localtime:ro
     working_dir: "/usr/src/app"
     networks:

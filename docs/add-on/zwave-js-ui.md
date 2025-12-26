@@ -47,6 +47,15 @@ Add the device ID to `devices`.
         ws://zwave-js-ui:3000
         ```
 
+### :closed_lock_with_key: Permissions
+
+Files created by Z-Wave JS UI might be owned by `root`. To fix this, you can change the ownership of the directory.
+
+!!! code "Fix permissions"
+
+    ```shell title="Host"
+    sudo chown -R $USER:$USER ./zwave
+    ```
 
 ## :link: References
 

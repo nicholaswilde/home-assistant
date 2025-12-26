@@ -1,58 +1,66 @@
-  - sensor:
-      - name: "lights on"
-        unique_id: lights_on
-        icon: mdi:lightbulb-on-outline
-        state: >
-          {% set lights = [
-              states.light.attic_light,
-              states.light.cabinet_lights,
-              states.light.pantry_light,
-              states.light.garage_light,
-              states.light.cindy_s_sconce,
-              states.light.nick_s_sconce,
-              states.light.closet_light,
-              states.light.porch_light,
-              states.light.driveway_light,
-              states.light.frontyard_landscape_lights,
-              states.light.gazebo_lights,
-              states.light.backyard_landscape_lights,
-              states.light.backyard_light,
-              states.light.window_lights,
-              states.light.side_door_light,
-              ] %}
-          {{ lights | selectattr('state','eq','on') | list | count }}
-          # 039d8a93dc5ceb8fa7ba63d9b7278f2c
-  # Front Door Motion 
-  - trigger:
-      - platform: event
-        event_type: nest_event
-        event_data:
-          device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
-          type: camera_motion
-      - platform: event
-        event_type: nest_event
-        event_data:
-          device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
-          type: person_detected
-      - platform: event
-        event_type: nest_event
-        event_data:
-          device_id: <replace by your device id>
-          type: doorbell_chime
-    binary_sensor:
-      - name: "Front Door Motion Sensor"
-        device_class: motion
-        auto_off: 60
-        state: "on"
+- sensor:
+    - name: "lights on"
+      unique_id: lights_on
+      icon: mdi:lightbulb-on-outline
+      state: >
+        {% set lights = [
+            states.light.attic_light,
+            states.light.cabinet_lights,
+            states.light.pantry_light,
+            states.light.garage_light,
+            states.light.cindy_s_sconce,
+            states.light.nick_s_sconce,
+            states.light.closet_light,
+            states.light.porch_light,
+            states.light.driveway_light,
+            states.light.frontyard_landscape_lights,
+            states.light.gazebo_lights,
+            states.light.backyard_landscape_lights,
+            states.light.backyard_light,
+            states.light.window_lights,
+            states.light.side_door_light,
+            ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+        # 039d8a93dc5ceb8fa7ba63d9b7278f2c
+# Front Door Motion
+- trigger:
+    - platform: event
+      event_type: nest_event
+      event_data:
+        device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
+        type: camera_motion
+    - platform: event
+      event_type: nest_event
+      event_data:
+        device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
+        type: person_detected
+    - platform: event
+      event_type: nest_event
+      event_data:
+        device_id: <replace by your device id>
+        type: doorbell_chime
+  binary_sensor:
+    - name: "Front Door Motion Sensor"
+      unique_id: 03c0d255-6efc-493e-9398-14b5f014d36e
+      device_class: motion
+      auto_off: 60
+      state: "on"
 
-  #Front Door Doorbell
-  - trigger:
-      - platform: event
-        event_type: nest_event
-        event_data:
-          device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
-          type: doorbell_chime
-    binary_sensor:
-      - name: "Front Door Doorbell"
-        auto_off: 15
-        state: "true"
+#Front Door Doorbell
+- trigger:
+    - platform: event
+      event_type: nest_event
+      event_data:
+        device_id: 039d8a93dc5ceb8fa7ba63d9b7278f2c
+        type: doorbell_chime
+  binary_sensor:
+    - name: "Front Door Doorbell"
+      unique_id: 4f4d5476-3d7b-4208-ac8f-ead9b9d0c6e8
+      auto_off: 15
+      state: "true"
+
+- binary_sensor:
+    - name: Front Door Lock
+      unique_id: 5abdd51d-6b6a-467f-a944-3f5e3fea1ac3
+      device_class: lock
+      state: "{{ states('lock.front_door_lock')=='unlocked' }}"

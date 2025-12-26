@@ -66,10 +66,10 @@ To be able to edit the config file using the current user on the host, the mosqu
     mkdir -p ./mosquitto/config ./mosquitto/data ./mosquitto/log
     ```
 
-!!! code "Grant group write"
+!!! code "Grant group read/write"
 
     ```shell title="Host"
-    sudo chmod -R g+w ./mosquitto
+    sudo chmod -R g+rwX ./mosquitto
     ```
 
 !!! code "Change folder permissions"

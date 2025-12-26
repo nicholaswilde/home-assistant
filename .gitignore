@@ -16,6 +16,8 @@ www
 node-red
 vscode
 # mosquitto
+mosquitto/data/
+mosquitto/log/
 esphome/trash/
 ha/.cache/
 ha/.local/
@@ -46,3 +48,12 @@ site/
 
 **/mosquitto.conf
 **/password.txt
+
+# Z-Wave
+zwave/settings.json
+zwave/users.json
+zwave/sessions/
+zwave/logs/
+zwave/*.jsonl
+zwave/.config-db/
+zwave/**/*.lock

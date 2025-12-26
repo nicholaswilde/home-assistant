@@ -30,9 +30,9 @@ tasks:
         docker run --rm -it -v ${PWD}:/docs --platform linux/amd64
         {{ .IMAGE }} build -f ./mkdocs.yml
   chown:
-    desc: chown mosquitto
+    desc: chown mosquitto and zwave
     cmds:
-      - sudo chown -R nicholas:nicholas mosquitto/
+      - sudo chown -R nicholas:nicholas mosquitto/ zwave/
   show-pub-key:
     desc: Show public age key
     cmds:
@@ -65,16 +65,18 @@ tasks:
       - sops -e ./ha/secrets.yaml > ./ha/secrets.yaml.enc
       - sops -e ./ha/html5_push_registrations.conf > ./ha/html5_push_registrations.conf.enc
       - sops -e ./esphome/secrets.yaml > ./esphome/secrets.yaml.enc
+      - sops -e ./zwave/settings.json > ./zwave/settings.json.enc
       - sops -e ./.env > ./.env.enc
     ignore_error: true
   dec:
     desc: Decrypt secret files
     cmds:
-      - git restore ./ha/secrets.yaml ./ha/html5_push_registrations.conf ./esphome/secrets.yaml ./.env
+      - git restore ./ha/secrets.yaml ./ha/html5_push_registrations.conf ./esphome/secrets.yaml ./zwave/settings.json ./.env
       - git pull origin
       - sops -d --input-type yaml --output-type yaml ./ha/secrets.yaml.enc > ./ha/secrets.yaml
       - sops -d ./ha/html5_push_registrations.conf.enc > ./ha/html5_push_registrations.conf
       - sops -d --input-type yaml --output-type yaml ./esphome/secrets.yaml.enc > ./esphome/secrets.yaml
+      - sops -d --input-type json --output-type json ./zwave/settings.json.enc > ./zwave/settings.json
       - sops -d --input-type dotenv --output-type dotenv ./.env.enc > ./.env
     ignore_error: true
   ps:
@@ -122,6 +124,10 @@ tasks:
     cmds:
       - git pull origin
       - task: update
+  logs:rtl433:
+    desc: RTL433 Logs
+    cmds:
+      - docker compose logs rtl433 -f
   default:
     cmds:
       - task -l
