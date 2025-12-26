@@ -140,9 +140,8 @@
       - light.backyard_lights
       - light.christmas_lights
       - light.mini_christmas_tree
-      device_id:
-      - 051506996b7025af1718fd0938479c5f
-      - b21fcfea4e8f3d81616d6c16a856ef09
+      - light.cabinet_lights
+      - light.mantle_lights
     data: {}
   mode: single
 - id: '1692773337087'
@@ -221,7 +220,7 @@
     data:
       brightness_pct: 2
     target:
-      device_id: b16c11ad9c696225677d8e91545f56d1
+      entity_id: light.closet_light
   mode: single
 - id: '1693648169342'
   alias: Closet Light Off
@@ -238,7 +237,7 @@
     metadata: {}
     data: {}
     target:
-      device_id: b16c11ad9c696225677d8e91545f56d1
+      entity_id: light.closet_light
   mode: single
 - id: '1695107284353'
   alias: Front Door Notification
@@ -269,7 +268,7 @@
     metadata: {}
     data: {}
     target:
-      device_id: 21664bfdfb83949e25457d17ab205675
+      entity_id: light.pantry_light
   mode: single
 - id: '1734163621802'
   alias: Pantry Light Off
@@ -286,7 +285,7 @@
     metadata: {}
     data: {}
     target:
-      device_id: 21664bfdfb83949e25457d17ab205675
+      entity_id: light.pantry_light
   mode: single
 - id: '1747835657133'
   alias: Nightlight On
@@ -300,7 +299,7 @@
     metadata: {}
     data: {}
     target:
-      device_id: 3e6416a58f68aca51d7751b3ba70b5fa
+      entity_id: light.nightlight
   mode: single
 - id: '1748833639350'
   alias: Closet Light On Day
@@ -329,5 +328,5 @@
     data:
       brightness_pct: 100
     target:
-      device_id: b16c11ad9c696225677d8e91545f56d1
+      entity_id: light.closet_light
   mode: single
