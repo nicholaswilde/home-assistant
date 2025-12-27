@@ -33,6 +33,35 @@ I know that that the Home Assistant Yellow exists, but just haven't looked into 
 - [Aqara Door and Window][8]
 - [Enbrighten Zigbee Smart Light Switch Outdoor Plug-In][9]
 
+## Qingping Air Monitor Pro 2 CGS2
+
+I use the [Qingping integration](https://github.com/mash2k3/qingping_cgs1) via MQTT.
+
+### Enabling Local MQTT
+
+To enable local MQTT on the air monitor, follow these instructions (based on [mash2k3/qingping_cgs1](https://github.com/mash2k3/qingping_cgs1/blob/main/enableMQTT.md)):
+
+**Option 1: Contact Support**
+
+Contact `support@qingping.co` and request the "Privatization function". Provide your device's MAC address and MQTT details. After they reply, factory reset the device.
+
+**Option 2: Self-Configuration**
+
+1. Ensure firmware is at least `4.1.8_0267`.
+2. Pair the device using the "Qingping+ App" or "Qingping IoT App".
+3. Log in to the [Qingping Developer Platform](https://developer.qingping.co/login).
+4. Go to 'Private Access Config' -> 'Configurations' and create a new configuration with your MQTT details.
+5. Go to 'Private Access Config' -> 'Device', add your device, and select the configuration.
+6. Reboot the device if necessary.
+
+**Important:** The user name and password set in the [Access Configuration](https://developer.qingping.co/private/access-configuration) must match the `RTL_USER` and `RTL_PASS` variables in your `.env` file (or `compose.yaml`).
+
+### Home Assistant Configuration
+
+In the MQTT integration configuration:
+1. Listen to MQTT devices using the `#` wildcard to discover the device.
+2. Then listen to the `qingping#` topic to subscribe to the device topics.
+
 ## :link: References
 
 [1]: <https://www.amazon.com/gp/product/B01M1AHC3R/>
