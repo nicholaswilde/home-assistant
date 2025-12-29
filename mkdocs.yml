@@ -25,7 +25,9 @@ nav:
       - Z-Wave JS UI: add-on/zwave-js-ui.md
   - Tools:
       - SOPS: tools/sops.md
-  - Hardware: hardware.md
+  - Hardware:
+      - Overview: hardware.md
+      - Network Devices: network_devices.md
   - Reference:
       - Tags: tags.md
 
