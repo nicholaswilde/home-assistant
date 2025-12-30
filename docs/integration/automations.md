@@ -40,4 +40,25 @@ I can't get my low battery notifications to be consistent and so I rely on obser
 
 I do use rechargeable CR2 batteries, which makes it more manageable.
 
+## :wrench: Troubleshooting
+
+To test or troubleshoot automations, you can manually trigger states or reset sensors via the Developer Tools.
+
+### Manually Changing States
+
+You can temporarily change the state of an entity to trigger an automation or test its conditions:
+
+1. Go to **Developer tools** -> **States**.
+2. Find the entity you want to change.
+3. Update the state (e.g., from `off` to `on`) and click **Set State**.
+
+### Resetting Entity States
+
+After testing, you can force an entity to update its state from the source (resetting any manual changes):
+
+1. Go to **Developer tools** -> **Actions**.
+2. Search for the `homeassistant.update_entity` action.
+3. Select the `entity_id` of the sensor/entity you wish to reset.
+4. Click **Perform Action**.
+
 ## :link: References

@@ -40,10 +40,10 @@ I use several notification platforms to stay informed about my home's status.
 
 ## :pencil: Notes
 
-- [Remove unwanted entities][1] - `Development tools` → `Services` → `recorder.purge_entities`
+- [Remove unwanted entities][1] - `Developer tools` → `Actions` → `recorder.purge_entities`
 - Remove ZHA device
 - Copy `Settings` → `Devices & services` → `Zigbee Home Automation` → `<Device>` → `Device info` → `Zigbee info` → `IEEE`
-- `Development tools` → `Services` → `zha.remove`
+- `Developer tools` → `Actions` → `zha.remove`
 - List all entities `Template` → `{{ states | map(attribute='entity_id') | list | join('\n') }}`
 
 ## :rocket: Upgrade
