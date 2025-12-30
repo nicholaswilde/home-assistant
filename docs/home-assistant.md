@@ -30,6 +30,14 @@ I toyed around with moving to HAOS to make it easier to install and manage integ
     --8<-- "compose.yaml:home-assistant"
     ```
 
+## :bell: Notifications
+
+I use several notification platforms to stay informed about my home's status.
+
+- **[Mailrise](./add-on/mailrise.md)**: SMTP gateway for Apprise notifications.
+- **HTML5**: Browser-based notifications.
+- **Alexa**: Voice notifications via Echo devices.
+
 ## :pencil: Notes
 
 - [Remove unwanted entities][1] - `Development tools` → `Services` → `recorder.purge_entities`

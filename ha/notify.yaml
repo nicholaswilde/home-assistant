@@ -42,3 +42,4 @@
       - service: nicks_devices_group
       - service: firestick_notification_group
       - service: notify_alexa
+      - service: mailrise

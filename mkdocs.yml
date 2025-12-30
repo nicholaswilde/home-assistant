@@ -21,6 +21,7 @@ nav:
   - Add-On:
       - Eclipse Mosquitto: add-on/eclipse-mosquitto.md
       - ESPHome: add-on/esphome.md
+      - Mailrise: add-on/mailrise.md
       - rtl_434: add-on/rtl_433.md
       - Z-Wave JS UI: add-on/zwave-js-ui.md
   - Tools:
