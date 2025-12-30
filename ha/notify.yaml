@@ -1,3 +1,15 @@
+  - name: mailrise
+    platform: smtp
+    server: smtp.l.nicholaswilde.io
+    port: 8025
+    recipient:
+      - email@mailrise.xyz
+    sender: home-assistant@nicholaswilde.io
+    sender_name: Home Assistant
+    timout: 15
+    encryption: none
+    debug: true
+    verify_ssl: false
   - platform: html5
     vapid_pub_key: !secret html5_pub_key
     vapid_prv_key: !secret html5_prv_key
