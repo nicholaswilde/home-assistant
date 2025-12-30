@@ -84,11 +84,14 @@ services:
     image: "zwavejs/zwave-js-ui:11.9.1"
     tty: true
     stop_signal: SIGINT
-    user: ${PUID}:${PGID}
+    privileged: true
+    # user: ${PUID}:${PGID}
     devices:
       - "/dev/serial/by-id/usb-Zooz_800_Z-Wave_Stick_533D004242-if00:/dev/zwave"
+      #- "/dev/zwave:/dev/zwave"
     environment:
       - "SESSION_SECRET=mysupersecretkey"
+      - "TRUST_PROXY=true"
     ports:
       - "3000:3000"
       - "8091:8091"

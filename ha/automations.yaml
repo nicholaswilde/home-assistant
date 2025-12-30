@@ -37,43 +37,38 @@
       message: Dryer cycle is complete
   mode: single
 - id: '1692628502207'
-  alias: Master Bathroom Fan
-  description: ''
+  alias: Bathroom Fan Auto-Off
+  description: Turn off the bathroom fan after it has been on for 60 minutes
   triggers:
-  - type: turned_on
-    device_id: c38ad635023c8ef3e42c9b3c84d5be79
-    entity_id: c3effbaf6cf323444485d74c6fe7467e
-    domain: fan
-    trigger: device
+  - entity_id:
+    - switch.master_bathroom_fan
+    to:
+    - 'on'
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+    trigger: state
   conditions: []
   actions:
-  - action: timer.start
-    metadata: {}
-    data: {}
-    target:
-      entity_id: timer.master_bathroom_fan_timer
+  - target:
+      entity_id: switch.bathroom_fan
+    action: switch.turn_off
   mode: single
 - id: '1692628991830'
   alias: Brother Printing Low Toner Notification
   description: ''
-  trigger:
-  - type: value
-    platform: device
-    device_id: ff22507480fe0358b4e5563698bd37c4
-    entity_id: ea76a910da6b823a85f6e36d1ef5eb95
-    domain: sensor
+  triggers:
+  - entity_id: sensor.hl_2270dw_black_toner_remaining
     below: 15
-  condition: []
-  action:
-  - service: notify.html5_work
-    data:
-      message: Brother printer toner is less than 15%
-  - service: notify.html5_chromebook
-    data:
-      message: Brother printer toner is less than 15%
-  - service: notify.notify_alexa
-    data:
-      message: Brother printer toner is less than 15%
+    trigger: numeric_state
+  conditions: []
+  actions:
+  - data:
+      title: HL-2270DW Black toner low
+      message: 'Warning: HL-2270DW Black toner is down to  {{ trigger.to_state.state
+        if trigger and trigger.to_state else ''TEST_VALUE'' }}%.  Please order a replacement.'
+    action: notify.mailrise
   mode: single
 - id: '1692732497590'
   alias: Lomi has finished notification
@@ -100,9 +95,10 @@
     path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
     input:
       actions:
-      - service: notify.all_notifications
+      - action: notify.mailrise
         data:
           message: '{{sensors}} battery level is low'
+          title: Sensor battery is low
       threshold: 15
 - id: '1692773037396'
   alias: Sunrise Lights
@@ -119,10 +115,6 @@
       - light.frontyard_lights
       - light.backyard_lights
     action: homeassistant.turn_off
-  - type: turn_on
-    device_id: 646ac28bc137e10c8268b9390fbc7ca4
-    entity_id: 824593148f9dbd267b52cbaf82b59787
-    domain: switch
   mode: single
 - id: '1692773135337'
   alias: Sunset Lights
@@ -156,19 +148,11 @@
     metadata: {}
     data: {}
     target:
-      device_id:
-      - b21fcfea4e8f3d81616d6c16a856ef09
-      - d8011ac1e60de7e4669232b3cfdc3349
-      entity_id: light.christmas_lights
-  - type: turn_off
-    device_id: 646ac28bc137e10c8268b9390fbc7ca4
-    entity_id: 824593148f9dbd267b52cbaf82b59787
-    domain: switch
-  - action: light.turn_off
-    metadata: {}
-    data: {}
-    target:
-      device_id: 3e6416a58f68aca51d7751b3ba70b5fa
+      entity_id:
+      - light.christmas_lights
+      - light.nightlight
+      - light.gazebo_lights
+      - light.mantle_lights
   mode: single
 - id: '1692850728103'
   alias: Window check
@@ -239,20 +223,6 @@
     target:
       entity_id: light.closet_light
   mode: single
-- id: '1695107284353'
-  alias: Front Door Notification
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.front_door_doorbell
-    to: 'on'
-  condition: []
-  action:
-  - service: notify.alexa_media_kitchen_echo
-    data:
-      message: Someone is at the door
-  mode: single
 - id: '1734163502991'
   alias: Pantry Light On
   description: ''
@@ -269,6 +239,7 @@
     data: {}
     target:
       entity_id: light.pantry_light
+    enabled: true
   mode: single
 - id: '1734163621802'
   alias: Pantry Light Off
@@ -330,3 +301,34 @@
     target:
       entity_id: light.closet_light
   mode: single
+- id: '1767085660029'
+  alias: Z-Wave Auto-Heal & Notify
+  triggers:
+  - entity_id:
+    - sensor.second_story_christmas_lights_status
+    to: dead
+    for:
+      minutes: 1
+    trigger: state
+  actions:
+  - target:
+      entity_id: '{{ trigger.entity_id }}'
+    action: zwave_js.ping
+  - data:
+      name: Z-Wave Healer
+      message: Attempting to revive {{ trigger.to_state.attributes.friendly_name }}...
+    action: logbook.log
+  - if:
+    - condition: template
+      value_template: '{{ is_state(trigger.entity_id, ''dead'') }}'
+    then:
+    - data:
+        title: "\U0001F480 Z-Wave Node Dead"
+        message: 'The device "{{ trigger.to_state.attributes.friendly_name }}" is
+          marked as dead and failed to recover after a ping. Check the physical power
+          or air gap switch.
+
+          '
+      action: notify.mailrise
+  mode: parallel
+  max: 10
