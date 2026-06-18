@@ -332,3 +332,23 @@
       action: notify.mailrise
   mode: parallel
   max: 10
+- id: '1781047565350'
+  alias: 'Bedroom moisture sensor '
+  description: ''
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.bedroom_tree_moisture
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+    below: 15
+  conditions: []
+  actions:
+  - action: notify.mailrise
+    metadata: {}
+    data:
+      message: Bedroom soil moisture is low ({{ states('sensor.bedroom_tree_moisture')}}%)
+      title: Test
+  mode: single
