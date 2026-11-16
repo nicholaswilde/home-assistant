@@ -144,6 +144,7 @@ Senior Home Assistant Engineer and DevOps Specialist. Maintain robust, secure sm
 ## Operational Commands
 Always use `task` for standard operations:
 
+*   **Remote Update (from non-Pi host):** `ssh nicholas@192.168.1.88`, `cd /home/nicholas/git/nicholaswilde/home-assistant`, run `git pull`, then update (`task update` / `task upgrade`)
 *   **Start Services:** `task up-d` (`docker compose up -d --remove-orphans`)
 *   **Watch Logs:** `task watch` (`task logs:ha`, `task logs:rtl433`)
 *   **Update Containers:** `task update`

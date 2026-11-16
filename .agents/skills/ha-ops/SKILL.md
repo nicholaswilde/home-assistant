@@ -1,6 +1,6 @@
 ---
 name: ha-ops
-description: Validate Home Assistant config and manage Docker Compose services via Taskfile commands. Trigger: /ha-ops, "check ha config", "restart home assistant", "ha core check", "task up-d".
+description: Validate Home Assistant config, SSH to Raspberry Pi 4 to pull and update, and manage Docker Compose services via Taskfile. Trigger: /ha-ops, "update home assistant", "check ha config", "restart home assistant", "ha core check", "task up-d".
 ---
 
 # Home Assistant Operations Skill
@@ -9,13 +9,22 @@ Verify configuration and manage Home Assistant, ESPHome, Mosquitto, RTL_433, and
 
 ## Protocol
 
-1. **Verify Home Assistant configuration before restarting**:
+1. **Remote Raspberry Pi 4 Update (when running from another host)**:
+   SSH to Pi 4, enter repo, pull latest changes, and update:
+
+   ```bash
+   ssh nicholas@192.168.1.88 'cd /home/nicholas/git/nicholaswilde/home-assistant && git pull && task update'
+   ```
+
+   (Or run `task upgrade`, which executes `git pull origin` followed by `task update`.)
+
+2. **Verify Home Assistant configuration before restarting**:
 
    ```bash
    docker compose exec homeassistant ha core check
    ```
 
-2. **Standard container operations**:
+3. **Standard container operations**:
 
    ```bash
    task ps          # List relevant containers
@@ -27,7 +36,7 @@ Verify configuration and manage Home Assistant, ESPHome, Mosquitto, RTL_433, and
    task watch       # Follow all compose logs
    ```
 
-3. **Container shells**:
+4. **Container shells**:
 
    ```bash
    task bash-ha
@@ -35,6 +44,6 @@ Verify configuration and manage Home Assistant, ESPHome, Mosquitto, RTL_433, and
    task bash-wyze-bridge
    ```
 
-4. **Commit changes**:
+5. **Commit changes**:
    - Run `task enc` if any secret file changed.
    - Use Conventional Commits (e.g., `fix: correct mqtt sensor topic (Fixes #123)`).

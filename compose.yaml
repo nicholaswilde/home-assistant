@@ -27,7 +27,6 @@ services:
     depends_on:
       - esphome
       - mosquitto
-      - rtl433
       - zwave-js-ui
     ports:
       - 8123:8123
@@ -69,6 +68,8 @@ services:
   rtl433:
     image: hertzg/rtl_433:25.12
     container_name: rtl433
+    profiles:
+      - rtl433
     devices:
       - /dev/rtl433:/dev/bus/usb/001/001
     command:
