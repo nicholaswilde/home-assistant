@@ -71,7 +71,7 @@ services:
     profiles:
       - rtl433
     devices:
-      - /dev/rtl433:/dev/bus/usb/001/001
+      - /dev/bus/usb:/dev/bus/usb
     command:
       - "-Mtime:unix:usec:utc"
       - "-Fmqtt://mosquitto:1883,retain=1,user=${RTL_USER},pass=${RTL_PASS},events=rtl_433[/model][/id]"
