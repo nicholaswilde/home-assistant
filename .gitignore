@@ -57,3 +57,13 @@ zwave/logs/
 zwave/*.jsonl
 zwave/.config-db/
 zwave/**/*.lock
+
+# Agentic tooling
+.agents/*
+!.agents/skills/
+!.agents/rules/
+!.agents/skills_catalog.md
+.codegraph/
+.serena/
+.rtk/*
+!.rtk/filters.toml
