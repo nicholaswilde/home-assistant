@@ -64,3 +64,74 @@
       unique_id: 5abdd51d-6b6a-467f-a944-3f5e3fea1ac3
       device_class: lock
       state: "{{ states('lock.front_door_lock')=='unlocked' }}"
+    - name: "Garage Door Opener"
+      unique_id: baa6e0e0-f00f-477b-9291-885231803491
+      device_class: garage_door
+      state: "{{ states('cover.garage_door_opener')=='open' }}"
+
+- sensor:
+    - name: "Number of Sensors"
+      default_entity_id: sensor.sensor_count
+      state: >-
+        {{ states.sensor | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of Automations"
+      default_entity_id: sensor.automation_count
+      state: >-
+        {{ states.automation | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of Scripts"
+      default_entity_id: sensor.script_count
+      state: >-
+        {{ states.script | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of Binary Sensors"
+      default_entity_id: sensor.binary_sensor_count
+      state: >-
+        {{ states.binary_sensor | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of Devices"
+      default_entity_id: sensor.tracker_count
+      state: >-
+        {{ states.device_tracker | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of Lights"
+      default_entity_id: sensor.light_count
+      state: >-
+        {{ states.light | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of Switches"
+      default_entity_id: sensor.switch_count
+      state: >-
+        {{ states.switch | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of People"
+      default_entity_id: sensor.person_count
+      state: >-
+        {{ states.person | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of online Cameras"
+      default_entity_id: sensor.camera_count
+      state: >-
+        {{ states.camera | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of Entities"
+      default_entity_id: sensor.entity_count
+      state: >-
+        {{ states | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    - name: "Number of N/A Entities"
+      default_entity_id: sensor.na_entity_count
+      state: >-
+        {{ states | selectattr('state', 'eq', 'unavailable') | map(attribute='entity_id') | list | count }}
+    - name: "Month is"
+      default_entity_id: sensor.month_is
+      state: >-
+        {{ ['January','Februrary','March','April','May','June','July','August','September','October','November','December'][now().month-1] }}
+    - name: "Today is"
+      default_entity_id: sensor.today_is
+      state: >-
+        {{ ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][now().weekday()] }}
+
+- switch:
+    - name: "Lomi"
+      default_entity_id: switch.lomi
+      state: "{{ is_state('light.lomi_light', 'on') }}"
+      turn_on:
+        - action: light.turn_on
+          target:
+            entity_id: switch.lomi_open
+      turn_off:
+        - action: light.turn_off
+          target:
+            entity_id: switch.lomi_close

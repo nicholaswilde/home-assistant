@@ -7,14 +7,15 @@ frontend: !include frontend.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
-switch: !include switches.yaml
-device_tracker:
-  - platform: unifi_direct
-    host: 192.168.1.130
-    username: !secret unifi_direct_username
-    password: !secret unifi_direct_password
-    new_device_defaults:
-      track_new_devices: true
+# switch: !include switches.yaml
+# Legacy unifi_direct removed in HA 2027.5 and failing setup
+# device_tracker:
+#   - platform: unifi_direct
+#     host: 192.168.1.130
+#     username: !secret unifi_direct_username
+#     password: !secret unifi_direct_password
+#     new_device_defaults:
+#       track_new_devices: true
 logger:
   default: info
   # logs:
@@ -23,10 +24,10 @@ logger:
 notify: !include notify.yaml
 # lovelace: !include lovelace.yaml
 # panel_iframe: !include panel_iframe.yaml
-sensor: !include sensors.yaml
+# sensor: !include sensors.yaml
 camera: !include cameras.yaml
 template: !include templates.yaml
-binary_sensor: !include binary_sensors.yaml
+# binary_sensor: !include binary_sensors.yaml
 mqtt: !include mqtt.yaml
 shell_command:
   curl_get: 'curl -X GET {{ url }}'

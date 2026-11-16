@@ -8,10 +8,6 @@
     timeout: 15 # Fixed typo from "timout"
     encryption: none
     debug: true
-  - platform: html5
-    vapid_pub_key: !secret html5_pub_key
-    vapid_prv_key: !secret html5_prv_key
-    vapid_email: !secret html5_email
   - name: notify_alexa
     platform: rest
     message_param_name: notification
