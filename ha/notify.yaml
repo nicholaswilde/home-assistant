@@ -1,13 +1,3 @@
-  - name: mailrise
-    platform: smtp
-    server: smtp.l.nicholaswilde.io
-    port: 8025
-    sender: home-assistant@nicholaswilde.io
-    sender_name: "Home Assistant"
-    recipient: "email@mailrise.xyz" # Mailrise target config token
-    timeout: 15 # Fixed typo from "timout"
-    encryption: none
-    debug: true
   - name: notify_alexa
     platform: rest
     message_param_name: notification
@@ -36,4 +26,3 @@
       - service: nicks_devices_group
       - service: firestick_notification_group
       - service: notify_alexa
-      - service: mailrise

@@ -64,11 +64,13 @@
     trigger: numeric_state
   conditions: []
   actions:
-  - data:
+  - action: notify.send_message
+    target:
+      entity_id: notify.mailrise_email_mailrise_xyz
+    data:
       title: HL-2270DW Black toner low
       message: 'Warning: HL-2270DW Black toner is down to  {{ trigger.to_state.state
         if trigger and trigger.to_state else ''TEST_VALUE'' }}%.  Please order a replacement.'
-    action: notify.mailrise
   mode: single
 - id: '1692732497590'
   alias: Lomi has finished notification
@@ -95,7 +97,9 @@
     path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
     input:
       actions:
-      - action: notify.mailrise
+      - action: notify.send_message
+        target:
+          entity_id: notify.mailrise_email_mailrise_xyz
         data:
           message: '{{sensors}} battery level is low'
           title: Sensor battery is low
@@ -322,14 +326,16 @@
     - condition: template
       value_template: '{{ is_state(trigger.entity_id, ''dead'') }}'
     then:
-    - data:
+    - action: notify.send_message
+      target:
+        entity_id: notify.mailrise_email_mailrise_xyz
+      data:
         title: "\U0001F480 Z-Wave Node Dead"
         message: 'The device "{{ trigger.to_state.attributes.friendly_name }}" is
           marked as dead and failed to recover after a ping. Check the physical power
           or air gap switch.
 
           '
-      action: notify.mailrise
   mode: parallel
   max: 10
 - id: '1781799344841'
@@ -348,8 +354,10 @@
       seconds: 0
   conditions: []
   actions:
-  - action: notify.mailrise
+  - action: notify.send_message
     metadata: {}
+    target:
+      entity_id: notify.mailrise_email_mailrise_xyz
     data:
       message: '  The Bedroom Tree is dry! The current moisture level is {{ states(''sensor.bedroom_tree_moisture'')
         }}%.'
@@ -371,8 +379,10 @@
       seconds: 0
   conditions: []
   actions:
-  - action: notify.mailrise
+  - action: notify.send_message
     metadata: {}
+    target:
+      entity_id: notify.mailrise_email_mailrise_xyz
     data:
       message: '  The Master Bedroom Tree is dry! The current moisture level is {{
         states(''sensor.master_bedroom_tree_moisture'') }}%.'

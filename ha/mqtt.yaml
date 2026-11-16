@@ -72,7 +72,7 @@
   - select:
     - name: "FrameFi Mode"
       state_topic: "frame-fi/state"
-      value_template: "{{ value_json.mode }}"
+      value_template: "{{ 'msc' if value_json.mode == 'USB MSC' else value_json.mode | lower }}"
       command_topic: "frame-fi/mode/set"
       options:
         - "ftp"
