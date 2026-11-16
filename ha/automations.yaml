@@ -114,6 +114,7 @@
       entity_id:
       - light.frontyard_lights
       - light.backyard_lights
+      - light.nightlight
     action: homeassistant.turn_off
   mode: single
 - id: '1692773135337'
@@ -150,7 +151,6 @@
     target:
       entity_id:
       - light.christmas_lights
-      - light.nightlight
       - light.gazebo_lights
       - light.mantle_lights
   mode: single
@@ -332,23 +332,49 @@
       action: notify.mailrise
   mode: parallel
   max: 10
-- id: '1781047565350'
-  alias: 'Bedroom moisture sensor '
+- id: '1781799344841'
+  alias: Bedroom Tree Low Level
   description: ''
   triggers:
-  - trigger: numeric_state
-    entity_id:
-    - sensor.bedroom_tree_moisture
+  - type: moisture
+    device_id: bbdb537fc609b60704439a438f686b26
+    entity_id: 2214b1675cbeaffbcffb329ae65b5876
+    domain: sensor
+    trigger: device
+    below: 25
     for:
-      hours: 1
-      minutes: 0
+      hours: 0
+      minutes: 5
       seconds: 0
-    below: 15
   conditions: []
   actions:
   - action: notify.mailrise
     metadata: {}
     data:
-      message: Bedroom soil moisture is low ({{ states('sensor.bedroom_tree_moisture')}}%)
-      title: Test
+      message: '  The Bedroom Tree is dry! The current moisture level is {{ states(''sensor.bedroom_tree_moisture'')
+        }}%.'
+      title: Home Assistant - Bedroom Tree Dry
+  mode: single
+- id: '1781800150258'
+  alias: Master Bedroom Tree Low Level
+  description: ''
+  triggers:
+  - type: moisture
+    device_id: d433b0c57534e29314844b3642e1b9e2
+    entity_id: a1210f15212b574f1c4cedf90a87efc0
+    domain: sensor
+    trigger: device
+    below: 25
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  conditions: []
+  actions:
+  - action: notify.mailrise
+    metadata: {}
+    data:
+      message: '  The Master Bedroom Tree is dry! The current moisture level is {{
+        states(''sensor.master_bedroom_tree_moisture'') }}%.'
+      title: Home Assistant - Master Bedroom Tree Dry
   mode: single
