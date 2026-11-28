@@ -102,6 +102,18 @@ Use `ripwire` CLI (prefixed with `rtk ripwire`) for AST codebase mapping, call g
 - **Atomic Edits**: `rtk ripwire <dir> --replace-symbol-body=SYM --edit-payload=FILE` without whole-file re-reading.
 <!-- ripwire-end -->
 
+<!-- context7-begin -->
+## Context7 Live Docs CLI (`ctx7`)
+
+Use `ctx7` CLI inside `ctx_execute` (`language: "shell"`) FIRST for library, framework, SDK, and GitHub-indexed project docs before `search_web`:
+
+- **CLI Only**: Invoke `ctx7` (`npx -y ctx7@latest` fallback); no MCP server.
+- **One-Step Search**: `ctx7 search "<query>" --library <name> [--library-version <ver>]`.
+- **Resolve + Query**: `ctx7 library <name> "<query>"` -> `ctx7 docs <libraryId> "<query>"`.
+- **Source / Upgrades**: `ctx7 code <libraryId> "<pattern>"`, `ctx7 get-upgrade-guide <libraryId> <from> [to]`.
+- **Boundary**: Use `ctx_fetch_and_index` for arbitrary URLs; `search_web` only if `ctx7` has no match.
+<!-- context7-end -->
+
 <!-- ripgrep-guidelines-begin -->
 ## Ripgrep Guidelines
 - **Pattern Searching**: Always use `rg` (ripgrep) or `rtk rg` instead of standard `grep` to search text inside files quickly and save token output.
@@ -137,6 +149,7 @@ Senior Home Assistant Engineer and DevOps Specialist. Maintain robust, secure sm
 *   `mosquitto/`: **MQTT Config**. Broker configuration and data.
 *   `zwave/`: **Z-Wave Config**. Z-Wave JS UI settings and data.
 *   `docs/`: **Documentation**. Markdown source files.
+*   `scripts/`: **Deployment Scripts**. `merge-and-deploy.sh <pr>` and `update-remote.sh`.
 *   `Taskfile.yml`: **Automation**. Central entry point for operational commands.
 
 # Development Workflow
@@ -144,7 +157,7 @@ Senior Home Assistant Engineer and DevOps Specialist. Maintain robust, secure sm
 ## Operational Commands
 Always use `task` for standard operations:
 
-*   **Remote Update (from non-Pi host):** `ssh nicholas@192.168.1.88`, `cd /home/nicholas/git/nicholaswilde/home-assistant`, run `git pull`, then update (`task update` / `task upgrade`)
+*   **Remote Update (from non-Pi host):** `./scripts/update-remote.sh` (or `./scripts/merge-and-deploy.sh <pr>` to merge PR + deploy); manual fallback: `ssh nicholas@192.168.1.88`, `cd /home/nicholas/git/nicholaswilde/home-assistant`, `git pull`, `task update`
 *   **Start Services:** `task up-d` (`docker compose up -d --remove-orphans`)
 *   **Watch Logs:** `task watch` (`task logs:ha`, `task logs:rtl433`)
 *   **Update Containers:** `task update`

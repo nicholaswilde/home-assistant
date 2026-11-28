@@ -2,7 +2,7 @@
 
 ## Operational Commands
 
-- **Remote Host (from non-Pi workstation)**: SSH to Raspberry Pi 4 (`ssh nicholas@192.168.1.88`), `cd /home/nicholas/git/nicholaswilde/home-assistant`, run `git pull`, then update Home Assistant (`task update` or `task upgrade`).
+- **Remote Host (from non-Pi workstation)**: Run `./scripts/update-remote.sh` (or `./scripts/merge-and-deploy.sh <pr>` to merge PR + deploy) targeting `nicholas@192.168.1.88`; manual fallback: `ssh nicholas@192.168.1.88`, `cd /home/nicholas/git/nicholaswilde/home-assistant`, `git pull`, `task update` (or `task upgrade`).
 - Always use `task` for standard operations (`task up-d`, `task restart`, `task update`, `task watch`, `task ps`, `task stop`, `task down`).
 - Shell into containers via `task bash-ha` or `task bash-esphome`.
 - Verify Home Assistant config before restarting: `docker compose exec homeassistant ha core check`.
