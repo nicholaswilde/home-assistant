@@ -6,4 +6,6 @@ Catalog of custom Antigravity agent skills available in `home-assistant`.
 |---|---|---|
 | [`docs-build`](skills/docs-build/SKILL.md) | Build and serve MkDocs Material documentation and lint Markdown | `task build` / `task serve` |
 | [`ha-ops`](skills/ha-ops/SKILL.md) | Validate Home Assistant config and manage Docker Compose services | `task up-d` / `ha core check` |
+| [`merge-and-deploy`](skills/merge-and-deploy/SKILL.md) | Merge a PR by number, push `main`, and update remote Pi instance | `./scripts/merge-and-deploy.sh <pr>` |
 | [`sops-secrets`](skills/sops-secrets/SKILL.md) | Encrypt and decrypt SOPS/Age secret files | `task enc` / `task dec` |
+| [`update-remote`](skills/update-remote/SKILL.md) | Pull latest `main` preserving local overrides and update remote Pi | `./scripts/update-remote.sh` |

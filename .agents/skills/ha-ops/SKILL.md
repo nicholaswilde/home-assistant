@@ -5,18 +5,30 @@ description: Validate Home Assistant config, SSH to Raspberry Pi 4 to pull and u
 
 # Home Assistant Operations Skill
 
-Verify configuration and manage Home Assistant, ESPHome, Mosquitto, RTL_433, and Z-Wave JS UI containers via `task`.
+Verify configuration and manage Home Assistant, ESPHome, Mosquitto, RTL_433,
+and Z-Wave JS UI containers via `task`.
 
 ## Protocol
 
 1. **Remote Raspberry Pi 4 Update (when running from another host)**:
-   SSH to Pi 4, enter repo, pull latest changes, and update:
+   Use [`scripts/update-remote.sh`](../../../scripts/update-remote.sh) (stashes
+   and re-applies tracked local overrides on `pi04`, pulls `main`, validates
+   Compose config, and runs `task update`):
 
    ```bash
-   ssh nicholas@192.168.1.88 'cd /home/nicholas/git/nicholaswilde/home-assistant && git pull && task update'
+   ./scripts/update-remote.sh
    ```
 
-   (Or run `task upgrade`, which executes `git pull origin` followed by `task update`.)
+   Or manually over SSH (when working tree on Pi is clean):
+
+   ```bash
+   ssh nicholas@192.168.1.88 \
+     'cd /home/nicholas/git/nicholaswilde/home-assistant && \
+      git pull && task update'
+   ```
+
+   (Or run `task upgrade`, which executes `git pull origin` followed by
+   `task update`.)
 
 2. **Verify Home Assistant configuration before restarting**:
 
